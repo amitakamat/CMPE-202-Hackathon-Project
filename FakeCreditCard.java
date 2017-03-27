@@ -14,6 +14,13 @@ public class FakeCreditCard extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        int mouseX, mouseY ;
+        
+        if(Greenfoot.mouseDragged(this)) {          
+            MouseInfo mouse = Greenfoot.getMouseInfo();  
+            mouseX=mouse.getX();  
+            mouseY=mouse.getY();  
+            setLocation(mouseX, mouseY);  
+        }
     }    
 }

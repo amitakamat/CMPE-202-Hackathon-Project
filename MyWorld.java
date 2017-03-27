@@ -59,9 +59,9 @@ public class MyWorld extends World
     // for premium
     State fuelp = new HasNoValidFuelType();
     //NumKey1 Key1 = new NumKey1("1");
-    CreditCard creditcard = new CreditCard();
-    
-   
+    VisaCard visaCard = new VisaCard();
+    MasterCard masterCard = new MasterCard();
+    FakeCreditCard fakeCreditCard = new FakeCreditCard();
         
     public Screen getScreen(){
         return this.screen;
@@ -126,7 +126,9 @@ public class MyWorld extends World
         addObject(screen, 304, 200);
 
         addObject(cardreader,600,220);
-
+        addObject(visaCard,730,240);
+        addObject(masterCard,730,150);
+        addObject(fakeCreditCard,740,330);
         addObject(receiptprinter,600,360);
         
         DisplayMessage welcomeMessage1 = new DisplayMessage();
