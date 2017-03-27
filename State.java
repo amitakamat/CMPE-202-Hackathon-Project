@@ -18,9 +18,6 @@ public interface State
     
       public void insertCreditCard();
       public void enterPinCode();
-      public void proceedWithTransaction();
-      public void cancelTransaction();
-      public void pumpFuel();
 
     //public String getStateFuelName();
     //public State onFuelButtonPress(String id);

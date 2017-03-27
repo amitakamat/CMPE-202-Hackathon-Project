@@ -23,9 +23,15 @@ public class ScreenButton extends Button
     {
         if (Greenfoot.mousePressed(this))
         {
+            
             super.act();
             MyWorld world = (MyWorld)getWorld();
+            GasPumpMachine gpm = world.getGasPumpMachine();
+            System.out.println("In screen button");
+            gpm.onDisplayButtonPress(this.id);
+            /*
             State state = world.state.onDisplayButtonPress(this.id);
+
             //StateFuel fuel = world.fuel.onFuelButtonPress(this.id);
             //StateFuel fuel = world.fuel.onFuelButtonPress(this.id);
             if(state != null){
@@ -41,7 +47,7 @@ public class ScreenButton extends Button
                     ScreenMessages screenMessages = new ScreenMessages(world);
                     screenMessages.getNoCreditCardScreen();
                 }
-            //if(fuel != null){
+            //if(fuel != null)
             //    world.fuel = fuel;
               //String stateFuelName = world.state.getStateFuelName();
                 
@@ -51,6 +57,7 @@ public class ScreenButton extends Button
                 }
                 
             }
+            */
         }
     }
     }

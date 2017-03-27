@@ -30,6 +30,8 @@ GasPumpMachine gasPumpMachine;
     }
     
     public State onCreditCardClick(){
+        System.out.println("In HasNoCreditCardState, on credit card swipe");
+        gasPumpMachine.setState(gasPumpMachine.getHasCreditCardState());
         return new HasValidCreditCardState(this.gasPumpMachine);
     }
     public String getStateFuelName(){
@@ -54,16 +56,7 @@ GasPumpMachine gasPumpMachine;
     public void enterPinCode()
 	{
 	}
-    public void proceedWithTransaction()
-	{
-	}
-    public void cancelTransaction()
-	{
-	}
-    public void pumpFuel()
-	{
-	// Implementation here
-	}
+
 
   public String toString() {
     return "Waiting to pump fuel";

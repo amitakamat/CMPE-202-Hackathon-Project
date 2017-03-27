@@ -56,14 +56,5 @@ public class HasUnFuelType implements State
     public void enterPinCode()
 	{
 	}
-    public void proceedWithTransaction()
-	{
-	}
-    public void cancelTransaction()
-	{
-	}
-    public void pumpFuel()
-	{
-	// Implementation here
-	}
+
 }

@@ -54,16 +54,7 @@ public class HasCreditCardState implements State
     public void enterPinCode()
 	{
 	}
-    public void proceedWithTransaction()
-	{
-	}
-    public void cancelTransaction()
-	{
-	}
-    public void pumpFuel()
-	{
-	// Implementation here
-	}
+
 
   public String toString() {
     return "Waiting to pump fuel";

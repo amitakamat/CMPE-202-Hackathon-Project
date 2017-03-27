@@ -35,57 +35,41 @@ public class GasPumpMachine {
   }
 
     public void onDisplayButtonPress(String id){
-        //state.onDisplayButtonPress(String id);
+        System.out.println("In GPM, onDisplayButtonPress");
+        state.onDisplayButtonPress(id);
     }
     
-    public State onNumberButtonPress(){
-        return null;
+    public void onKeyPadButtonPress(){
+        state.onNumberButtonPress();
     }
     
-    public State onNozzleClick(){
-        return null;
+    public void onNozzleClick(){
+        state.onNozzleClick();
     }
     
-    public State onCreditCardClick(){
-       return null;
+    public State onCreditCardSwipe(){
+      System.out.println("In GPM, on credit card swipe");
+      state.onCreditCardClick();
+      return null;
     }
     
-    public String getStateFuelName(){
-        return null;
-    }
     public State onFuelTypeClick(){
+        state.onFuelTypeClick();
         return null;
     }
     
     public State onUnFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    public State onPrmFuelTypeClick(){
+        state.onUnFuelTypeClick();
        // return new HasValidFuelType();
        return null;
     }
     
-    public void insertCreditCard()
-	{
-	    state.insertCreditCard();
-	}
-    public void enterPinCode()
-	{
-	    state.enterPinCode();
-	}
-    public void proceedWithTransaction()
-	{
-	    state.proceedWithTransaction();
-	}
-    public void cancelTransaction()
-	{
-	    state.cancelTransaction();
-	}
-    public void pumpFuel()
-	{
-	    state.pumpFuel();
-	}
+    public State onPrmFuelTypeClick(){
+        state.onPrmFuelTypeClick();
+       // return new HasValidFuelType();
+       return null;
+    }
+    
 	
 
   void setState(State state) {
@@ -106,6 +90,8 @@ public class GasPumpMachine {
     return state;
   }
 
+
+    
   public State getHasNoCreditCardState() {
     return hasNoCreditCardState;
   }
