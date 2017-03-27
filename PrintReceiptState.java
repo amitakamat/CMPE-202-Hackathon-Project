@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
 public class PrintReceiptState implements State
 {
     private String stateName = "PrintReceiptState";
-  GasPumpMachine GasPumpMachine;
+  GasPumpMachine gasPumpMachine;
 
-  public PrintReceiptState(GasPumpMachine GasPumpMachine) {
-    this.GasPumpMachine = GasPumpMachine;
+  public PrintReceiptState(GasPumpMachine gasPumpMachine) {
+    this.gasPumpMachine = gasPumpMachine;
   }
     public String getStateName(){
         return this.stateName;
@@ -30,7 +30,7 @@ public class PrintReceiptState implements State
     }
     
     public State onCreditCardClick(){
-        return new HasValidCreditCardState();
+        return new HasValidCreditCardState(this.gasPumpMachine);
     }
     public String getStateFuelName(){
         return null;

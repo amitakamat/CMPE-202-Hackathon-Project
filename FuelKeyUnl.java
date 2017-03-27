@@ -16,6 +16,8 @@ public class FuelKeyUnl extends Actor
     }
     public void act() 
     {
+        //use this logic when the state reaches fuel Menu
+        /*
         if (Greenfoot.mousePressed(this))
         {
             super.act();
@@ -33,5 +35,6 @@ public class FuelKeyUnl extends Actor
                 }
             }
         }
+        */
     }            
 }

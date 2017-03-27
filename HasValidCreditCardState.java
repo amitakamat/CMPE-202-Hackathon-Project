@@ -8,7 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
 public class HasValidCreditCardState implements State 
 {
     private String stateName = "HasValidCreditCard";
-    
+GasPumpMachine gasPumpMachine;
+
+  public HasValidCreditCardState(GasPumpMachine gasPumpMachine) {
+    this.gasPumpMachine = gasPumpMachine;
+  }
     public String getStateName(){
         return this.stateName;
     }
@@ -21,7 +25,7 @@ public class HasValidCreditCardState implements State
             
         if (id == "8")
         {
-            return new HasNoCreditCardState();
+            return new HasNoCreditCardState(this.gasPumpMachine);
         }
             
         return null;

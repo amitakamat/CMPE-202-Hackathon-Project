@@ -7,11 +7,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  */
 public class DisplayTransactionMessageState implements State
 {
-    private String stateName = "HasNoCreditCard";
-  GasPumpMachine GasPumpMachine;
+    private String stateName = "DisplayTransactionMessageState";
+  GasPumpMachine gasPumpMachine;
 
-  public DisplayTransactionMessageState(GasPumpMachine GasPumpMachine) {
-    this.GasPumpMachine = GasPumpMachine;
+  public DisplayTransactionMessageState(GasPumpMachine gasPumpMachine) {
+    this.gasPumpMachine = gasPumpMachine;
   }
     public String getStateName(){
         return this.stateName;
@@ -30,7 +30,7 @@ public class DisplayTransactionMessageState implements State
     }
     
     public State onCreditCardClick(){
-        return new HasValidCreditCardState();
+        return new HasValidCreditCardState(this.gasPumpMachine);
     }
     public String getStateFuelName(){
         return null;
