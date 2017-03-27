@@ -18,17 +18,44 @@ public class CardReader extends Actor
     {
         MyWorld world = (MyWorld)getWorld();
         Actor card = (CreditCard) getOneObjectAtOffset(0,0,CreditCard.class);
-        Actor tempCard  = card;
-        if (card!= null) {
-            //System.out.println(coin.getClass().getName());
-            world.removeObject(card);
-            haveCard = true;
+        GasPumpMachine gpm = world.getGasPumpMachine();
+        ScreenMessages screenMessages = new ScreenMessages(world);
+        if (card!= null)
+        {
+            Greenfoot.playSound("CreditCardSwipe.mp3");
+            Greenfoot.delay(100);
+            State s = gpm.onCreditCardSwipe(card.getClass().getName());
+            if(s!= null)
+            {
+                if(s.getClass().getName().equals("HasValidCreditCardState"))
+                {
+                  world.removeObject(card);
+                screenMessages.getHasValidCreditCardScreen();
+                }
+                else{
+                     world.removeObject(card);                  
+                //display message on the screen that a wrong card is inserted
+
+                screenMessages.getHasInValidCreditCardScreen();
+                }
+            }
+            else
+            {
+                //if we are inserting card in wrong state i.e inserting card again
+                //the remove card and display message on screen that card cannot be
+                //inserted again
+                world.removeObject(card);
+                //display message 
+                screenMessages.getInsertingCreditCardAgainScreen();
+                Greenfoot.delay(200);
+                screenMessages.getHasValidCreditCardScreen();
+            }
+            //haveCard = true;
         }
+        /*
        if (haveCard)
         {
-            GasPumpMachine gasPumpMachine = new GasPumpMachine(100.0f);
-            Greenfoot.playSound("CreditCardSwipe.mp3");
-            Greenfoot.delay(200);
+
 
             State state = world.state.onCreditCardClick();
             if(state != null){
@@ -42,5 +69,6 @@ public class CardReader extends Actor
             }
             haveCard = false;
         }
+        */
     }      
 }

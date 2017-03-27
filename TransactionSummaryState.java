@@ -29,7 +29,7 @@ public class TransactionSummaryState implements State
         return null;
     }
     
-    public State onCreditCardClick(){
+    public State onCreditCardSwipe(String cardType){
         return new HasValidCreditCardState(this.gasPumpMachine);
     }
     public String getStateFuelName(){

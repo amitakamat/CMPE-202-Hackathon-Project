@@ -2,7 +2,6 @@
 public class GasPumpMachine {
 
   State hasNoCreditCardState;
-  State hasCreditCardState;
   State hasValidCreditCardState;
   State fuelMenuState;
   State nozzleUnlockState;
@@ -18,7 +17,6 @@ public class GasPumpMachine {
   public GasPumpMachine(float quantityOfFuel) {
 
   hasNoCreditCardState = new HasNoCreditCardState(this);
-  hasCreditCardState = new HasCreditCardState(this);
   hasValidCreditCardState = new HasValidCreditCardState(this);
   fuelMenuState = new FuelMenuState(this);
   nozzleUnlockState = new NozzleUnlockState(this);
@@ -38,6 +36,12 @@ public class GasPumpMachine {
         System.out.println("In GPM, onDisplayButtonPress");
         state.onDisplayButtonPress(id);
     }
+
+    public State onCreditCardSwipe(String cardType){
+      System.out.println("In GPM, on credit card swipe");
+      return state.onCreditCardSwipe(cardType);
+      
+    }
     
     public void onKeyPadButtonPress(){
         state.onNumberButtonPress();
@@ -47,11 +51,7 @@ public class GasPumpMachine {
         state.onNozzleClick();
     }
     
-    public State onCreditCardSwipe(){
-      System.out.println("In GPM, on credit card swipe");
-      state.onCreditCardClick();
-      return null;
-    }
+
     
     public State onFuelTypeClick(){
         state.onFuelTypeClick();
@@ -94,10 +94,6 @@ public class GasPumpMachine {
     
   public State getHasNoCreditCardState() {
     return hasNoCreditCardState;
-  }
-
-  public State getHasCreditCardState() {
-    return hasCreditCardState;
   }
 
   public State getHasValidCreditCardState() {

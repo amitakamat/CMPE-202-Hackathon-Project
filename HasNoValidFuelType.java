@@ -28,7 +28,7 @@ public class HasNoValidFuelType  implements State
         return null;
     }
     
-    public State onCreditCardClick(){
+    public State onCreditCardSwipe(String cardType){
         return null;
     }
     

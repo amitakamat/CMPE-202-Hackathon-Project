@@ -39,7 +39,7 @@ GasPumpMachine gasPumpMachine;
         return null;
     }
     
-    public State onCreditCardClick(){
+    public State onCreditCardSwipe(String cardType){
         return null;
     }
     public String getStateFuelName(){

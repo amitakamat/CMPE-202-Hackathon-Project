@@ -10,7 +10,7 @@ public interface State
     public State onDisplayButtonPress(String id);
     public State onNumberButtonPress();
     public State onNozzleClick();
-    public State onCreditCardClick();
+    public State onCreditCardSwipe(String cardType);
     public State onFuelTypeClick();
     public State onUnFuelTypeClick();
     public State onPrmFuelTypeClick();

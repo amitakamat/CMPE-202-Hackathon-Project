@@ -29,10 +29,19 @@ GasPumpMachine gasPumpMachine;
         return null;
     }
     
-    public State onCreditCardClick(){
+    public State onCreditCardSwipe(String cardType){
         System.out.println("In HasNoCreditCardState, on credit card swipe");
-        gasPumpMachine.setState(gasPumpMachine.getHasCreditCardState());
-        return new HasValidCreditCardState(this.gasPumpMachine);
+        if(cardType.equals("VisaCard") || cardType.equals("MasterCard"))
+        {
+            gasPumpMachine.setState(gasPumpMachine.getHasValidCreditCardState());
+           return gasPumpMachine.getState();
+        }
+        else if(cardType.equals("FakeCreditCard"))
+        {
+           gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
+           return gasPumpMachine.getState();
+        }
+        return null;
     }
     public String getStateFuelName(){
         return null;

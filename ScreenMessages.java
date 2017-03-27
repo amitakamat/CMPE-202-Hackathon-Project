@@ -52,6 +52,28 @@ public class ScreenMessages extends Actor
         cancelMessage.setText("Cancel >>");
         screen.DisplayScreen(cancelMessage, 360, 280, false);
     }
+
+    public void getHasInValidCreditCardScreen()
+    {
+        DisplayMessage zipCode1 = new DisplayMessage();
+        zipCode1.setText("Please enter a valid");
+        screen.DisplayScreen(zipCode1, 230, 160, true);
+        
+        DisplayMessage zipCode2 = new DisplayMessage();
+        zipCode2.setText("Credit Card!");
+        screen.DisplayScreen(zipCode2, 250, 190, false);
+    }
+
+    public void getInsertingCreditCardAgainScreen()
+    {
+        DisplayMessage zipCode1 = new DisplayMessage();
+        zipCode1.setText("You have already");
+        screen.DisplayScreen(zipCode1, 230, 160, true);
+        
+        DisplayMessage zipCode2 = new DisplayMessage();
+        zipCode2.setText("Inserted a Credit Card!!");
+        screen.DisplayScreen(zipCode2, 220, 190, false);
+    }
     
     public void getHasValidZipCodeScreen()
     {
