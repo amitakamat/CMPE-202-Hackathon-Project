@@ -51,7 +51,9 @@ public class MyWorld extends World
     
     Nozzle nozzle = new Nozzle();
     
-    State state = new HasNoCreditCardState();
+    
+    GasPumpMachine gpm = new GasPumpMachine(100.0f);
+    State state = new HasNoCreditCardState(gpm);
     //for regular fuel
     State fuel = new HasNoValidFuelType();
     //for unleaded
@@ -59,10 +61,18 @@ public class MyWorld extends World
     // for premium
     State fuelp = new HasNoValidFuelType();
     //NumKey1 Key1 = new NumKey1("1");
+    
+    //for visa card
     VisaCard visaCard = new VisaCard();
+    //for master card
     MasterCard masterCard = new MasterCard();
+    //for fake credit card
     FakeCreditCard fakeCreditCard = new FakeCreditCard();
-        
+    
+    //
+    public GasPumpMachine getGasPumpMachine(){
+        return this.gpm;
+    }
     public Screen getScreen(){
         return this.screen;
     }

@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CardReader extends Actor
 {
+    private boolean haveCard = false;
      public CardReader()
     {
       GreenfootImage image = getImage() ;
@@ -15,11 +16,20 @@ public class CardReader extends Actor
     }
     public void act() 
     {
-       if (Greenfoot.mousePressed(this))
+        MyWorld world = (MyWorld)getWorld();
+        Actor card = (CreditCard) getOneObjectAtOffset(0,0,CreditCard.class);
+        Actor tempCard  = card;
+        if (card!= null) {
+            //System.out.println(coin.getClass().getName());
+            world.removeObject(card);
+            haveCard = true;
+        }
+       if (haveCard)
         {
+            GasPumpMachine gasPumpMachine = new GasPumpMachine(100.0f);
             Greenfoot.playSound("CreditCardSwipe.mp3");
             Greenfoot.delay(200);
-            MyWorld world = (MyWorld)getWorld();
+
             State state = world.state.onCreditCardClick();
             if(state != null){
                 world.state = state;
@@ -30,6 +40,7 @@ public class CardReader extends Actor
                     screenMessages.getHasValidCreditCardScreen();
                 }
             }
+            haveCard = false;
         }
     }      
 }

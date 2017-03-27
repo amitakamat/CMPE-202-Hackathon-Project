@@ -17,9 +17,9 @@ public class GasPumpMachine {
 
   public GasPumpMachine(float quantityOfFuel) {
 
-  hasNoCreditCardState = new HasNoCreditCardState();
-  hasCreditCardState = new HasCreditCardState();
-  hasValidCreditCardState = new HasValidCreditCardState();
+  hasNoCreditCardState = new HasNoCreditCardState(this);
+  hasCreditCardState = new HasCreditCardState(this);
+  hasValidCreditCardState = new HasValidCreditCardState(this);
   fuelMenuState = new FuelMenuState(this);
   nozzleUnlockState = new NozzleUnlockState(this);
   pumpFuelState = new PumpFuelState(this);
@@ -34,6 +34,38 @@ public class GasPumpMachine {
     }
   }
 
+    public void onDisplayButtonPress(String id){
+        //state.onDisplayButtonPress(String id);
+    }
+    
+    public State onNumberButtonPress(){
+        return null;
+    }
+    
+    public State onNozzleClick(){
+        return null;
+    }
+    
+    public State onCreditCardClick(){
+       return null;
+    }
+    
+    public String getStateFuelName(){
+        return null;
+    }
+    public State onFuelTypeClick(){
+        return null;
+    }
+    
+    public State onUnFuelTypeClick(){
+       // return new HasValidFuelType();
+       return null;
+    }
+    public State onPrmFuelTypeClick(){
+       // return new HasValidFuelType();
+       return null;
+    }
+    
     public void insertCreditCard()
 	{
 	    state.insertCreditCard();
@@ -60,12 +92,6 @@ public class GasPumpMachine {
     this.state = state;
   }
 
-  void releaseBall() {
-    System.out.println("A gumball comes rolling out the slot...");
-    if (count != 0.0) {
-      count = count - 1;
-    }
-  }
 
   float getFuelCount() {
     return count;

@@ -51,19 +51,19 @@ public class HasPrmFuelType implements State
     }
     
     public void insertCreditCard()
-	{
-	}
-    public void enterPinCode()
-	{
-	}
+    {
+    }
+    public void enterPin    Code()
+    {
+    }
     public void proceedWithTransaction()
-	{
-	}
+    {
+    }
     public void cancelTransaction()
-	{
-	}
+    {
+    }
     public void pumpFuel()
-	{
-	// Implementation here
-	}
+    {
+    // Implementation here
+    }
 }
