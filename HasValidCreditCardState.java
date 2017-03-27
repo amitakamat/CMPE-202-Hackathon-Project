@@ -1,19 +1,29 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/**
 /**
- * Write a description of class HasValidZipCode here.
+ * Write a description of class HasValidCreditCard here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HasValidZipCode implements State 
+public class HasValidCreditCardState implements State 
 {
-    private String stateName = "HasValidZipCode";
+    private String stateName = "HasValidCreditCard";
     
     public String getStateName(){
         return this.stateName;
     }
     
     public State onDisplayButtonPress(String id){
+        if(id == "7")
+        {
+            return new HasValidZipCode();
+        }
+            
+        if (id == "8")
+        {
+            return new HasNoCreditCardState();
+        }
+            
         return null;
     }
     
@@ -28,16 +38,19 @@ public class HasValidZipCode implements State
     public State onCreditCardClick(){
         return null;
     }
-    
+    public String getStateFuelName(){
+        return null;
+    }
     public State onFuelTypeClick(){
         return null;
     }
-    public State onUnFuelTypeClick(){
+    
+    public State onPrmFuelTypeClick(){
        // return new HasValidFuelType();
        return null;
     }
     
-    public State onPrmFuelTypeClick(){
+    public State onUnFuelTypeClick(){
        // return new HasValidFuelType();
        return null;
     }
@@ -58,4 +71,8 @@ public class HasValidZipCode implements State
 	{
 	// Implementation here
 	}
+
+  public String toString() {
+    return "Waiting to pump fuel";
+  }
 }

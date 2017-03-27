@@ -5,7 +5,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HasNoCreditCard implements State
+public class HasNoCreditCardState implements State
 {
     private String stateName = "HasNoCreditCard";
     
@@ -26,7 +26,7 @@ public class HasNoCreditCard implements State
     }
     
     public State onCreditCardClick(){
-        return new HasValidCreditCard();
+        return new HasValidCreditCardState();
     }
     public String getStateFuelName(){
         return null;
@@ -43,4 +43,25 @@ public class HasNoCreditCard implements State
        // return new HasValidFuelType();
        return null;
     }
+    
+    public void insertCreditCard()
+	{
+	}
+    public void enterPinCode()
+	{
+	}
+    public void proceedWithTransaction()
+	{
+	}
+    public void cancelTransaction()
+	{
+	}
+    public void pumpFuel()
+	{
+	// Implementation here
+	}
+
+  public String toString() {
+    return "Waiting to pump fuel";
+  }
 }

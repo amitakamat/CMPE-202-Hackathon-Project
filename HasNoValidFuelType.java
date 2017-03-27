@@ -44,4 +44,21 @@ public class HasNoValidFuelType  implements State
        // return new HasValidFuelType();
        return new HasPrmFuelType();
     }
+    
+    public void insertCreditCard()
+	{
+	}
+    public void enterPinCode()
+	{
+	}
+    public void proceedWithTransaction()
+	{
+	}
+    public void cancelTransaction()
+	{
+	}
+    public void pumpFuel()
+	{
+	// Implementation here
+	}
 }

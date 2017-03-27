@@ -1,29 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/**
 /**
- * Write a description of class HasValidCreditCard here.
+ * Write a description of class HasNoCreditCard here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HasValidCreditCard implements State 
+public class DisplayTransactionMessageState implements State
 {
-    private String stateName = "HasValidCreditCard";
-    
+    private String stateName = "HasNoCreditCard";
+  GasPumpMachine GasPumpMachine;
+
+  public DisplayTransactionMessageState(GasPumpMachine GasPumpMachine) {
+    this.GasPumpMachine = GasPumpMachine;
+  }
     public String getStateName(){
         return this.stateName;
     }
     
     public State onDisplayButtonPress(String id){
-        if(id == "7")
-        {
-            return new HasValidZipCode();
-        }
-            
-        if (id == "8")
-        {
-            return new HasNoCreditCard();
-        }
-            
         return null;
     }
     
@@ -36,7 +30,7 @@ public class HasValidCreditCard implements State
     }
     
     public State onCreditCardClick(){
-        return null;
+        return new HasValidCreditCardState();
     }
     public String getStateFuelName(){
         return null;
@@ -45,13 +39,33 @@ public class HasValidCreditCard implements State
         return null;
     }
     
+    public State onUnFuelTypeClick(){
+       // return new HasValidFuelType();
+       return null;
+    }
     public State onPrmFuelTypeClick(){
        // return new HasValidFuelType();
        return null;
     }
     
-    public State onUnFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
+    public void insertCreditCard()
+	{
+	}
+    public void enterPinCode()
+	{
+	}
+    public void proceedWithTransaction()
+	{
+	}
+    public void cancelTransaction()
+	{
+	}
+    public void pumpFuel()
+	{
+	// Implementation here
+	}
+
+  public String toString() {
+    return "Waiting to pump fuel";
+  }
 }

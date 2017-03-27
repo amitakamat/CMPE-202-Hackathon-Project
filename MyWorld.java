@@ -51,7 +51,7 @@ public class MyWorld extends World
     
     Nozzle nozzle = new Nozzle();
     
-    State state = new HasNoCreditCard();
+    State state = new HasNoCreditCardState();
     //for regular fuel
     State fuel = new HasNoValidFuelType();
     //for unleaded
@@ -59,6 +59,7 @@ public class MyWorld extends World
     // for premium
     State fuelp = new HasNoValidFuelType();
     //NumKey1 Key1 = new NumKey1("1");
+    CreditCard creditcard = new CreditCard();
     
    
         
