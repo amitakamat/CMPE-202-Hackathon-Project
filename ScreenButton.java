@@ -27,16 +27,14 @@ public class ScreenButton extends Button
             super.act();
             MyWorld world = (MyWorld)getWorld();
             GasPumpMachine gpm = world.getGasPumpMachine();
-            System.out.println("In screen button");
-            gpm.onDisplayButtonPress(this.id);
-            /*
-            State state = world.state.onDisplayButtonPress(this.id);
+            //System.out.println("In screen button");
+            State state = gpm.onDisplayButtonPress(this.id);
 
             //StateFuel fuel = world.fuel.onFuelButtonPress(this.id);
             //StateFuel fuel = world.fuel.onFuelButtonPress(this.id);
             if(state != null){
-                world.state = state;
-                String stateName = world.state.getStateName();
+                gpm.setState(state);
+                String stateName = gpm.state.getStateName();
                 if(stateName == "HasValidZipCode")
                 {
                     ScreenMessages screenMessages = new ScreenMessages(world);
@@ -57,7 +55,6 @@ public class ScreenButton extends Button
                 }
                 
             }
-            */
         }
     }
-    }
+}

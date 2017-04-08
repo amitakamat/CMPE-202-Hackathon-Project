@@ -14,17 +14,18 @@ public class GasPumpMachine {
   State state = hasNoCreditCardState;
   float count = 0;
 
-  public GasPumpMachine(float quantityOfFuel) {
+  public GasPumpMachine(float quantityOfFuel) 
+  {
 
-  hasNoCreditCardState = new HasNoCreditCardState(this);
-  hasValidCreditCardState = new HasValidCreditCardState(this);
-  fuelMenuState = new FuelMenuState(this);
-  nozzleUnlockState = new NozzleUnlockState(this);
-  pumpFuelState = new PumpFuelState(this);
-  transactionSummaryState = new TransactionSummaryState(this);
-  printReceiptState = new PrintReceiptState(this);
-  displayTransactionMessageState = new DisplayTransactionMessageState(this);
-  removeCreditCardState = new RemoveCreditCardState(this);  
+      hasNoCreditCardState = new HasNoCreditCardState(this);
+      hasValidCreditCardState = new HasValidCreditCardState(this);
+      fuelMenuState = new FuelMenuState(this);
+      nozzleUnlockState = new NozzleUnlockState(this);
+      pumpFuelState = new PumpFuelState(this);
+      transactionSummaryState = new TransactionSummaryState(this);
+      printReceiptState = new PrintReceiptState(this);
+      displayTransactionMessageState = new DisplayTransactionMessageState(this);
+      removeCreditCardState = new RemoveCreditCardState(this);  
   
     this.count = quantityOfFuel;
     if (quantityOfFuel > 0) {
@@ -32,13 +33,13 @@ public class GasPumpMachine {
     }
   }
 
-    public void onDisplayButtonPress(String id){
-        System.out.println("In GPM, onDisplayButtonPress");
-        state.onDisplayButtonPress(id);
+    public State onDisplayButtonPress(String id){
+        //System.out.println("In GPM, onDisplayButtonPress");
+        return state.onDisplayButtonPress(id);
     }
 
     public State onCreditCardSwipe(String cardType){
-      System.out.println("In GPM, on credit card swipe");
+      //System.out.println("In GPM, on credit card swipe");
       return state.onCreditCardSwipe(cardType);
       
     }
@@ -83,6 +84,7 @@ public class GasPumpMachine {
 
   void refill(float count) {
     this.count = count;
+
     state = hasNoCreditCardState;
   }
 

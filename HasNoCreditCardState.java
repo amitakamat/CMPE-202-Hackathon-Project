@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
 public class HasNoCreditCardState implements State
 {
     private String stateName = "HasNoCreditCard";
-GasPumpMachine gasPumpMachine;
+    GasPumpMachine gasPumpMachine;
 
   public HasNoCreditCardState(GasPumpMachine gasPumpMachine) {
     this.gasPumpMachine = gasPumpMachine;
@@ -30,7 +30,7 @@ GasPumpMachine gasPumpMachine;
     }
     
     public State onCreditCardSwipe(String cardType){
-        System.out.println("In HasNoCreditCardState, on credit card swipe");
+        //System.out.println("In HasNoCreditCardState, on credit card swipe");
         if(cardType.equals("VisaCard") || cardType.equals("MasterCard"))
         {
             gasPumpMachine.setState(gasPumpMachine.getHasValidCreditCardState());
@@ -60,11 +60,11 @@ GasPumpMachine gasPumpMachine;
     }
     
     public void insertCreditCard()
-	{
-	}
+    {
+    }
     public void enterPinCode()
-	{
-	}
+    {
+    }
 
 
   public String toString() {

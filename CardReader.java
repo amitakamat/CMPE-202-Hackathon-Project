@@ -23,20 +23,20 @@ public class CardReader extends Actor
         if (card!= null)
         {
             Greenfoot.playSound("CreditCardSwipe.mp3");
-            Greenfoot.delay(100);
+            Greenfoot.delay(200);
             State s = gpm.onCreditCardSwipe(card.getClass().getName());
             if(s!= null)
             {
                 if(s.getClass().getName().equals("HasValidCreditCardState"))
                 {
                   world.removeObject(card);
-                screenMessages.getHasValidCreditCardScreen();
+                  screenMessages.getHasValidCreditCardScreen();
                 }
-                else{
-                     world.removeObject(card);                  
-                //display message on the screen that a wrong card is inserted
-
-                screenMessages.getHasInValidCreditCardScreen();
+                else
+                {
+                  world.removeObject(card);                  
+                  //display message on the screen that a wrong card is inserted
+                  screenMessages.getHasInValidCreditCardScreen();
                 }
             }
             else

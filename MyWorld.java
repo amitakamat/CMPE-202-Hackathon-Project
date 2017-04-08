@@ -105,35 +105,35 @@ public class MyWorld extends World
     {
         //setBackground(DisplayPanelBackground.png);  
         //addObject(NB1, 240, 500);
-        addObject(NB1, 228, 370);
-        addObject(NB2, 282, 370);
-        addObject(NB3, 337, 370);
-        addObject(NB4, 228, 424);
-        addObject(NB5, 282, 424);
-        addObject(NB6, 336, 424);
-        addObject(NB7, 229, 478);
-        addObject(NB8, 283, 478);
-        addObject(NB9, 336, 478);
-        addObject(NB0, 283, 533);
+        addObject(NB1, 228, 420);
+        addObject(NB2, 282, 420);
+        addObject(NB3, 337, 420);
+        addObject(NB4, 228, 474);
+        addObject(NB5, 282, 474);
+        addObject(NB6, 336, 474);
+        addObject(NB7, 229, 528);
+        addObject(NB8, 283, 528);
+        addObject(NB9, 336, 528);
+        addObject(NB0, 283, 583);
 
-        addObject(button1, 100, 98);
-        addObject(button2, 100, 162);
-        addObject(button3, 100, 224);
-        addObject(button4, 100, 286);
-        addObject(button5, 496, 121);
-        addObject(button6, 496, 174);
-        addObject(button7, 496, 234);
-        addObject(button8, 496, 289);
+        addObject(button1, 100, 140);
+        addObject(button2, 100, 200);
+        addObject(button3, 100, 260);
+        addObject(button4, 100, 320);
+        addObject(button5, 496, 140);
+        addObject(button6, 496, 200);
+        addObject(button7, 496, 260);
+        addObject(button8, 496, 320);
         
         addObject(fueldisplay,297,37);
         //Regular fuel,premium ,unleaded
-        addObject(reg,179,640);
-        addObject(unl,313,639);
-        addObject(prm,442,638);
+        addObject(reg,179,690);
+        addObject(unl,313,689);
+        addObject(prm,442,688);
         
-        addObject(nozzle,850,150);
+        addObject(nozzle,850,250);
         
-        addObject(screen, 304, 200);
+        addObject(screen, 304, 230);
 
         addObject(cardreader,600,220);
         addObject(visaCard,730,240);

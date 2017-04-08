@@ -17,7 +17,7 @@ public class Screen extends Actor
     {
       msg = new DisplayMessage();
       GreenfootImage image = getImage() ;
-      image.scale( 300, 250) ;
+      image.scale( 300, 300) ;
       
     }
     

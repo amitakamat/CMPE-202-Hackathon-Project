@@ -23,7 +23,8 @@ public class ScreenMessages extends Actor
         welcomeMessage2.setText("card to proceed");
         screen.DisplayScreen(welcomeMessage2, 250, 190, false);
     }    
-     public void getHasNoValidFuelTypeScreen() 
+     
+    public void getHasNoValidFuelTypeScreen() 
     {
         DisplayMessage welcomeMessage1 = new DisplayMessage();
         welcomeMessage1.setText("Please insert a Valid");
@@ -38,19 +39,19 @@ public class ScreenMessages extends Actor
     {
         DisplayMessage zipCode1 = new DisplayMessage();
         zipCode1.setText("Please enter a valid");
-        screen.DisplayScreen(zipCode1, 230, 200, true);
+        screen.DisplayScreen(zipCode1, 230, 160, true);
         
         DisplayMessage zipCode2 = new DisplayMessage();
         zipCode2.setText("Zip Code");
-        screen.DisplayScreen(zipCode2, 240, 230, false);
+        screen.DisplayScreen(zipCode2, 260, 190, false);
         
         DisplayMessage submitMessage = new DisplayMessage();
         submitMessage.setText("Submit >>");
-        screen.DisplayScreen(submitMessage, 360, 240, false);
+        screen.DisplayScreen(submitMessage, 360, 250, false);
 
         DisplayMessage cancelMessage = new DisplayMessage();
         cancelMessage.setText("Cancel >>");
-        screen.DisplayScreen(cancelMessage, 360, 280, false);
+        screen.DisplayScreen(cancelMessage, 360, 310, false);
     }
 
     public void getHasInValidCreditCardScreen()
@@ -79,64 +80,64 @@ public class ScreenMessages extends Actor
     {
         DisplayMessage selectMessage1 = new DisplayMessage();
         selectMessage1.setText("      Please select a");
-        screen.DisplayScreen(selectMessage1, 230, 200, true);
+        screen.DisplayScreen(selectMessage1, 230, 160, true);
         
         DisplayMessage selectMessage2 = new DisplayMessage();
-        selectMessage2.setText("Fuel Type");
-        screen.DisplayScreen(selectMessage2, 260, 230, false);
+        selectMessage2.setText("  Fuel Type");
+        screen.DisplayScreen(selectMessage2, 260, 190, false);
     }
      public void getHasRegularFuelTypeScreen()
     {
         DisplayMessage unfuelMsg1 = new DisplayMessage();
         unfuelMsg1.setText("Price of Regular fuel");
-        screen.DisplayScreen(unfuelMsg1, 230, 200, true);
+        screen.DisplayScreen(unfuelMsg1, 230, 160, true);
         
         DisplayMessage unfuelMsg2 = new DisplayMessage();
         unfuelMsg2.setText("2.929");
-        screen.DisplayScreen(unfuelMsg2, 260, 230, false);
+        screen.DisplayScreen(unfuelMsg2, 260, 190, false);
         
         DisplayMessage unyesMessage = new DisplayMessage();
         unyesMessage.setText("Yes >>");
-        screen.DisplayScreen(unyesMessage, 360, 240, false);
+        screen.DisplayScreen(unyesMessage, 360, 250, false);
 
         DisplayMessage unnoMessage = new DisplayMessage();
         unnoMessage.setText("No >>");
-        screen.DisplayScreen(unnoMessage, 360, 280, false);
+        screen.DisplayScreen(unnoMessage, 360, 310, false);
    }
    public void getHasUnleadedFuelTypeScreen()
     {
         DisplayMessage fuelMsg1 = new DisplayMessage();
         fuelMsg1.setText("Price of Unleaded fuel");
-        screen.DisplayScreen(fuelMsg1, 230, 200, true);
+        screen.DisplayScreen(fuelMsg1, 230, 160, true);
         
         DisplayMessage fuelMsg2 = new DisplayMessage();
         fuelMsg2.setText("3.129");
-        screen.DisplayScreen(fuelMsg2, 260, 230, false);
+        screen.DisplayScreen(fuelMsg2, 260, 190, false);
         
         DisplayMessage yesMessage = new DisplayMessage();
         yesMessage.setText("Yes >>");
-        screen.DisplayScreen(yesMessage, 360, 240, false);
+        screen.DisplayScreen(yesMessage, 360, 250, false);
 
         DisplayMessage noMessage = new DisplayMessage();
         noMessage.setText("No >>");
-        screen.DisplayScreen(noMessage, 360, 280, false);
+        screen.DisplayScreen(noMessage, 360, 310, false);
    }
    public void getHasPrmFuelTypeScreen()
     {
         DisplayMessage prfuelMsg1 = new DisplayMessage();
         prfuelMsg1.setText("Price of Unleaded fuel");
-        screen.DisplayScreen(prfuelMsg1, 230, 200, true);
+        screen.DisplayScreen(prfuelMsg1, 230, 160, true);
         
         DisplayMessage prfuelMsg2 = new DisplayMessage();
         prfuelMsg2.setText("3.329");
-        screen.DisplayScreen(prfuelMsg2, 260, 230, false);
+        screen.DisplayScreen(prfuelMsg2, 260, 190, false);
         
         DisplayMessage pryesMessage = new DisplayMessage();
         pryesMessage.setText("Yes >>");
-        screen.DisplayScreen(pryesMessage, 360, 240, false);
+        screen.DisplayScreen(pryesMessage, 360, 250, false);
 
         DisplayMessage prnoMessage = new DisplayMessage();
         prnoMessage.setText("No >>");
-        screen.DisplayScreen(prnoMessage, 360, 280, false);
+        screen.DisplayScreen(prnoMessage, 360, 310, false);
    }
 }
