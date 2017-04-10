@@ -14,6 +14,12 @@ public class DisplayMessage extends Actor
         setImage(gi);
     }
     
+    public DisplayMessage(String imagePath)
+    {
+        gi = new GreenfootImage(imagePath);
+        setImage(gi);
+    }
+    
     public void setText(String msg)
     {
         gi.clear();

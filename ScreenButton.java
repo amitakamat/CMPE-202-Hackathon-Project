@@ -35,14 +35,14 @@ public class ScreenButton extends Button
             if(state != null){
                 gpm.setState(state);
                 String stateName = gpm.state.getStateName();
+                ScreenMessages screenMessages = new ScreenMessages(world);
+                
                 if(stateName == "HasValidZipCode")
                 {
-                    ScreenMessages screenMessages = new ScreenMessages(world);
                     screenMessages.getHasValidZipCodeScreen();
                 }
                 
                 if(stateName == "HasNoCreditCard"){
-                    ScreenMessages screenMessages = new ScreenMessages(world);
                     screenMessages.getNoCreditCardScreen();
                 }
             //if(fuel != null)
@@ -50,8 +50,12 @@ public class ScreenButton extends Button
               //String stateFuelName = world.state.getStateFuelName();
                 
                 if(stateName == "HasValidFuelType"){
-                    ScreenMessages screenMessages = new ScreenMessages(world);
                     screenMessages.getNoCreditCardScreen();
+                }
+                
+                if(stateName == "PumpFuelState")
+                {
+                    screenMessages.getBeginFueling();
                 }
                 
             }

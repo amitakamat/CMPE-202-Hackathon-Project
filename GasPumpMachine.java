@@ -10,7 +10,7 @@ public class GasPumpMachine {
   State printReceiptState;
   State displayTransactionMessageState;
   State removeCreditCardState;
-
+  State hasFuelState;
   State state = hasNoCreditCardState;
   float count = 0;
 
@@ -25,7 +25,8 @@ public class GasPumpMachine {
       transactionSummaryState = new TransactionSummaryState(this);
       printReceiptState = new PrintReceiptState(this);
       displayTransactionMessageState = new DisplayTransactionMessageState(this);
-      removeCreditCardState = new RemoveCreditCardState(this);  
+      removeCreditCardState = new RemoveCreditCardState(this); 
+      hasFuelState = new HasFuelState(this);
   
     this.count = quantityOfFuel;
     if (quantityOfFuel > 0) {
@@ -71,7 +72,7 @@ public class GasPumpMachine {
        return null;
     }
     
-	
+    
 
   void setState(State state) {
     this.state = state;
@@ -129,6 +130,11 @@ public class GasPumpMachine {
   public State getRemoveCreditCardState() {
     return removeCreditCardState;
   }
+  
+  public State getHasFuelState() { 
+    return hasFuelState;
+  }
+    
 
   public String toString() {
     StringBuffer result = new StringBuffer();

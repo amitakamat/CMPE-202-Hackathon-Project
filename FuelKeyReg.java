@@ -19,7 +19,7 @@ public class FuelKeyReg extends Actor
    public FuelKeyReg()
     {
       GreenfootImage image = getImage() ;
-      image.scale( 120,120) ;
+      image.scale(120,120) ;
     }
    
     public void act() 
@@ -32,6 +32,8 @@ public class FuelKeyReg extends Actor
             State fuel = world.fuel.onFuelTypeClick();
             if(fuel != null){
                 world.fuel = fuel;
+                GasPumpMachine gpm = world.getGasPumpMachine();
+                gpm.setState(gpm.getHasFuelState());
                 Screen screen = world.getObjects(Screen.class).get(0); 
                 
                 if(world.fuel.getStateName() == "HasRegularFuelType"){
@@ -40,5 +42,5 @@ public class FuelKeyReg extends Actor
                 }
             }
         }
-    }      
+    } 
 }

@@ -8,12 +8,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
 public class HasValidZipCode implements State 
 {
     private String stateName = "HasValidZipCode";
+    GasPumpMachine gasPumpMachine;
+
+    public HasValidZipCode(GasPumpMachine gasPumpMachine) 
+    {
+        this.gasPumpMachine = gasPumpMachine;
+    }
     
     public String getStateName(){
         return this.stateName;
     }
     
     public State onDisplayButtonPress(String id){
+        if(id == "8")
+        {
+            return new HasNoCreditCardState(this.gasPumpMachine);
+        }
+        
+        if(id == "7")
+        {
+            //TODO
+            //Display HELP information
+        }
         return null;
     }
     
@@ -43,10 +59,10 @@ public class HasValidZipCode implements State
     }
     
     public void insertCreditCard()
-	{
-	}
+    {
+    }
     public void enterPinCode()
-	{
-	}
+    {
+    }
 
 }

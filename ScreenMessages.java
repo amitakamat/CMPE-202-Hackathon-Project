@@ -85,6 +85,14 @@ public class ScreenMessages extends Actor
         DisplayMessage selectMessage2 = new DisplayMessage();
         selectMessage2.setText("  Fuel Type");
         screen.DisplayScreen(selectMessage2, 260, 190, false);
+        
+        DisplayMessage helpMessage = new DisplayMessage();
+        helpMessage.setText("Help >>");
+        screen.DisplayScreen(helpMessage, 360, 250, false);
+
+        DisplayMessage cancelMessage = new DisplayMessage();
+        cancelMessage.setText("Cancel >>");
+        screen.DisplayScreen(cancelMessage, 360, 310, false);
     }
      public void getHasRegularFuelTypeScreen()
     {
@@ -97,11 +105,11 @@ public class ScreenMessages extends Actor
         screen.DisplayScreen(unfuelMsg2, 260, 190, false);
         
         DisplayMessage unyesMessage = new DisplayMessage();
-        unyesMessage.setText("Yes >>");
+        unyesMessage.setText("Continue >>");
         screen.DisplayScreen(unyesMessage, 360, 250, false);
 
         DisplayMessage unnoMessage = new DisplayMessage();
-        unnoMessage.setText("No >>");
+        unnoMessage.setText("Cancel >>");
         screen.DisplayScreen(unnoMessage, 360, 310, false);
    }
    public void getHasUnleadedFuelTypeScreen()
@@ -115,11 +123,11 @@ public class ScreenMessages extends Actor
         screen.DisplayScreen(fuelMsg2, 260, 190, false);
         
         DisplayMessage yesMessage = new DisplayMessage();
-        yesMessage.setText("Yes >>");
+        yesMessage.setText("Continue >>");
         screen.DisplayScreen(yesMessage, 360, 250, false);
 
         DisplayMessage noMessage = new DisplayMessage();
-        noMessage.setText("No >>");
+        noMessage.setText("Cancel >>");
         screen.DisplayScreen(noMessage, 360, 310, false);
    }
    public void getHasPrmFuelTypeScreen()
@@ -133,11 +141,25 @@ public class ScreenMessages extends Actor
         screen.DisplayScreen(prfuelMsg2, 260, 190, false);
         
         DisplayMessage pryesMessage = new DisplayMessage();
-        pryesMessage.setText("Yes >>");
+        pryesMessage.setText("Continue >>");
         screen.DisplayScreen(pryesMessage, 360, 250, false);
 
         DisplayMessage prnoMessage = new DisplayMessage();
-        prnoMessage.setText("No >>");
+        prnoMessage.setText("Cancel >>");
         screen.DisplayScreen(prnoMessage, 360, 310, false);
+   }
+   
+   public void getBeginFueling()
+   {
+       DisplayMessage beginMessage1 = new DisplayMessage();
+       beginMessage1.setText("Please remove nozzle");
+       screen.DisplayScreen(beginMessage1, 230, 160, true);
+        
+        DisplayMessage beginMessage2 = new DisplayMessage();
+        beginMessage2.setText("and begin fueling now");
+        screen.DisplayScreen(beginMessage2, 230, 190, false);
+        
+       DisplayMessage nozzleImage = new DisplayMessage("nozzle-screen.png");
+       screen.DisplayScreen(nozzleImage, 280, 250, false);
    }
 }

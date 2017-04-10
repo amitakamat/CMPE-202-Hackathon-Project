@@ -1,20 +1,22 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/**
 /**
- * Write a description of class HasValidCreditCard here.
+ * Write a description of class HasFuelType here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HasValidCreditCardState implements State 
+public class HasFuelState implements State  
 {
-    private String stateName = "HasValidCreditCard";
+    private String stateName = "HasFuelState";
     GasPumpMachine gasPumpMachine;
 
-    public HasValidCreditCardState(GasPumpMachine gasPumpMachine) 
+    /**
+     * Constructor for objects of class HasFuelType
+     */
+    public HasFuelState(GasPumpMachine gpm)
     {
-    this.gasPumpMachine = gasPumpMachine;
+        this.gasPumpMachine = gpm;
     }
-    
+
     public String getStateName(){
         return this.stateName;
     }
@@ -22,14 +24,8 @@ public class HasValidCreditCardState implements State
     public State onDisplayButtonPress(String id){
         if(id == "7")
         {
-            return new HasValidZipCode(this.gasPumpMachine);
+            return new PumpFuelState(this.gasPumpMachine);
         }
-            
-        if (id == "8")
-        {
-            return new HasNoCreditCardState(this.gasPumpMachine);
-        }
-            
         return null;
     }
     
@@ -51,12 +47,11 @@ public class HasValidCreditCardState implements State
         return null;
     }
     
-    public State onPrmFuelTypeClick(){
+    public State onUnFuelTypeClick(){
        // return new HasValidFuelType();
        return null;
     }
-    
-    public State onUnFuelTypeClick(){
+    public State onPrmFuelTypeClick(){
        // return new HasValidFuelType();
        return null;
     }
@@ -67,9 +62,4 @@ public class HasValidCreditCardState implements State
     public void enterPinCode()
     {
     }
-
-
-  public String toString() {
-    return "Waiting to pump fuel";
-  }
 }
