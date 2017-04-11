@@ -1,4 +1,4 @@
-
+  
 public class GasPumpMachine {
 
   State hasNoCreditCardState;
@@ -33,7 +33,7 @@ public class GasPumpMachine {
       state = hasNoCreditCardState;
     }
   }
-
+  
     public State onDisplayButtonPress(String id){
         //System.out.println("In GPM, onDisplayButtonPress");
         return state.onDisplayButtonPress(id);

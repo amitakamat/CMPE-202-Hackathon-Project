@@ -6,9 +6,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
+
 public class MyWorld extends World
 {
+    Screen screen = new Screen();
     // 8 buttons to the left and right of the Screen
+    
     ScreenButton button1 = new ScreenButton("1");
     ScreenButton button2 = new ScreenButton("2");
     ScreenButton button3 = new ScreenButton("3");
@@ -18,10 +21,9 @@ public class MyWorld extends World
     ScreenButton button7 = new ScreenButton("7");
     ScreenButton button8 = new ScreenButton("8");
     
-    
+   
     //Numeric keys numbered 0-9 on the key pad
-  
-    
+      
     
     NumKeyButton NB1 = new NumKeyButton("1");
     NumKeyButton NB2 = new NumKeyButton("2");
@@ -34,10 +36,9 @@ public class MyWorld extends World
     NumKeyButton NB9 = new NumKeyButton("9");
     NumKeyButton NB0 = new NumKeyButton("0");
     
+   
     
     
-
-    Screen screen = new Screen();
     
     FuelDisplay fueldisplay = new FuelDisplay();
     
@@ -50,8 +51,7 @@ public class MyWorld extends World
     FuelKeyPrm prm = new FuelKeyPrm();
     
     Nozzle nozzle = new Nozzle();
-    
-    
+        
     GasPumpMachine gpm = new GasPumpMachine(100.0f);
     State state = new HasNoCreditCardState(gpm);
     //for regular fuel
@@ -73,6 +73,7 @@ public class MyWorld extends World
     public GasPumpMachine getGasPumpMachine(){
         return this.gpm;
     }
+    
     public Screen getScreen(){
         return this.screen;
     }
@@ -80,6 +81,7 @@ public class MyWorld extends World
     public FuelDisplay getFuelDisplayScreen(){
         return this.fueldisplay;
     }
+    
     public NumKeyButton getNumKeyButton(){
         return this.NB2;
     }
@@ -87,12 +89,15 @@ public class MyWorld extends World
     public FuelKeyReg getFuelKeyReg(){
         return this.reg;
     }
+    
     public FuelKeyUnl getFuelKeyUnl(){
         return this.unl;
     }
+    
     public FuelKeyPrm getFuelKeyPrm(){
         return this.prm;
     }
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
