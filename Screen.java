@@ -13,7 +13,7 @@ public class Screen extends Actor
     MyWorld world;
     DisplayMessage  msg;
     String number="";
-    static int count=0;
+    int count=0;
     
     public Screen()
     {
