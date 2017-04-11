@@ -40,17 +40,19 @@ public class Screen extends Actor
         number = number + num;
         msg.setText(number);
         count++;
-        if(count==4){
+        
+        
+        if(count<=5){
+        DisplayScreen(msg, 230, 310, false);   
+        if(count==5){
         
         }
-        
-        if(count<5){
-        DisplayScreen(msg, 230, 310, false);                    
         }
         
         else{
         number = "";
-        count = 0;
+        msg.setText("invalid pin");
+        DisplayScreen(msg, 230, 310, false);
         }
     }
     
