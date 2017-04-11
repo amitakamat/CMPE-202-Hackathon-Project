@@ -51,7 +51,8 @@ public class Screen extends Actor
         
         else{
         number = "";
-        msg.setText("invalid pin");
+        count = 0;
+        msg.setText("invalid pin enter again" );
         DisplayScreen(msg, 230, 310, false);
         }
     }
