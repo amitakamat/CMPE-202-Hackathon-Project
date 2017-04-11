@@ -28,6 +28,8 @@ public class ScreenButton extends Button
             MyWorld world = (MyWorld)getWorld();
             GasPumpMachine gpm = world.getGasPumpMachine();
             //System.out.println("In screen button");
+            
+            
             State state = gpm.onDisplayButtonPress(this.id);
 
             //StateFuel fuel = world.fuel.onFuelButtonPress(this.id);

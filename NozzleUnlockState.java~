@@ -5,12 +5,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FuelMenuState implements State
+public class NozzleUnlockState implements State
 {
-    private String stateName = "FuelMenuState";
+    private String stateName = "NozzleUnlockState";
   GasPumpMachine gasPumpMachine;
 
-  public FuelMenuState(GasPumpMachine gasPumpMachine) {
+  public NozzleUnlockState(GasPumpMachine gasPumpMachine) {
     this.gasPumpMachine = gasPumpMachine;
   }
     public String getStateName(){
@@ -51,7 +51,7 @@ public class FuelMenuState implements State
     public void insertCreditCard()
 	{
 	}
-    public void enterPinCode(String pin)
+    public void enterPinCode()
 	{
 	}
 

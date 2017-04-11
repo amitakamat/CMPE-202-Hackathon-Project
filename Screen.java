@@ -37,17 +37,19 @@ public class Screen extends Actor
     }
     
     public void displayNumber(String num){
-        number = number + num;
-        msg.setText(number);
+        
         count++;
         
         
         if(count<=5){
         DisplayScreen(msg, 230, 310, false);   
+        number = number + num;
+        msg.setText(number);
         
             if(count==5){
                 GasPumpMachine gpm = world.getGasPumpMachine();
-        
+                gpm.setEnteredZip(number);
+                
             }
             
             

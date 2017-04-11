@@ -51,7 +51,7 @@ public class TransactionSummaryState implements State
     public void insertCreditCard()
 	{
 	}
-    public void enterPinCode()
+    public void enterPinCode(String pin)
 	{
 	}
 

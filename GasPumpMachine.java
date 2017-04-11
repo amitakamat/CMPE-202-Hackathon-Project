@@ -13,6 +13,12 @@ public class GasPumpMachine {
   State hasFuelState;
   State state = hasNoCreditCardState;
   float count = 0;
+  
+  final String zipcode = "94085";
+  
+  String enteredZip="";
+
+    State hasValidZipCodeState;
 
   public GasPumpMachine(float quantityOfFuel) 
   {
@@ -27,8 +33,10 @@ public class GasPumpMachine {
       displayTransactionMessageState = new DisplayTransactionMessageState(this);
       removeCreditCardState = new RemoveCreditCardState(this); 
       hasFuelState = new HasFuelState(this);
-  
-    this.count = quantityOfFuel;
+      
+      hasValidZipCodeState = new HasValidZipCode(this);
+      
+      this.count = quantityOfFuel;
     if (quantityOfFuel > 0) {
       state = hasNoCreditCardState;
     }
@@ -135,7 +143,9 @@ public class GasPumpMachine {
     return hasFuelState;
   }
     
-
+public State gethasValidZipCodeState() { 
+    return hasValidZipCodeState;
+  }
   public String toString() {
     StringBuffer result = new StringBuffer();
     result.append("\nGas Pump, Inc.");
@@ -146,4 +156,10 @@ public class GasPumpMachine {
     return result.toString();
   }
 
+  public void setEnteredZip(String num){
+  
+  state.enterPinCode(num);
+  
+  }
+  
 }

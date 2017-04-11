@@ -9,6 +9,8 @@ public class HasValidCreditCardState implements State
 {
     private String stateName = "HasValidCreditCard";
     GasPumpMachine gasPumpMachine;
+    String enteredpin="";
+    String PIN = "94085";
 
     public HasValidCreditCardState(GasPumpMachine gasPumpMachine) 
     {
@@ -22,9 +24,14 @@ public class HasValidCreditCardState implements State
     public State onDisplayButtonPress(String id){
         if(id == "7")
         {
-            return new HasValidZipCode(this.gasPumpMachine);
+            if(validatezipcode()){
+               //gasPumpMachine.setState(gasPumpMachine.gethasValidZipCodeState());
+               return new HasValidZipCode(this.gasPumpMachine);
         }
-            
+        else{
+         return new HasNoCreditCardState(this.gasPumpMachine);
+        }
+    }
         if (id == "8")
         {
             return new HasNoCreditCardState(this.gasPumpMachine);
@@ -66,6 +73,17 @@ public class HasValidCreditCardState implements State
     }
     public void enterPinCode()
     {
+        
+    }
+    public void enterPinCode(String pin)
+    {
+        enteredpin= pin;
+    }
+    public boolean validatezipcode(){
+    if(this.PIN.equals(this.enteredpin)){
+        return true;
+    }
+   else  return false;
     }
 
 

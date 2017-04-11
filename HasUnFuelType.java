@@ -53,7 +53,7 @@ public class HasUnFuelType implements State
     public void insertCreditCard()
 	{
 	}
-    public void enterPinCode()
+    public void enterPinCode(String pin)
 	{
 	}
 

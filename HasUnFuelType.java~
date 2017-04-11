@@ -1,23 +1,28 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/**
 /**
- * Write a description of class HasNoCreditCard here.
+ * Write a description of class HasUnFuelType here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FuelMenuState implements State
+public class HasUnFuelType implements State 
 {
-    private String stateName = "FuelMenuState";
-  GasPumpMachine gasPumpMachine;
-
-  public FuelMenuState(GasPumpMachine gasPumpMachine) {
-    this.gasPumpMachine = gasPumpMachine;
-  }
+    private String stateName = "HasUnFuelType";
+    
     public String getStateName(){
         return this.stateName;
     }
     
     public State onDisplayButtonPress(String id){
+        if(id == "7")
+        {
+            return new HasUnFuelType();
+        }
+            
+        if (id == "8")
+        {
+            return new HasNoValidFuelType();
+        }
+            
         return null;
     }
     
@@ -30,15 +35,12 @@ public class FuelMenuState implements State
     }
     
     public State onCreditCardSwipe(String cardType){
-        return new HasValidCreditCardState(this.gasPumpMachine);
-    }
-    public String getStateFuelName(){
-        return null;
-    }
-    public State onFuelTypeClick(){
         return null;
     }
     
+    public State onFuelTypeClick(){
+        return null;
+    }
     public State onUnFuelTypeClick(){
        // return new HasValidFuelType();
        return null;
@@ -51,12 +53,8 @@ public class FuelMenuState implements State
     public void insertCreditCard()
 	{
 	}
-    public void enterPinCode(String pin)
+    public void enterPinCode()
 	{
 	}
 
-
-  public String toString() {
-    return "Waiting to pump fuel";
-  }
 }
