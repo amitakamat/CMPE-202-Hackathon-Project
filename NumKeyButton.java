@@ -8,17 +8,17 @@ import java.util.List;
  * @version (a version number or a date)
  */
 public class NumKeyButton extends Button
-{
-    //Screen screen;
-    
-     
+{ 
             
-     
+    GreenfootImage gi;
    //ScreenMessages screenmsgs = new ScreenMessages();
             
-    public NumKeyButton()
+    public NumKeyButton(String id, String imagePath)
     {
-            
+        this.id = id;
+        gi = new GreenfootImage(imagePath);
+        setImage(gi);
+        gi.scale( 50, 50) ;
     }
     public void act() 
     {

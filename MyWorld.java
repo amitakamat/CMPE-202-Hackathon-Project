@@ -25,20 +25,20 @@ public class MyWorld extends World
     //Numeric keys numbered 0-9 on the key pad
       
     
-    NumKeyButton NB1 = new one("1");
-    NumKeyButton NB2 = new two("2");
-    NumKeyButton NB3 = new three("3");
-    NumKeyButton NB4 = new four("4");
-    NumKeyButton NB5 = new five("5");
-    NumKeyButton NB6 = new six("6");
-    NumKeyButton NB7 = new seven("7");
-    NumKeyButton NB8 = new eight("8");
-    NumKeyButton NB9 = new nine("9");
-    NumKeyButton NB0 = new zero("0");
+    NumKeyButton NB1 = new NumKeyButton("1", "one.png");
+    NumKeyButton NB2 = new NumKeyButton("2", "two.png");
+    NumKeyButton NB3 = new NumKeyButton("3", "three.png");
+    NumKeyButton NB4 = new NumKeyButton("4", "four.png");
+    NumKeyButton NB5 = new NumKeyButton("5", "five.png");
+    NumKeyButton NB6 = new NumKeyButton("6", "six.png");
+    NumKeyButton NB7 = new NumKeyButton("7", "seven.png");
+    NumKeyButton NB8 = new NumKeyButton("8", "eight.png");
+    NumKeyButton NB9 = new NumKeyButton("9", "nine.png");
+    NumKeyButton NB0 = new NumKeyButton("0", "zero.png");
     
-   NumKeyButton clr = new clear();
+   NumKeyButton clr = new NumKeyButton("clear", "clear.png");
     
-   NumKeyButton entr = new enter();
+   NumKeyButton entr = new NumKeyButton("enter", "enter.png");
     
    
     
