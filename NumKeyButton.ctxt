@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=NumKeyButton
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ NumKeyButton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=id
-comment1.target=NumKeyButton(java.lang.String)
+comment1.params=
+comment1.target=NumKeyButton()
 comment2.params=
 comment2.target=void\ act()
 numComments=3

@@ -44,9 +44,13 @@ public class Screen extends Actor
         
         if(count<=5){
         DisplayScreen(msg, 230, 310, false);   
-        if(count==5){
         
-        }
+            if(count==5){
+                GasPumpMachine gpm = world.getGasPumpMachine();
+        
+            }
+            
+            
         }
         
         else{
