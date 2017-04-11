@@ -12,6 +12,8 @@ public class Screen extends Actor
     GreenfootImage  gi;
     MyWorld world;
     DisplayMessage  msg;
+    String number="";
+    static int count=0;
     
     public Screen()
     {
@@ -31,8 +33,26 @@ public class Screen extends Actor
            }
        }
        world.addObject(msg,x,y);
+       
     }
     
+    public void displayNumber(String num){
+        number = number + num;
+        msg.setText(number);
+        count++;
+        if(count==4){
+        
+        }
+        
+        if(count<5){
+        DisplayScreen(msg, 230, 310, false);                    
+        }
+        
+        else{
+        number = "";
+        count = 0;
+        }
+    }
     
     public void act() 
     {

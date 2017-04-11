@@ -8,9 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ScreenMessages extends Actor
 {
-    Screen screen;
-    public ScreenMessages(World world){
-        screen = world.getObjects(Screen.class).get(0);
+     
+    
+    Screen screen ;
+    
+    static String num = "";
+    
+    public ScreenMessages(MyWorld world){
+         
+        screen = world.getScreen();
+        //screen = world.getObjects(Screen.class).get(0);
+        
     }
     
     public void getNoCreditCardScreen() 
@@ -94,6 +102,7 @@ public class ScreenMessages extends Actor
         cancelMessage.setText("Cancel >>");
         screen.DisplayScreen(cancelMessage, 360, 310, false);
     }
+    
      public void getHasRegularFuelTypeScreen()
     {
         DisplayMessage unfuelMsg1 = new DisplayMessage();
@@ -112,6 +121,7 @@ public class ScreenMessages extends Actor
         unnoMessage.setText("Cancel >>");
         screen.DisplayScreen(unnoMessage, 360, 310, false);
    }
+   
    public void getHasUnleadedFuelTypeScreen()
     {
         DisplayMessage fuelMsg1 = new DisplayMessage();
@@ -130,6 +140,7 @@ public class ScreenMessages extends Actor
         noMessage.setText("Cancel >>");
         screen.DisplayScreen(noMessage, 360, 310, false);
    }
+   
    public void getHasPrmFuelTypeScreen()
     {
         DisplayMessage prfuelMsg1 = new DisplayMessage();
@@ -162,4 +173,8 @@ public class ScreenMessages extends Actor
        DisplayMessage nozzleImage = new DisplayMessage("nozzle-screen.png");
        screen.DisplayScreen(nozzleImage, 280, 250, false);
    }
+   
+   public void DisplayZipcodeEntered(String id){
+       screen.displayNumber(id);
+    }
 }

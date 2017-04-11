@@ -9,21 +9,32 @@ import java.util.List;
  */
 public class NumKeyButton extends Button
 {
-    Screen screen;
+    //Screen screen;
+    
+     
+            
+     
+   //ScreenMessages screenmsgs = new ScreenMessages();
+            
     public NumKeyButton(String id)
     {
       this.id = id;
       GreenfootImage image = getImage() ;
       image.scale( 50, 50) ;
+      
     }
     public void act() 
     {
        if (Greenfoot.mousePressed(this))
         {
             super.act();
-            MyWorld world = (MyWorld)getWorld();
-            //screen = world.getScreen();
+               MyWorld world = (MyWorld)getWorld();
+     ScreenMessages screenMessages = new ScreenMessages(world);
+     GasPumpMachine  gaspump = world.getGasPumpMachine();
+            if(gaspump.getState().getStateName()=="HasValidCreditCard"){                  
+                screenMessages.DisplayZipcodeEntered(this.id);
+            }//screen = world.getScreen();
             //screen.DisplayScreen("NumKey " + this.id + " clicked",220,200);
         }
-        }
+    }
 }
