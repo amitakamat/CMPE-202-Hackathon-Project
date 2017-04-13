@@ -12,8 +12,7 @@ public interface State
     public State onNozzleClick();
     public State onCreditCardSwipe(String cardType);
     public State onFuelTypeClick();
-    public State onUnFuelTypeClick();
-    public State onPrmFuelTypeClick();
+   
     
     
       public void insertCreditCard();

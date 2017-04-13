@@ -32,6 +32,7 @@ public class FuelMenuState implements State
     public State onCreditCardSwipe(String cardType){
         return new HasValidCreditCardState(this.gasPumpMachine);
     }
+   
     public String getStateFuelName(){
         return null;
     }
@@ -39,14 +40,7 @@ public class FuelMenuState implements State
         return null;
     }
     
-    public State onUnFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    public State onPrmFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
+   
     
     public void insertCreditCard()
 	{

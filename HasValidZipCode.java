@@ -29,6 +29,7 @@ public class HasValidZipCode implements State
         {
             //TODO
             //Display HELP information
+            
         }
         return null;
     }
@@ -46,17 +47,10 @@ public class HasValidZipCode implements State
     }
     
     public State onFuelTypeClick(){
-        return null;
-    }
-    public State onUnFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    
-    public State onPrmFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
+        
+            return new HasFuelState(this.gasPumpMachine);
+       
+        }
     
     public void insertCreditCard()
     {

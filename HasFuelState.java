@@ -12,9 +12,9 @@ public class HasFuelState implements State
     /**
      * Constructor for objects of class HasFuelType
      */
-    public HasFuelState(GasPumpMachine gpm)
+    public HasFuelState(GasPumpMachine gasPumpMachine)
     {
-        this.gasPumpMachine = gpm;
+        this.gasPumpMachine = gasPumpMachine;
     }
 
     public String getStateName(){
@@ -26,6 +26,11 @@ public class HasFuelState implements State
         {
             return new PumpFuelState(this.gasPumpMachine);
         }
+        if (id == "8")
+        {
+            return new HasValidZipCode(this.gasPumpMachine);
+        }
+          
         return null;
     }
     
@@ -44,17 +49,10 @@ public class HasFuelState implements State
         return null;
     }
     public State onFuelTypeClick(){
-        return null;
+          return null;
     }
     
-    public State onUnFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    public State onPrmFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
+    
     
     public void insertCreditCard()
     {

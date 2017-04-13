@@ -50,9 +50,9 @@ public class MyWorld extends World
     
     CardReader cardreader = new CardReader();
     
-    FuelKeyReg reg = new FuelKeyReg();
-    FuelKeyUnl unl = new FuelKeyUnl();
-    FuelKeyPrm prm = new FuelKeyPrm();
+    FuelType reg = new FuelType("1", "Regular.jpeg");
+    FuelType unl = new FuelType("2", "Unleaded.jpeg");
+    FuelType prm = new FuelType("3", "Premium.jpeg");
     
     Nozzle nozzle = new Nozzle();
         
@@ -90,16 +90,8 @@ public class MyWorld extends World
         return this.NB2;
     }
     
-    public FuelKeyReg getFuelKeyReg(){
+    public FuelType getFuelType(){
         return this.reg;
-    }
-    
-    public FuelKeyUnl getFuelKeyUnl(){
-        return this.unl;
-    }
-    
-    public FuelKeyPrm getFuelKeyPrm(){
-        return this.prm;
     }
     
     public MyWorld()

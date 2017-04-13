@@ -49,7 +49,7 @@ public class Nozzle extends Actor
         fueldisplay = world.getFuelDisplayScreen();
         DisplayMessage gasPumpingDone = new DisplayMessage();
         gasPumpingDone.setText("Done");
-        fueldisplay.DisplayScreen(gasPumpingDone,300,75, true);
+        fueldisplay.DisplayScreen(gasPumpingDone,290,25, true);
     }
     
 }

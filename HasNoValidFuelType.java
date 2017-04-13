@@ -34,16 +34,9 @@ public class HasNoValidFuelType  implements State
     
     public State onFuelTypeClick(){
        // return new HasValidFuelType();
-       return new HasRegularFuelType();
+       return null;
     }
-   public State onUnFuelTypeClick(){
-       // return new HasValidFuelType();
-       return new HasUnFuelType();
-    }
-    public State onPrmFuelTypeClick(){
-       // return new HasValidFuelType();
-       return new HasPrmFuelType();
-    }
+  
     
     public void insertCreditCard()
 	{

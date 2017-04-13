@@ -39,16 +39,7 @@ public class DisplayTransactionMessageState implements State
         return null;
     }
     
-    public State onUnFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    public State onPrmFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    
-    public void insertCreditCard()
+        public void insertCreditCard()
 	{
 	}
     public void enterPinCode(String pin)

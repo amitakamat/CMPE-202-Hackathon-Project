@@ -1,4 +1,4 @@
-  
+  import greenfoot.*; 
 public class GasPumpMachine {
 
   State hasNoCreditCardState;
@@ -64,24 +64,12 @@ public class GasPumpMachine {
 
     
     public State onFuelTypeClick(){
-        state.onFuelTypeClick();
-        return null;
+        //state.onFuelTypeClick();
+        return hasFuelState;
     }
     
-    public State onUnFuelTypeClick(){
-        state.onUnFuelTypeClick();
-       // return new HasValidFuelType();
-       return null;
-    }
+      
     
-    public State onPrmFuelTypeClick(){
-        state.onPrmFuelTypeClick();
-       // return new HasValidFuelType();
-       return null;
-    }
-    
-    
-
   void setState(State state) {
     this.state = state;
   }

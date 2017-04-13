@@ -50,15 +50,7 @@ public class HasNoCreditCardState implements State
         return null;
     }
     
-    public State onUnFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    public State onPrmFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    
+  
     public void insertCreditCard()
     {
     }
