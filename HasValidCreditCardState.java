@@ -5,80 +5,48 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HasValidCreditCardState implements State 
+public class HasValidCreditCardState extends ConcreteState 
 {
-    private String stateName = "HasValidCreditCard";
-    GasPumpMachine gasPumpMachine;
     String enteredpin="";
-    String PIN = "94085";
+    String PIN = "00000";
 
-    public HasValidCreditCardState(GasPumpMachine gasPumpMachine) 
+    public HasValidCreditCardState(GasPumpMachine gpm) 
     {
-    this.gasPumpMachine = gasPumpMachine;
-    }
-    
-    public String getStateName(){
-        return this.stateName;
+        super(gpm);
+        stateName = "HasValidCreditCard";
     }
     
     public State onDisplayButtonPress(String id){
+
         if(id == "7")
         {
-            if(validatezipcode()){
-               //gasPumpMachine.setState(gasPumpMachine.gethasValidZipCodeState());
-               return new HasValidZipCode(this.gasPumpMachine);
-        }
+            if(validatezipcode())
+            {
+                gasPumpMachine.setState(gasPumpMachine.getHasValidZipCodeState());
+                return gasPumpMachine.getState();
+            }
         else{
-         return new HasNoCreditCardState(this.gasPumpMachine);
+                gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
+                return gasPumpMachine.getState();
+            }
         }
-    }
         if (id == "8")
         {
-            return new HasNoCreditCardState(this.gasPumpMachine);
+            gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
+            return gasPumpMachine.getState();
         }
-            
-        return null;
-    }
     
-    public State onNumberButtonPress(){
         return null;
     }
-    
-    public State onNozzleClick(){
-        return null;
-    }
-    
-    public State onCreditCardSwipe(String cardType){
-        return null;
-    }
-    public String getStateFuelName(){
-        return null;
-    }
-    public State onFuelTypeClick(){
-        return null;
-    }
-    
-    public State onPrmFuelTypeClick(){
-       // return new HasValidFuelType();
+    public State onNumberButtonPress(String id){
        return null;
     }
     
-    public State onUnFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    
-    public void insertCreditCard()
-    {
-    }
-    public void enterPinCode()
-    {
-        
-    }
     public void enterPinCode(String pin)
     {
         enteredpin= pin;
     }
+    
     public boolean validatezipcode(){
     if(this.PIN.equals(this.enteredpin)){
         return true;
@@ -87,6 +55,6 @@ public class HasValidCreditCardState implements State
     }
 
   public String toString() {
-    return "Waiting to pump fuel";
+    return "Selecting fuel type";
   }
 }

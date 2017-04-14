@@ -58,13 +58,13 @@ public class MyWorld extends World
     Nozzle nozzle = new Nozzle();
         
     GasPumpMachine gpm = new GasPumpMachine(100.0f);
-    State state = new HasNoCreditCardState(gpm);
+    //State state = new HasNoCreditCardState(gpm);
     //for regular fuel
-    State fuel = new HasNoValidFuelType();
+    //State fuel = new HasNoValidFuelType();
     //for unleaded
-    State fuelu = new HasNoValidFuelType();
+    //State fuelu = new HasNoValidFuelType();
     // for premium
-    State fuelp = new HasNoValidFuelType();
+    //State fuelp = new HasNoValidFuelType();
     //NumKey1 Key1 = new NumKey1("1");
     
     //for visa card

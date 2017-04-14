@@ -37,7 +37,7 @@ public FuelType(String id, String imagePath)
             ScreenMessages screenMessages = new ScreenMessages(world);
             State s = gpm.getState().onFuelTypeClick();
             if(s != null){
-                gpm.setState(gpm.getHasFuelState());
+                //gpm.setState(gpm.getHasFuelState());
                 //if(s.getClass().getName().equals("HasFuelState"))
                 fuelid = this.id;
                 switch(fuelid){

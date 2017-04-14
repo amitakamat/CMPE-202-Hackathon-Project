@@ -58,47 +58,39 @@ public class GasPumpMachine {
       
     }
     
-    public void onKeyPadButtonPress(){
-        state.onNumberButtonPress();
+    public void onKeyPadButtonPress(String id){
+        state.onKeypadButtonPress(id);
     }
     
     public void onNozzleClick(){
-        state.onNozzleClick();
+        state.onNozzleDrag();
     }
-    
-
     
     public State onFuelTypeClick(){
         //state.onFuelTypeClick();
         return hasFuelState;
     }
     
-      
+    void setState(State state) {
+        this.state = state;
+    }
+
+    float getFuelCount() {
+        return count;
+    }
+
+    void refill(float count) {
+       this.count = count;
+       state = hasNoCreditCardState;
+    }
+
+    public State getState() {
+       return state;
+    }
     
-  void setState(State state) {
-    this.state = state;
-  }
-
-
-  float getFuelCount() {
-    return count;
-  }
-
-  void refill(float count) {
-    this.count = count;
-
-    state = hasNoCreditCardState;
-  }
-
-  public State getState() {
-    return state;
-  }
-
-
-    
-  public State getHasNoCreditCardState() {
-    return hasNoCreditCardState;
-  }
+    public State getHasNoCreditCardState() {
+       return hasNoCreditCardState;
+    }
 
   public State getHasValidCreditCardState() {
     return hasValidCreditCardState;
@@ -136,7 +128,7 @@ public class GasPumpMachine {
     return hasFuelState;
   }
     
-public State gethasValidZipCodeState() { 
+public State getHasValidZipCodeState() { 
     return hasValidZipCodeState;
   }
   public String toString() {

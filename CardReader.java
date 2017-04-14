@@ -25,6 +25,7 @@ public class CardReader extends Actor
             Greenfoot.playSound("CreditCardSwipe.mp3");
             Greenfoot.delay(200);
             State s = gpm.onCreditCardSwipe(card.getClass().getName());
+            
             if(s!= null)
             {
                 if(s.getClass().getName().equals("HasValidCreditCardState"))
@@ -35,17 +36,23 @@ public class CardReader extends Actor
                 else
                 {
                   world.removeObject(card);                  
-                  //display message on the screen that a wrong card is inserted
+                  //display message on the screen that a wrong card is inserted        
                   screenMessages.getHasInValidCreditCardScreen();
                 }
             }
             else
             {
                 //if we are inserting card in wrong state i.e inserting card again
-                //the remove card and display message on screen that card cannot be
+                //then remove card and display message on screen that card cannot be
                 //inserted again
                 world.removeObject(card);
                 //display message 
+                  if(card.getClass().getName().equals("VisaCard"))
+                     world.addObject(card,730,240);
+                  if(card.getClass().getName().equals("MasterCard"))
+                     world.addObject(card,730,150);
+                  if(card.getClass().getName().equals("FakeCreditCard"))
+                     world.addObject(card,740,330);
                 screenMessages.getInsertingCreditCardAgainScreen();
                 Greenfoot.delay(200);
                 screenMessages.getHasValidCreditCardScreen();

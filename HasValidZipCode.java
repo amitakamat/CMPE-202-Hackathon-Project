@@ -5,14 +5,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HasValidZipCode implements State 
+public class HasValidZipCode extends ConcreteState 
 {
-    private String stateName = "HasValidZipCode";
-    GasPumpMachine gasPumpMachine;
-
     public HasValidZipCode(GasPumpMachine gasPumpMachine) 
     {
-        this.gasPumpMachine = gasPumpMachine;
+        super(gasPumpMachine);
+        stateName = "HasValidZipCode";
     }
     
     public String getStateName(){
@@ -20,45 +18,23 @@ public class HasValidZipCode implements State
     }
     
     public State onDisplayButtonPress(String id){
-        if(id == "8")
-        {
-            return new HasNoCreditCardState(this.gasPumpMachine);
-        }
-        
+
         if(id == "7")
         {
-            //TODO
-            //Display HELP information
-            
+                //help to do
+
         }
-        return null;
-    }
-    
-    public State onNumberButtonPress(){
-        return null;
-    }
-    
-    public State onNozzleClick(){
-        return null;
-    }
-    
-    public State onCreditCardSwipe(String cardType){
+        if (id == "8")
+        {
+            gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
+            return gasPumpMachine.getState();
+        }
         return null;
     }
     
     public State onFuelTypeClick(){
-        
-            return new HasFuelState(this.gasPumpMachine);
-       
+            gasPumpMachine.setState(gasPumpMachine.getHasFuelState());
+            return gasPumpMachine.getState();        
         }
-    
-    public void insertCreditCard()
-    {
-    }
-    
-     
-    public void enterPinCode(String pin)
-    {
-    }
 
 }

@@ -5,62 +5,33 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PumpFuelState implements State
+public class PumpFuelState extends ConcreteState
 {
-    private String stateName = "PumpFuelState";
-  GasPumpMachine gasPumpMachine;
-
   public PumpFuelState(GasPumpMachine gasPumpMachine) {
-    this.gasPumpMachine = gasPumpMachine;
-  }
-    public String getStateName(){
-        return this.stateName;
-    }
-    
-    public State onDisplayButtonPress(String id){
+    super(gasPumpMachine);
+    stateName = "PumpFuelState";
+   }
        
-        
-          
-        return null;
-    }
+  public State onNozzleDrag(){
+            gasPumpMachine.setState(gasPumpMachine.getNozzleUnlockState());
+            return gasPumpMachine.getState();
+       //return new NozzleUnlockState(this.gasPumpMachine);
+  }
     
-    public State onNumberButtonPress(){
-        return null;
-    }
-    
-    public State onNozzleClick(){
-       //
-       //return null;
-       return new NozzleUnlockState(this.gasPumpMachine);
-    }
-    
-    public State onCreditCardSwipe(String cardType){
+  public State onCreditCardSwipe(String cardType){
         return new HasValidCreditCardState(this.gasPumpMachine);
     }
-    public String getStateFuelName(){
-        return null;
-    }
-    public State onFuelTypeClick(){
-        return null;
-    }
+
+  public void  pressA(){
+        
+         }
     
-       
-    public void insertCreditCard()
-	{
-	}
-    public void enterPinCode(String pin)
-	{
-	}
- public void  pressA(){
-          
-        }
-    
-     public void  pressB(){
+  public void  pressB(){
         
         }
         
-             public void  pressC(){
-                }
+  public void  pressC(){
+                 }
 
   public String toString() {
     return "Waiting to pump fuel";

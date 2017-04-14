@@ -31,7 +31,18 @@ public class ScreenMessages extends Actor
         welcomeMessage2.setText("card to proceed");
         screen.DisplayScreen(welcomeMessage2, 250, 190, false);
     }    
-     
+
+    public void getRemoveCreditCardScreen() 
+    {
+        DisplayMessage welcomeMessage1 = new DisplayMessage();
+        welcomeMessage1.setText("Please take your card.");
+        screen.DisplayScreen(welcomeMessage1, 230, 160, true);
+        
+        DisplayMessage welcomeMessage2 = new DisplayMessage();
+        welcomeMessage2.setText("Thank you!Visit again.");
+        screen.DisplayScreen(welcomeMessage2, 240, 190, false);
+    }    
+    
     public void getHasNoValidFuelTypeScreen() 
     {
         DisplayMessage welcomeMessage1 = new DisplayMessage();
@@ -144,7 +155,7 @@ public class ScreenMessages extends Actor
    public void getHasPrmFuelTypeScreen()
     {
         DisplayMessage prfuelMsg1 = new DisplayMessage();
-        prfuelMsg1.setText("Price of Unleaded fuel");
+        prfuelMsg1.setText("Price of Premium fuel");
         screen.DisplayScreen(prfuelMsg1, 230, 160, true);
         
         DisplayMessage prfuelMsg2 = new DisplayMessage();

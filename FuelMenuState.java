@@ -5,52 +5,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FuelMenuState implements State
+public class FuelMenuState extends ConcreteState
 {
-    private String stateName = "FuelMenuState";
-  GasPumpMachine gasPumpMachine;
 
   public FuelMenuState(GasPumpMachine gasPumpMachine) {
-    this.gasPumpMachine = gasPumpMachine;
+    super(gasPumpMachine);
+    stateName = "FuelMenuState";
   }
-    public String getStateName(){
-        return this.stateName;
-    }
     
-    public State onDisplayButtonPress(String id){
-        return null;
-    }
-    
-    public State onNumberButtonPress(){
-        return null;
-    }
-    
-    public State onNozzleClick(){
-        return null;
-    }
-    
-    public State onCreditCardSwipe(String cardType){
-        return new HasValidCreditCardState(this.gasPumpMachine);
-    }
+  public State onCreditCardSwipe(String cardType){
+    return new HasValidCreditCardState(this.gasPumpMachine);
+  }
    
-    public String getStateFuelName(){
-        return null;
-    }
-    public State onFuelTypeClick(){
-        return null;
-    }
-    
-   
-    
-    public void insertCreditCard()
-	{
-	}
-    public void enterPinCode(String pin)
-	{
-	}
-
- 
   public String toString() {
-    return "Waiting to pump fuel";
+    return "Selecting fuel";
   }
 }

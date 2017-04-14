@@ -8,15 +8,12 @@ public interface State
 {
     public String getStateName();
     public State onDisplayButtonPress(String id);
-    public State onNumberButtonPress();
-    public State onNozzleClick();
+    public State onKeypadButtonPress(String id);
+    public State onNozzleDrag();
     public State onCreditCardSwipe(String cardType);
     public State onFuelTypeClick();
-   
-    
-    
-      public void insertCreditCard();
-      public void enterPinCode(String pin);
+    public void insertCreditCard();
+    public void enterPinCode(String pin);
     
     //public String getStateFuelName();
     //public State onFuelButtonPress(String id);

@@ -27,10 +27,16 @@ public class NumKeyButton extends Button
                super.act();
                MyWorld world = (MyWorld)getWorld();
                ScreenMessages screenMessages = new ScreenMessages(world);
-               GasPumpMachine  gaspump = world.getGasPumpMachine();
-               if(gaspump.getState().getStateName()=="HasValidCreditCard"){                  
-                screenMessages.DisplayZipcodeEntered(this.id);
+               GasPumpMachine  gpm = world.getGasPumpMachine();
+               //gpm.
+               if(gpm.getState().getStateName()=="HasValidCreditCard")
+               {
+                 screenMessages.DisplayZipcodeEntered(this.id);
                }//screen = world.getScreen();
+               else
+               {
+                   Greenfoot.playSound("beep.wav");
+               }
             //screen.DisplayScreen("NumKey " + this.id + " clicked",220,200);
         }
     }

@@ -5,58 +5,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TransactionSummaryState implements State
+public class TransactionSummaryState extends ConcreteState
 {
-    private String stateName = "TransactionSummaryState";
-  GasPumpMachine gasPumpMachine;
 
   public TransactionSummaryState(GasPumpMachine gasPumpMachine) {
-    this.gasPumpMachine = gasPumpMachine;
+    super(gasPumpMachine);
+    stateName = "TransactionSummaryState";
   }
-    public String getStateName(){
-        return this.stateName;
-    }
-    
-    public State onDisplayButtonPress(String id){
-        return null;
-    }
-    
-    public State onNumberButtonPress(){
-        return null;
-    }
-    
-    public State onNozzleClick(){
-        return null;
-    }
     
     public State onCreditCardSwipe(String cardType){
         return new HasValidCreditCardState(this.gasPumpMachine);
     }
-    public String getStateFuelName(){
-        return null;
-    }
-    public State onFuelTypeClick(){
-        return null;
-    }
-    
-    public State onUnFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    public State onPrmFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    
-    public void insertCreditCard()
-	{
-	}
-    public void enterPinCode(String pin)
-	{
-	}
-
  
   public String toString() {
-    return "Waiting to pump fuel";
+    return "Printing transaction summary.";
   }
 }

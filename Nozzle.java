@@ -61,7 +61,7 @@ public class Nozzle extends Actor
             GasPumpMachine gpm = world.getGasPumpMachine();
             ScreenMessages screenMessages = new ScreenMessages(world);
             
-            State s = gpm.getState().onNozzleClick();
+            State s = gpm.getState().onNozzleDrag();
             if(s != null){
                 //gpm.setState(gpm.getNozzleUnlockState());
                 if(s.getClass().getName().equals("NozzleUnlockState")){

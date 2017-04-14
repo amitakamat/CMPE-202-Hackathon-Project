@@ -5,30 +5,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HasNoCreditCardState implements State
+public class HasNoCreditCardState extends ConcreteState
 {
-    private String stateName = "HasNoCreditCard";
-    GasPumpMachine gasPumpMachine;
 
-  public HasNoCreditCardState(GasPumpMachine gasPumpMachine) {
-    this.gasPumpMachine = gasPumpMachine;
+    public HasNoCreditCardState(GasPumpMachine gasPumpMachine) {
+        super(gasPumpMachine);
+        stateName = "HasNoCreditCard";
   }
-    public String getStateName(){
-        return this.stateName;
-    }
-    
-    public State onDisplayButtonPress(String id){
-        return null;
-    }
-    
-    public State onNumberButtonPress(){
-        return null;
-    }
-    
-    public State onNozzleClick(){
-        return null;
-    }
-    
+
     public State onCreditCardSwipe(String cardType){
         //System.out.println("In HasNoCreditCardState, on credit card swipe");
         if(cardType.equals("VisaCard") || cardType.equals("MasterCard"))
@@ -43,22 +27,7 @@ public class HasNoCreditCardState implements State
         }
         return null;
     }
-    public String getStateFuelName(){
-        return null;
-    }
-    public State onFuelTypeClick(){
-        return null;
-    }
-    
-  
-    public void insertCreditCard()
-    {
-    }
-    public void enterPinCode(String pin)
-    {
-    }
 
- 
   public String toString() {
     return "Waiting to pump fuel";
   }
