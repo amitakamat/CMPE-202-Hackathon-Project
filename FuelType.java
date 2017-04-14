@@ -17,6 +17,7 @@ public class FuelType extends Button
     private double fuelUnitCost = 0.0;
     private double fuelCost; 
     protected double unitCost;
+    double units;
             
 public FuelType(String id, String imagePath)
     {
@@ -41,7 +42,9 @@ public FuelType(String id, String imagePath)
                 fuelid = this.id;
                 switch(fuelid){
                     case "1":
+                        
                         screenMessages.getHasRegularFuelTypeScreen();
+                        
                         break;
                     case "2":
                         screenMessages.getHasUnleadedFuelTypeScreen();
@@ -55,5 +58,6 @@ public FuelType(String id, String imagePath)
               }    
         }
  }
+ 
 }
     

@@ -45,7 +45,7 @@ public class DisplayTransactionMessageState implements State
     public void enterPinCode(String pin)
 	{
 	}
-
+ 
 
   public String toString() {
     return "Waiting to pump fuel";

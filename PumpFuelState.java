@@ -18,6 +18,9 @@ public class PumpFuelState implements State
     }
     
     public State onDisplayButtonPress(String id){
+       
+        
+          
         return null;
     }
     
@@ -26,7 +29,9 @@ public class PumpFuelState implements State
     }
     
     public State onNozzleClick(){
-        return null;
+       //
+       //return null;
+       return new NozzleUnlockState(this.gasPumpMachine);
     }
     
     public State onCreditCardSwipe(String cardType){
@@ -39,22 +44,23 @@ public class PumpFuelState implements State
         return null;
     }
     
-    public State onUnFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    public State onPrmFuelTypeClick(){
-       // return new HasValidFuelType();
-       return null;
-    }
-    
+       
     public void insertCreditCard()
 	{
 	}
     public void enterPinCode(String pin)
 	{
 	}
-
+ public void  pressA(){
+          
+        }
+    
+     public void  pressB(){
+        
+        }
+        
+             public void  pressC(){
+                }
 
   public String toString() {
     return "Waiting to pump fuel";

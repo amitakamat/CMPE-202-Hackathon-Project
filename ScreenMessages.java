@@ -11,7 +11,7 @@ public class ScreenMessages extends Actor
      
     
     Screen screen ;
-    
+    Nozzle nozzle;
     static String num = "";
     
     public ScreenMessages(MyWorld world){
@@ -174,6 +174,13 @@ public class ScreenMessages extends Actor
        screen.DisplayScreen(nozzleImage, 280, 250, false);
    }
    
+   public void getCost()
+   {
+       DisplayMessage beginMessage2 = new DisplayMessage();
+       beginMessage2.setText("final cost is" + nozzle.fuelCost);
+       screen.DisplayScreen(beginMessage2, 230, 160, true);
+       // nozzle.FuelCalculate1(); 
+   }
    public void DisplayZipcodeEntered(String id){
        screen.displayNumber(id);
     }

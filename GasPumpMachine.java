@@ -13,6 +13,11 @@ public class GasPumpMachine {
   State hasFuelState;
   State state = hasNoCreditCardState;
   float count = 0;
+  double units = 5;
+    private boolean hasCarWash;
+    private double fuelUnitCost = 1.0;
+    public double fuelCost; 
+   /// protected double unitCost;
   
   final String zipcode = "94085";
   
@@ -149,5 +154,22 @@ public State gethasValidZipCodeState() {
   state.enterPinCode(num);
   
   }
+  
+  public void setFuelType(double unitCost)
+    {
+        fuelUnitCost = unitCost;
+    }
+    
+    public double getFuelTypeCost() 
+    {
+        return fuelUnitCost;
+    }
+    
+    
+ public void calculateFuelCost(int units) 
+    {
+         fuelCost = fuelUnitCost*units;
+        
+    }
   
 }

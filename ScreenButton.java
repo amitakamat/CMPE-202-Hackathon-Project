@@ -51,7 +51,7 @@ public class ScreenButton extends Button
             //    world.fuel = fuel;
               //String stateFuelName = world.state.getStateFuelName();
                 
-                if(stateName == "HasValidFuelType"){
+                if(stateName == "HasFuelState"){
                     screenMessages.getNoCreditCardScreen();
                 }
                 

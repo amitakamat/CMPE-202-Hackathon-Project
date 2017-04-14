@@ -41,6 +41,7 @@ public class HasNoValidFuelType  implements State
     public void insertCreditCard()
 	{
 	}
+	
     public void enterPinCode(String pin)
 	{
 	}

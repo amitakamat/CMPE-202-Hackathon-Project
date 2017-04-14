@@ -86,7 +86,6 @@ public class HasValidCreditCardState implements State
    else  return false;
     }
 
-
   public String toString() {
     return "Waiting to pump fuel";
   }

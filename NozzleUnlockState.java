@@ -18,7 +18,8 @@ public class NozzleUnlockState implements State
     }
     
     public State onDisplayButtonPress(String id){
-        return null;
+        
+         return null;
     }
     
     public State onNumberButtonPress(){

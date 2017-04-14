@@ -49,7 +49,7 @@ public class FuelMenuState implements State
 	{
 	}
 
-
+ 
   public String toString() {
     return "Waiting to pump fuel";
   }

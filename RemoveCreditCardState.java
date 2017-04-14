@@ -54,7 +54,16 @@ public class RemoveCreditCardState implements State
     public void enterPinCode(String pin)
 	{
 	}
-
+ public void  pressA(){
+          
+        }
+    
+     public void  pressB(){
+        
+        }
+        
+             public void  pressC(){
+                }
 
   public String toString() {
     return "Waiting to pump fuel";

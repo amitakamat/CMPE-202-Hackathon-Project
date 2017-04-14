@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class MyWorld extends World
 {
+    
     Screen screen = new Screen();
     // 8 buttons to the left and right of the Screen
     
@@ -98,7 +99,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 1000, 1); 
-        createDisplay();
+                createDisplay();
         prepare();
     }
 

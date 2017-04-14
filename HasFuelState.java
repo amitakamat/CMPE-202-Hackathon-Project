@@ -39,6 +39,7 @@ public class HasFuelState implements State
     }
     
     public State onNozzleClick(){
+        //return new PumpFuelState(this.gasPumpMachine);
         return null;
     }
     
@@ -60,4 +61,5 @@ public class HasFuelState implements State
     public void enterPinCode(String pin)
     {
     }
+    
 }
