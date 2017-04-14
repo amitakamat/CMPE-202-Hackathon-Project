@@ -18,6 +18,6 @@ public class TransactionSummaryState extends ConcreteState
     }
  
   public String toString() {
-    return "Printing transaction summary.";
+    return "TransactionSummaryState";
   }
 }

@@ -34,6 +34,6 @@ public class PumpFuelState extends ConcreteState
                  }
 
   public String toString() {
-    return "Waiting to pump fuel";
+    return "PumpFuelState";
   }
 }

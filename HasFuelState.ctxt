@@ -6,4 +6,6 @@ comment1.target=HasFuelState(GasPumpMachine)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ HasFuelType\r\n
 comment2.params=id
 comment2.target=State\ onDisplayButtonPress(java.lang.String)
-numComments=3
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

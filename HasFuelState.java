@@ -32,5 +32,7 @@ public class HasFuelState extends ConcreteState
           
         return null;
     }
-    
+    public String toString() {
+    return "HasFuelState";
+  }  
 }

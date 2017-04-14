@@ -21,8 +21,9 @@ public class Nozzle extends Actor
     FuelType fueltype;
     ScreenButton button;
     String bid;
-    
+    long startTime,endTime;
     private boolean isGrabbed;
+    boolean startTimeSet = false;
  //   String fuelid;
     String id;
      public Nozzle()
@@ -35,46 +36,47 @@ public class Nozzle extends Actor
     public void act() 
     {
         int mouseX, mouseY;
-    
-    if(Greenfoot.mouseDragged(this)){
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-        mouseX = mouse.getX();
-        mouseY = mouse.getY();
-        setLocation(mouseX,mouseY);
-        FuelDispense();
-        
-    }
-        
-   // if(Greenfoot.mouseDragEnded(this)){
-   //     setLocation(850,380);
-    //       PromptReceipt();
-          //  FuelCalculate();
-     //               }
-                    
-    //if(Greenfoot.mouseDragged(this) && Greenfoot.mouseDragEnded(this))
-    if(Greenfoot.mouseDragEnded(this)){
-    {
-            super.act();
-            
-           // Greenfoot.delay(100);
             MyWorld world = (MyWorld)getWorld();   
             GasPumpMachine gpm = world.getGasPumpMachine();
             ScreenMessages screenMessages = new ScreenMessages(world);
-            
-            State s = gpm.getState().onNozzleDrag();
-            if(s != null){
+            State s = gpm.getState();
+            if(s.getClass().getName().equals("PumpFuelState"))
+            {
+               if(Greenfoot.mouseDragged(this)){
+                MouseInfo mouse = Greenfoot.getMouseInfo();
+                mouseX = mouse.getX();
+                mouseY = mouse.getY();
+                setLocation(mouseX,mouseY);
+                if(!startTimeSet)
+                    startTime = System.nanoTime();
+                System.out.println("start:"+startTime);
+                FuelDispense();
+                }
+                
+              if(Greenfoot.mouseDragEnded(this))
+              {
+               super.act();
+               endTime = System.nanoTime();
+              System.out.println("end:"+endTime);
+              long elapsedTime = endTime - startTime;
+              System.out.println(elapsedTime/1000000000.0); 
+              State s1 = gpm.getState().onNozzleDrag();
+              System.out.println(gpm.getState());
+              if(s1 != null)
+              {
                 //gpm.setState(gpm.getNozzleUnlockState());
-                if(s.getClass().getName().equals("NozzleUnlockState")){
+                  if(s1.getClass().getName().equals("NozzleUnlockState")){
                    
                         FuelCalculate1();
-                        
-                    
-                }
+                  }
                          
         
-              }    
-        }   
-    }
+              }       
+             }
+                
+            }            
+    //if(Greenfoot.mouseDragged(this) && Greenfoot.mouseDragEnded(this))
+
 }
     
     public void FuelDispense(){
