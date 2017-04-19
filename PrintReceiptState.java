@@ -22,4 +22,26 @@ public class PrintReceiptState extends ConcreteState
   public String toString() {
     return "Waiting to pump fuel";
   }
+  
+  
+    
+    public State onDisplayButtonPress(String id){
+
+        if(id == "7")
+        {
+            
+           
+                gasPumpMachine.setState(gasPumpMachine.getHasValidZipCodeState());
+                return gasPumpMachine.getState();
+           
+        }
+        if (id == "8")
+        {
+            gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
+            return gasPumpMachine.getState();
+        }
+    
+        return null;
+    }
+ 
 }
