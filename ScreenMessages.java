@@ -195,4 +195,24 @@ public class ScreenMessages extends Actor
    public void DisplayZipcodeEntered(String id){
        screen.displayNumber(id);
     }
+     public void printReceipt()
+    {
+        DisplayMessage receipt = new DisplayMessage();
+        receipt.setText("Do you want to print your reeipt");
+        screen.DisplayScreen(receipt, 230, 160, true);
+        
+        //DisplayMessage zipCode2 = new DisplayMessage();
+        //zipCode2.setText("Zip Code");
+        //screen.DisplayScreen(zipCode2, 260, 190, false);
+        
+        DisplayMessage submitMessage = new DisplayMessage();
+        submitMessage.setText("yes >>");
+        screen.DisplayScreen(submitMessage, 360, 250, false);
+
+        DisplayMessage cancelMessage = new DisplayMessage();
+        cancelMessage.setText("no >>");
+        screen.DisplayScreen(cancelMessage, 360, 310, false);
+    }
+    
+    
 }

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ScreenMessages
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ ScreenMessages\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ ScreenMessages\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=world
 comment1.target=ScreenMessages(MyWorld)
 comment10.params=
@@ -13,6 +13,8 @@ comment13.params=
 comment13.target=void\ getCost()
 comment14.params=id
 comment14.target=void\ DisplayZipcodeEntered(java.lang.String)
+comment15.params=
+comment15.target=void\ printReceipt()
 comment2.params=
 comment2.target=void\ getNoCreditCardScreen()
 comment3.params=
@@ -29,4 +31,4 @@ comment8.params=
 comment8.target=void\ getHasValidZipCodeScreen()
 comment9.params=
 comment9.target=void\ getHasRegularFuelTypeScreen()
-numComments=15
+numComments=16
