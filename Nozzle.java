@@ -90,16 +90,26 @@ public class Nozzle extends Actor
     
     public void FuelCalculate1(){
         MyWorld world = (MyWorld)getWorld();
+        //Screen screen = world.getScreen();
+        
         fueldisplay = world.getFuelDisplayScreen();
         DisplayMessage gasPumpingCost = new DisplayMessage();
+        //DisplayMessage printDisplay = new DisplayMessage();
+        
        
             GasPumpMachine gpm = world.getGasPumpMachine();
             //generate random number 1-20 units of fuel added.
         gpm.calculateFuelCost(new Random().nextInt(15)+1);
-                  gasPumpingCost.setText("Card has been charged" +  "$" +gpm.fuelCost );
+                  gasPumpingCost.setText("Please pay " +  "$" +gpm.fuelCost );
         // setImage( new GreenfootImage("cost"+ fuelCost, 30,null,null));
         //gasPumpingCost.setText("Cost Calculation");
-        fueldisplay.DisplayScreen(gasPumpingCost,250,25, true);
+        fueldisplay.DisplayScreen(gasPumpingCost,280,25, true);
+      
+   
+        ScreenMessages screenMessages = new ScreenMessages(world);
+        screenMessages.printReceipt();
+        gpm.setState(gpm.getPrintReceiptState());
+        
       
     }    
     

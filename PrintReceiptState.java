@@ -14,25 +14,14 @@ public class PrintReceiptState extends ConcreteState
     super(gasPumpMachine);
     stateName = "PrintReceiptState";
   }
-    
-    public State onCreditCardSwipe(String cardType){
-        return new HasValidCreditCardState(this.gasPumpMachine);
-    }
-
-  public String toString() {
-    return "Waiting to pump fuel";
-  }
   
-  
-    
-    public State onDisplayButtonPress(String id){
+  public State onDisplayButtonPress(String id){
 
         if(id == "7")
         {
-            
            
-                gasPumpMachine.setState(gasPumpMachine.getHasValidZipCodeState());
-                return gasPumpMachine.getState();
+           
+               
            
         }
         if (id == "8")
@@ -43,5 +32,12 @@ public class PrintReceiptState extends ConcreteState
     
         return null;
     }
- 
+    
+    public State onCreditCardSwipe(String cardType){
+        return new HasValidCreditCardState(this.gasPumpMachine);
+    }
+
+  public String toString() {
+    return "Waiting to pump fuel";
+  }
 }
