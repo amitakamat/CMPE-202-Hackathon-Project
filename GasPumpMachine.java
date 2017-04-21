@@ -12,18 +12,19 @@ public class GasPumpMachine {
   State removeCreditCardState;
   State hasFuelState;
   State state = hasNoCreditCardState;
+  State hasCarWashState;
   float count = 0;
   double units = 5;
-    private boolean hasCarWash;
-    private double fuelUnitCost = 1.0;
-    public double fuelCost; 
+  private boolean hasCarWash = false;
+  private double fuelUnitCost = 1.0;
+  public double fuelCost; 
    /// protected double unitCost;
   
   final String zipcode = "94085";
   
   String enteredZip="";
 
-    State hasValidZipCodeState;
+  State hasValidZipCodeState;
 
   public GasPumpMachine(float quantityOfFuel) 
   {
@@ -38,22 +39,22 @@ public class GasPumpMachine {
       displayTransactionMessageState = new DisplayTransactionMessageState(this);
       removeCreditCardState = new RemoveCreditCardState(this); 
       hasFuelState = new HasFuelState(this);
+      hasCarWashState = new HasCarWashState(this);
       
       hasValidZipCodeState = new HasValidZipCode(this);
       
       this.count = quantityOfFuel;
-    if (quantityOfFuel > 0) {
-      state = hasNoCreditCardState;
-    }
+      if (quantityOfFuel > 0) 
+      {
+          state = hasNoCreditCardState;
+      }
   }
   
     public State onDisplayButtonPress(String id){
-        //System.out.println("In GPM, onDisplayButtonPress");
         return state.onDisplayButtonPress(id);
     }
 
     public State onCreditCardSwipe(String cardType){
-      //System.out.println("In GPM, on credit card swipe");
       return state.onCreditCardSwipe(cardType);
       
     }
@@ -67,7 +68,6 @@ public class GasPumpMachine {
     }
     
     public State onFuelTypeClick(){
-        //state.onFuelTypeClick();
         return hasFuelState;
     }
     
@@ -128,9 +128,14 @@ public class GasPumpMachine {
     return hasFuelState;
   }
     
-public State getHasValidZipCodeState() { 
+  public State getHasValidZipCodeState() { 
     return hasValidZipCodeState;
   }
+
+  public State getHasCarWashState() { 
+    return hasCarWashState;
+  }
+  
   public String toString() {
     StringBuffer result = new StringBuffer();
     result.append("\nGas Pump, Inc.");
@@ -141,27 +146,35 @@ public State getHasValidZipCodeState() {
     return result.toString();
   }
 
-  public void setEnteredZip(String num){
-  
-  state.enterPinCode(num);
-  
+  public void setEnteredZip(String num)
+  {
+      state.enterPinCode(num);
   }
   
   public void setFuelType(double unitCost)
-    {
-        fuelUnitCost = unitCost;
-    }
+  {
+      fuelUnitCost = unitCost;
+  }
     
-    public double getFuelTypeCost() 
-    {
-        return fuelUnitCost;
-    }
+  public double getFuelTypeCost() 
+  {
+      return fuelUnitCost;
+  }
+  
+  public void setHasCarWash(boolean carWashSelected)
+  {
+      hasCarWash = carWashSelected;
+  }
+    
+  public boolean getHasCarWash() 
+  {
+      return hasCarWash;
+  }
     
     
  public void calculateFuelCost(int units) 
-    {
-         fuelCost = fuelUnitCost*units;
-        
-    }
+ {
+     fuelCost = fuelUnitCost*units;   
+ }
   
 }

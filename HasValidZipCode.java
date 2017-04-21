@@ -13,28 +13,20 @@ public class HasValidZipCode extends ConcreteState
         stateName = "HasValidZipCode";
     }
     
-    public String getStateName(){
-        return this.stateName;
-    }
-    
     public State onDisplayButtonPress(String id){
 
         if(id == "7")
         {
-                //help to do
-
+            gasPumpMachine.setHasCarWash(true);
+            //gasPumpMachine.setState(gasPumpMachine.getHasCarWashState());
+            return gasPumpMachine.getHasCarWashState();
         }
         if (id == "8")
         {
-            gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
-            return gasPumpMachine.getState();
+            gasPumpMachine.setHasCarWash(false);
+            //gasPumpMachine.setState(gasPumpMachine.getHasCarWashState());
+            return gasPumpMachine.getHasCarWashState();
         }
         return null;
     }
-    
-    public State onFuelTypeClick(){
-            gasPumpMachine.setState(gasPumpMachine.getHasFuelState());
-            return gasPumpMachine.getState();        
-        }
-
 }

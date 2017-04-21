@@ -14,11 +14,9 @@ public class ScreenMessages extends Actor
     Nozzle nozzle;
     static String num = "";
     
-    public ScreenMessages(MyWorld world){
-         
+    public ScreenMessages(MyWorld world)
+    {
         screen = world.getScreen();
-        //screen = world.getObjects(Screen.class).get(0);
-        
     }
     
     public void getNoCreditCardScreen() 
@@ -193,7 +191,7 @@ public class ScreenMessages extends Actor
        // nozzle.FuelCalculate1(); 
    }
   
-     public void printReceipt()
+    public void printReceipt()
     {
         DisplayMessage receipt = new DisplayMessage();
         receipt.setText("Do you want to print your receipt");
@@ -212,9 +210,9 @@ public class ScreenMessages extends Actor
         screen.DisplayScreen(cancelMessage, 360, 310, false);
     }
     
-     public void reciptPrinted()
+    public void reciptPrinted()
     {
-           DisplayMessage welcomeMessage1 = new DisplayMessage();
+        DisplayMessage welcomeMessage1 = new DisplayMessage();
         welcomeMessage1.setText("Receipt Printed");
         screen.DisplayScreen(welcomeMessage1, 230, 140, false);
         
@@ -223,8 +221,35 @@ public class ScreenMessages extends Actor
         screen.DisplayScreen(welcomeMessage2, 230, 160, false);
         
         DisplayMessage welcomeMessage3 = new DisplayMessage();
-        welcomeMessage3.setText("Thank you!Visit again.");
+        welcomeMessage3.setText("Thank you! Visit again.");
         screen.DisplayScreen(welcomeMessage3, 240, 190, false);
+    }
+    
+    public void getCarWashScreen()
+    {
+        DisplayMessage carWash1 = new DisplayMessage();
+        carWash1.setText("Do you want a car wash?");
+        screen.DisplayScreen(carWash1, 220, 140, true);
+        
+        DisplayMessage carWash2 = new DisplayMessage();
+        carWash2.setText("Offer for car wash:");
+        screen.DisplayScreen(carWash2, 240, 170, false);
+        
+        DisplayMessage carWash3 = new DisplayMessage();
+        carWash3.setText("You will get a 10%");
+        screen.DisplayScreen(carWash3, 240, 190, false);
+        
+        DisplayMessage carWash4 = new DisplayMessage();
+        carWash4.setText(" discount on fuel!");
+        screen.DisplayScreen(carWash4, 240, 210, false);
+        
+        DisplayMessage yesMessage = new DisplayMessage();
+        yesMessage.setText("Yes >>");
+        screen.DisplayScreen(yesMessage, 360, 250, false);
+
+        DisplayMessage noMessage = new DisplayMessage();
+        noMessage.setText("No >>");
+        screen.DisplayScreen(noMessage, 360, 310, false);
     }
     
     

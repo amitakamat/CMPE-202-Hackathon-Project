@@ -3,7 +3,7 @@ If not used remove them.
 
 2. Fix total cost calculation - Amita
 
-3. Add car wash functionality - Amita
+3. Calculate discount price if car wash selected - Amita
 
 4. Draw class diagram - Nethra
 
@@ -12,3 +12,5 @@ If not used remove them.
 6. Add functionality for Yes, No, Help, Cancel buttons on keypad - Pavana/ Mohammed
 
 7. Add Help screen message
+
+8. Add car wash code in receipt if car wash selected - Siddharth

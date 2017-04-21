@@ -27,17 +27,18 @@ public class Button extends Actor
     public void submit(String id){
         MyWorld world = (MyWorld)getWorld();
         GasPumpMachine gpm = world.getGasPumpMachine();
-        //System.out.println("In screen button");
         State state = gpm.onDisplayButtonPress(this.id);
-
-        //StateFuel fuel = world.fuel.onFuelButtonPress(this.id);
-        //StateFuel fuel = world.fuel.onFuelButtonPress(this.id);
         if(state != null){
             gpm.setState(state);
             String stateName = gpm.state.getStateName();
             ScreenMessages screenMessages = new ScreenMessages(world);
 
             if(stateName == "HasValidZipCode")
+            {
+                screenMessages.getCarWashScreen();
+            }
+            
+            if(stateName == "HasCarWashState")
             {
                 screenMessages.getHasValidZipCodeScreen();
             }

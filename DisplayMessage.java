@@ -10,7 +10,7 @@ public class DisplayMessage extends Actor
 {GreenfootImage gi;
     public DisplayMessage()
     {
-        gi = new GreenfootImage(250,120);
+        gi = new GreenfootImage(270,120);
         setImage(gi);
     }
     
