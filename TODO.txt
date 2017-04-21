@@ -1,0 +1,10 @@
+1. Where are states "DisplayTransactionMessageState" and "FuelMenuState" used?
+If not used remove them.
+
+2. Fix total cost calculation
+
+3. Add car wash functionality - Amita
+
+4. Draw class diagram - Nethra
+
+5. Add print receipt functionality  - Siddharth
