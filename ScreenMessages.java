@@ -192,9 +192,7 @@ public class ScreenMessages extends Actor
        screen.DisplayScreen(beginMessage2, 230, 160, true);
        // nozzle.FuelCalculate1(); 
    }
-   public void DisplayZipcodeEntered(String id){
-       screen.displayNumber(id);
-    }
+  
      public void printReceipt()
     {
         DisplayMessage receipt = new DisplayMessage();

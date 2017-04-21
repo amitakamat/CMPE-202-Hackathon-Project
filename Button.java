@@ -11,7 +11,7 @@ public class Button extends Actor
     int width;
     int height;
     String id;
-    
+
     /**
      * Act - do whatever the Button wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -23,4 +23,45 @@ public class Button extends Actor
             Greenfoot.playSound("beep.wav");
         }
     }    
+
+    public void submit(String id){
+        MyWorld world = (MyWorld)getWorld();
+        GasPumpMachine gpm = world.getGasPumpMachine();
+        //System.out.println("In screen button");
+        State state = gpm.onDisplayButtonPress(this.id);
+
+        //StateFuel fuel = world.fuel.onFuelButtonPress(this.id);
+        //StateFuel fuel = world.fuel.onFuelButtonPress(this.id);
+        if(state != null){
+            gpm.setState(state);
+            String stateName = gpm.state.getStateName();
+            ScreenMessages screenMessages = new ScreenMessages(world);
+
+            if(stateName == "HasValidZipCode")
+            {
+                screenMessages.getHasValidZipCodeScreen();
+            }
+
+            if(stateName == "HasNoCreditCard"){
+                screenMessages.getNoCreditCardScreen();
+            }
+
+            if(stateName == "RemoveCreditCardState"){
+                screenMessages.getRemoveCreditCardScreen();
+            }
+            //if(fuel != null)
+            //    world.fuel = fuel;
+            //String stateFuelName = world.state.getStateFuelName();
+
+            if(stateName == "HasFuelState"){
+                screenMessages.getNoCreditCardScreen();
+            }
+
+            if(stateName == "PumpFuelState")
+            {
+                screenMessages.getBeginFueling();
+            }
+
+        }
+    }
 }

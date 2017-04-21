@@ -15,17 +15,17 @@ public class HasValidCreditCardState extends ConcreteState
         super(gpm);
         stateName = "HasValidCreditCard";
     }
-    
+
     public State onDisplayButtonPress(String id){
 
-        if(id == "7")
+        if(id.equals("7")|| id.equals("enter"))
         {
             if(validatezipcode())
             {
                 gasPumpMachine.setState(gasPumpMachine.getHasValidZipCodeState());
                 return gasPumpMachine.getState();
             }
-        else{
+            else{
                 gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
                 return gasPumpMachine.getState();
             }
@@ -35,26 +35,27 @@ public class HasValidCreditCardState extends ConcreteState
             gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
             return gasPumpMachine.getState();
         }
-    
+
         return null;
     }
+
     public State onNumberButtonPress(String id){
-       return null;
+        return null;
     }
-    
+
     public void enterPinCode(String pin)
     {
         enteredpin= pin;
     }
-    
+
     public boolean validatezipcode(){
-    if(this.PIN.equals(this.enteredpin)){
-        return true;
-    }
-   else  return false;
+        if(this.PIN.equals(this.enteredpin)){
+            return true;
+        }
+        else  return false;
     }
 
-  public String toString() {
-    return "Selecting fuel type";
-  }
+    public String toString() {
+        return "Selecting fuel type";
+    }
 }

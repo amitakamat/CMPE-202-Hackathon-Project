@@ -9,10 +9,10 @@ import java.util.List;
  */
 public class NumKeyButton extends Button
 { 
-            
+
     GreenfootImage gi;
-   //ScreenMessages screenmsgs = new ScreenMessages();
-            
+    //ScreenMessages screenmsgs = new ScreenMessages();
+
     public NumKeyButton(String id, String imagePath)
     {
         this.id = id;
@@ -20,23 +20,31 @@ public class NumKeyButton extends Button
         setImage(gi);
         gi.scale( 50, 50) ;
     }
+
     public void act() 
     {
-       if (Greenfoot.mousePressed(this))
+        if (Greenfoot.mousePressed(this))
         {
-               super.act();
-               MyWorld world = (MyWorld)getWorld();
-               ScreenMessages screenMessages = new ScreenMessages(world);
-               GasPumpMachine  gpm = world.getGasPumpMachine();
-               //gpm.
-               if(gpm.getState().getStateName()=="HasValidCreditCard")
-               {
-                 screenMessages.DisplayZipcodeEntered(this.id);
-               }//screen = world.getScreen();
-               else
-               {
-                   Greenfoot.playSound("beep.wav");
-               }
+            super.act();
+            MyWorld world = (MyWorld)getWorld();
+            Screen screen=world.getScreen();
+            GasPumpMachine  gpm = world.getGasPumpMachine();
+            //gpm.
+            if(gpm.getState().getStateName()=="HasValidCreditCard")
+            {
+                if(this.id=="enter"){
+
+                    super.submit(this.id);
+                }
+                else if(this.id!="yes"&&this.id!="no"&&this.id!="help"&&this.id!="cancel"){
+                    screen.displayNumber(this.id);
+                }
+
+            }//screen = world.getScreen();
+            else
+            {
+                Greenfoot.playSound("beep.wav");
+            }
             //screen.DisplayScreen("NumKey " + this.id + " clicked",220,200);
         }
     }

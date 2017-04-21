@@ -14,55 +14,63 @@ public class Screen extends Actor
     DisplayMessage  msg;
     String number="";
     int count=0;
-    
+
     public Screen()
     {
-      msg = new DisplayMessage();
-      GreenfootImage image = getImage() ;
-      image.scale( 300, 300) ;
-      
+        msg = new DisplayMessage();
+        GreenfootImage image = getImage() ;
+        image.scale( 300, 300) ;
+
     }
-    
+
     public void DisplayScreen(DisplayMessage msg,int x,int y, boolean clearScreen)
     {
-       world = (MyWorld)getWorld();
-       if(clearScreen){
-           List<DisplayMessage> messages = world.getObjects(DisplayMessage.class);
-           if(messages.size() > 0){
-               world.removeObjects(messages);
-           }
-       }
-       world.addObject(msg,x,y);
-       
-    }
-    
-    public void displayNumber(String num){
-        
-        count++;
-        
-        
-        if(count<=5){
-        DisplayScreen(msg, 230, 310, false);   
-        number = number + num;
-        msg.setText(number);
-        
-            if(count==5){
-                GasPumpMachine gpm = world.getGasPumpMachine();
-                gpm.setEnteredZip(number);
-                
+        world = (MyWorld)getWorld();
+        if(clearScreen){
+            List<DisplayMessage> messages = world.getObjects(DisplayMessage.class);
+            if(messages.size() > 0){
+                world.removeObjects(messages);
             }
-            
-            
         }
-        
-        else{
-        number = "";
-        count = 0;
-        msg.setText("invalid pin enter again" );
-        DisplayScreen(msg, 230, 310, false);
+        world.addObject(msg,x,y);
+
+    }
+
+    public void displayNumber(String num){
+
+        if(num=="clear"){
+            count= count-1;
+            number = number.substring(0,number.length()-1);
+            msg.setText(number);
+            DisplayScreen(msg, 230, 310, false);   
+        }
+
+        else 
+        {            
+
+            if(count<=5){
+
+                count++;    
+                number = number + num;
+                msg.setText(number);
+                DisplayScreen(msg, 230, 310, false);  
+                if(count==5){
+                    GasPumpMachine gpm = world.getGasPumpMachine();
+                    gpm.setEnteredZip(number);
+
+                }
+
+            }
+            else
+            {
+                number = "";
+                count = 0;
+                msg.setText("invalid pin enter again" );
+                DisplayScreen(msg, 230, 310, false);
+            }
         }
     }
-    
+
     public void act() 
     {
         // Add your action code here.
