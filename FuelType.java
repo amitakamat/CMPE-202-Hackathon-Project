@@ -31,7 +31,6 @@ public FuelType(String id, String imagePath)
        if (Greenfoot.mousePressed(this))
         {
             super.act();
-            Greenfoot.delay(100);
             MyWorld world = (MyWorld)getWorld();   
             GasPumpMachine gpm = world.getGasPumpMachine();
             ScreenMessages screenMessages = new ScreenMessages(world);
