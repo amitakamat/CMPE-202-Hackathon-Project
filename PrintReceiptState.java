@@ -11,7 +11,9 @@ public class PrintReceiptState extends ConcreteState
  Receipt receipt= new Receipt();
 
   public PrintReceiptState(GasPumpMachine gasPumpMachine) {
+      
     super(gasPumpMachine);
+    
     stateName = "PrintReceiptState";
   }
   
@@ -28,8 +30,9 @@ public class PrintReceiptState extends ConcreteState
         //welcomeMessage1.setText("Hello");
            //screenMessages.DisplayReceipt(welcomeMessage1,400,300);
            //world.addObject(receipt,300,220);
-          
-           // world.addObject(receipt, 350,570);
+         
+           //gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
+           // return gasPumpMachine.getState();
            
                
            

@@ -8,8 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ReceiptPrinter extends Actor
 {
-    //DisplayMessage  msg;
-     // MyWorld world=getWorld();
+    
      public ReceiptPrinter()
     {
         
@@ -18,6 +17,10 @@ public class ReceiptPrinter extends Actor
       image.scale( 95,20) ;
     }
     
+    public void act()
+    {
+        
 
-   
+    }
 }
+    
