@@ -174,6 +174,16 @@ public class GasPumpMachine {
     
  public void calculateFuelCost(int units) 
  {
+     double actualCost = fuelUnitCost*units;
+     if(hasCarWash)
+     {
+          
+         fuelCost = actualCost - (0.1*actualCost);
+     }
+     else
+     {
+         fuelCost = actualCost;
+     }
      fuelCost = fuelUnitCost*units;   
  }
   
