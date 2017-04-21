@@ -109,7 +109,7 @@ public class Nozzle extends Actor
         ScreenMessages screenMessages = new ScreenMessages(world);
         screenMessages.printReceipt();
         gpm.setState(gpm.getPrintReceiptState());
-         System.out.println(gpm.getState());
+        
         
       
     }    

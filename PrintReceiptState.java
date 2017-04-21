@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  */
 public class PrintReceiptState extends ConcreteState
 {
-//MyWorld world = getWorld();
+//MyWorld world = (MyWorld)getWorld();  
  Receipt receipt= new Receipt();
 
   public PrintReceiptState(GasPumpMachine gasPumpMachine) {
@@ -19,6 +19,7 @@ public class PrintReceiptState extends ConcreteState
 
         if(id == "7")
         {
+            //MyWorld world = getWorld();
           // Receipt receipt=new Receipt();
              //addObject(receipt,300,220);
             // getWorld().addObject(receipt, 350,570);
@@ -28,7 +29,7 @@ public class PrintReceiptState extends ConcreteState
            //screenMessages.DisplayReceipt(welcomeMessage1,400,300);
            //world.addObject(receipt,300,220);
           
-            getWorld().addObject(receipt, 350,570);
+           // world.addObject(receipt, 350,570);
            
                
            
