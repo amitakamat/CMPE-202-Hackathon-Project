@@ -42,6 +42,7 @@ public class ScreenButton extends Button
                     screenMessages.getHasValidZipCodeScreen();
                 }
                 
+             
                 if(stateName == "HasNoCreditCard"){
                     screenMessages.getNoCreditCardScreen();
                 }

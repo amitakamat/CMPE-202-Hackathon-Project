@@ -36,11 +36,11 @@ public class ScreenMessages extends Actor
     {
         DisplayMessage welcomeMessage1 = new DisplayMessage();
         welcomeMessage1.setText("Please take your card.");
-        screen.DisplayScreen(welcomeMessage1, 230, 160, true);
+        screen.DisplayScreen(welcomeMessage1, 210, 160, true);
         
         DisplayMessage welcomeMessage2 = new DisplayMessage();
         welcomeMessage2.setText("Thank you!Visit again.");
-        screen.DisplayScreen(welcomeMessage2, 240, 190, false);
+        screen.DisplayScreen(welcomeMessage2, 220, 190, false);
     }    
     
     public void getHasNoValidFuelTypeScreen() 
@@ -198,7 +198,7 @@ public class ScreenMessages extends Actor
      public void printReceipt()
     {
         DisplayMessage receipt = new DisplayMessage();
-        receipt.setText("Do you want to print your reeipt");
+        receipt.setText("Do you want to print your receipt");
         screen.DisplayScreen(receipt, 230, 160, false);
         
        // DisplayMessage zipCode2 = new DisplayMessage();
@@ -213,6 +213,23 @@ public class ScreenMessages extends Actor
         cancelMessage.setText("Cancel >>");
         screen.DisplayScreen(cancelMessage, 360, 310, false);
     }
+    
+     public void reciptPrinted()
+    {
+           DisplayMessage welcomeMessage1 = new DisplayMessage();
+        welcomeMessage1.setText("Receipt Printed");
+        screen.DisplayScreen(welcomeMessage1, 230, 140, false);
+        
+        DisplayMessage welcomeMessage2 = new DisplayMessage();
+        welcomeMessage2.setText("Please take your card.");
+        screen.DisplayScreen(welcomeMessage2, 230, 160, false);
+        
+        DisplayMessage welcomeMessage3 = new DisplayMessage();
+        welcomeMessage3.setText("Thank you!Visit again.");
+        screen.DisplayScreen(welcomeMessage3, 240, 190, false);
+    }
+    
+    
     
     
 }

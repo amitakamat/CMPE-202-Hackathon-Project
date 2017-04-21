@@ -7,8 +7,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  */
 public class PrintReceiptState extends ConcreteState
 {
-
-
+//MyWorld world = getWorld();
+ Receipt receipt= new Receipt();
 
   public PrintReceiptState(GasPumpMachine gasPumpMachine) {
     super(gasPumpMachine);
@@ -19,7 +19,16 @@ public class PrintReceiptState extends ConcreteState
 
         if(id == "7")
         {
-           
+          // Receipt receipt=new Receipt();
+             //addObject(receipt,300,220);
+            // getWorld().addObject(receipt, 350,570);
+           // ScreenMessages screenMessages = new ScreenMessages(world);
+           //DisplayMessage welcomeMessage1 = new DisplayMessage();
+        //welcomeMessage1.setText("Hello");
+           //screenMessages.DisplayReceipt(welcomeMessage1,400,300);
+           //world.addObject(receipt,300,220);
+          
+            getWorld().addObject(receipt, 350,570);
            
                
            
@@ -38,6 +47,6 @@ public class PrintReceiptState extends ConcreteState
     }
 
   public String toString() {
-    return "Waiting to pump fuel";
+    return "PrintReceiptState";
   }
 }
