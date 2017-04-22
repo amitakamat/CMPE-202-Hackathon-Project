@@ -25,8 +25,9 @@ GasPumpMachine gpm;
         {
             //System.out.println("hello sid");
              String s=String.valueOf(gpm.fuelCost);
-            Receipt receipt=new Receipt(gpm.fuelCost);
-            
+            Receipt receipt1=new Receipt();
+            Receipt receipt2=new Receipt();
+            receipt1.setText(s);
            System.out.println(gpm.fuelCost);
            //setImage(new GreenfootImage(, 20, 
                                    // Color.WHITE, Color.BLACK));
@@ -35,10 +36,11 @@ GasPumpMachine gpm;
             //world=  getWorldOfTypnew MyWorld();
             //world.addObject(receipt,500,500);
           
-            receipt.setImage(new GreenfootImage(s, 20, 
-                                    Color.WHITE, Color.BLACK));
+           // receipt.setImage(new GreenfootImage(s, 20, 
+             //                       Color.WHITE, Color.BLACK));
             gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
-            world.addObject(receipt,600,450);
+            world.addObject(receipt2,600,450);
+            world.addObject(receipt1,600,450);
             return gasPumpMachine.getState();
             //System.out.println("hello sid");
             //gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
