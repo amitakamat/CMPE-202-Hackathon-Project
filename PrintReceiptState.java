@@ -7,13 +7,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  */
 public class PrintReceiptState extends ConcreteState
 {
-//MyWorld world = (MyWorld)getWorld();  
- Receipt receipt= new Receipt();
 
-  public PrintReceiptState(GasPumpMachine gasPumpMachine) {
-      
+MyWorld world;
+GasPumpMachine gpm;
+
+  public PrintReceiptState(GasPumpMachine gasPumpMachine, MyWorld w) {
+     
     super(gasPumpMachine);
-    
+    gpm = gasPumpMachine;
+   world=w;
     stateName = "PrintReceiptState";
   }
   
@@ -21,10 +23,30 @@ public class PrintReceiptState extends ConcreteState
 
         if(id == "7")
         {
+            //System.out.println("hello sid");
+             String s=String.valueOf(gpm.fuelCost);
+            Receipt receipt=new Receipt(gpm.fuelCost);
+            
+           System.out.println(gpm.fuelCost);
+           //setImage(new GreenfootImage(, 20, 
+                                   // Color.WHITE, Color.BLACK));
+           // world.getBackground().drawString(String.valueOf(gpm.fuelCost), 240, 300);
+           //Greenfoot.setWorld(Myworl)
+            //world=  getWorldOfTypnew MyWorld();
+            //world.addObject(receipt,500,500);
+          
+            receipt.setImage(new GreenfootImage(s, 20, 
+                                    Color.WHITE, Color.BLACK));
+            gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
+            world.addObject(receipt,600,450);
+            return gasPumpMachine.getState();
+            //System.out.println("hello sid");
+            //gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
+            //return gasPumpMachine.getState();
             //MyWorld world = getWorld();
-          // Receipt receipt=new Receipt();
-             //addObject(receipt,300,220);
-            // getWorld().addObject(receipt, 350,570);
+          //Receipt receipt=new Receipt();
+            // world.addObject(receipt,500,500);
+           // getWorld().addObject(receipt, 350,570);
            // ScreenMessages screenMessages = new ScreenMessages(world);
            //DisplayMessage welcomeMessage1 = new DisplayMessage();
         //welcomeMessage1.setText("Hello");
@@ -38,7 +60,7 @@ public class PrintReceiptState extends ConcreteState
            
         }
         if (id == "8")
-        {
+        { //System.out.println("hello sid");
             gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
             return gasPumpMachine.getState();
         }

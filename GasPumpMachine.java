@@ -1,6 +1,6 @@
   import greenfoot.*; 
 public class GasPumpMachine {
-
+MyWorld w;
   State hasNoCreditCardState;
   State hasValidCreditCardState;
   State fuelMenuState;
@@ -26,7 +26,7 @@ public class GasPumpMachine {
 
   State hasValidZipCodeState;
 
-  public GasPumpMachine(float quantityOfFuel) 
+  public GasPumpMachine(float quantityOfFuel, MyWorld w) 
   {
 
       hasNoCreditCardState = new HasNoCreditCardState(this);
@@ -35,7 +35,7 @@ public class GasPumpMachine {
       nozzleUnlockState = new NozzleUnlockState(this);
       pumpFuelState = new PumpFuelState(this);
       transactionSummaryState = new TransactionSummaryState(this);
-      printReceiptState = new PrintReceiptState(this);
+      printReceiptState = new PrintReceiptState(this, w);
       displayTransactionMessageState = new DisplayTransactionMessageState(this);
       removeCreditCardState = new RemoveCreditCardState(this); 
       hasFuelState = new HasFuelState(this);
@@ -74,6 +74,8 @@ public class GasPumpMachine {
     void setState(State state) {
         this.state = state;
     }
+    
+  
 
     float getFuelCount() {
         return count;
@@ -165,12 +167,16 @@ public class GasPumpMachine {
   {
       hasCarWash = carWashSelected;
   }
-    
+  public void setFuelCost(double f)
+  {
+      this.fuelCost = f;
+  } 
+  
   public boolean getHasCarWash() 
   {
       return hasCarWash;
   }
-    
+
     
  public void calculateFuelCost(int units) 
  {

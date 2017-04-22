@@ -105,10 +105,11 @@ public class Nozzle extends Actor
         //gasPumpingCost.setText("Cost Calculation");
         fueldisplay.DisplayScreen(gasPumpingCost,280,25, true);
       
-   
+      gpm.setFuelCost(gpm.fuelCost);
         ScreenMessages screenMessages = new ScreenMessages(world);
         screenMessages.printReceipt();
         gpm.setState(gpm.getPrintReceiptState());
+
         
         
       

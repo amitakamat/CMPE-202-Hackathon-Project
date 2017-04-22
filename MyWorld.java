@@ -53,7 +53,7 @@ public class MyWorld extends World
 
     Nozzle nozzle = new Nozzle();
 
-    GasPumpMachine gpm = new GasPumpMachine(100.0f);
+    GasPumpMachine gpm = new GasPumpMachine(100.0f, this);
     //State state = new HasNoCreditCardState(gpm);
     //for regular fuel
     //State fuel = new HasNoValidFuelType();
@@ -70,6 +70,7 @@ public class MyWorld extends World
     //for fake credit card
     FakeCreditCard fakeCreditCard = new FakeCreditCard();
 
+    
     //
     public GasPumpMachine getGasPumpMachine(){
         return this.gpm;
