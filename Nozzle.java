@@ -98,18 +98,51 @@ public class Nozzle extends Actor
         
        
         GasPumpMachine gpm = world.getGasPumpMachine();
+        String scenario = gpm.getScenario();
             //generate random number 1-20 units of fuel added.
         gpm.calculateFuelCost(new Random().nextInt(15)+1);
-        gasPumpingCost.setText("Please pay " +  "$" + gpm.fuelCost );
+        if(scenario.equals("2") && gpm.getHasCarWash())
+        {
+            gpm.fuelCost = gpm.fuelCost*0.90;
+        gasPumpingCost.setText("Please pay " + "$" + gpm.fuelCost );
+        }
+        else
+        gasPumpingCost.setText("Please pay " + "$" + gpm.fuelCost );
         // setImage( new GreenfootImage("cost"+ fuelCost, 30,null,null));
         //gasPumpingCost.setText("Cost Calculation");
         fueldisplay.DisplayScreen(gasPumpingCost,280,25, true);
       
       gpm.setFuelCost(gpm.fuelCost);
         ScreenMessages screenMessages = new ScreenMessages(world);
-        screenMessages.printReceipt();
-        gpm.setState(gpm.getPrintReceiptState());
-
+            String s=String.valueOf(gpm.fuelCost);
+            Receipt receipt1=new Receipt();
+            Receipt receipt2=new Receipt();
+        if(scenario.equals("2") && gpm.getHasCarWash())
+        {
+            //gpm.setState(gpm.getPrintReceiptState());
+            receipt1.setText(s+"\n\nCar Wash\nCode\n"+UUID.randomUUID().toString().replace("-","").substring(0,6));
+            gpm.setState(gpm.getRemoveCreditCardState());
+            world.addObject(receipt2,600,450);
+            world.addObject(receipt1,600,450);
+            screenMessages.getRemoveCreditCardScreen();
+            Greenfoot.delay(400);
+            screenMessages.getNoCreditCardScreen();
+        }
+        else if(scenario.equals("2") && !gpm.getHasCarWash())
+        {
+            receipt1.setText(s);
+            gpm.setState(gpm.getRemoveCreditCardState());
+            world.addObject(receipt2,600,450);
+            world.addObject(receipt1,600,450);
+            screenMessages.getRemoveCreditCardScreen();
+            Greenfoot.delay(400);
+            screenMessages.getNoCreditCardScreen();
+        }
+        else if(scenario.equals("1"))
+        {
+            screenMessages.printReceipt();
+            gpm.setState(gpm.getPrintReceiptState());
+        }
         
         
       

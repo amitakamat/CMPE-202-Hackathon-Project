@@ -17,21 +17,6 @@ public class PumpFuelState extends ConcreteState
             return gasPumpMachine.getState();
        //return new NozzleUnlockState(this.gasPumpMachine);
   }
-    
-  public State onCreditCardSwipe(String cardType){
-        return new HasValidCreditCardState(this.gasPumpMachine);
-    }
-
-  public void  pressA(){
-        
-         }
-    
-  public void  pressB(){
-        
-        }
-        
-  public void  pressC(){
-                 }
 
   public String toString() {
     return "PumpFuelState";

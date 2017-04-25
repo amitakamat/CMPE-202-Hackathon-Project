@@ -13,9 +13,6 @@ public class DisplayTransactionMessageState extends ConcreteState
       stateName = "DisplayTransactionMessageState";
   }
 
-    public State onCreditCardSwipe(String cardType){
-        return new HasValidCreditCardState(this.gasPumpMachine);
-    }
 
   public String toString() {
     return "Waiting to pump fuel";

@@ -21,7 +21,7 @@ GasPumpMachine gpm;
   
   public State onDisplayButtonPress(String id){
 
-        if(id == "7")
+        if(id.equals("7") || id.equals("yes"))
         {
             //System.out.println("hello sid");
              String s=String.valueOf(gpm.fuelCost);
@@ -61,8 +61,8 @@ GasPumpMachine gpm;
                
            
         }
-        if (id == "8")
-        { //System.out.println("hello sid");
+        if (id.equals("8") || id.equals("no"))
+        { 
             gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
             return gasPumpMachine.getState();
         }
