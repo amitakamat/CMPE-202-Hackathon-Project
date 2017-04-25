@@ -28,14 +28,22 @@ public class Button extends Actor
         MyWorld world = (MyWorld)getWorld();
         GasPumpMachine gpm = world.getGasPumpMachine();
         State state = gpm.onDisplayButtonPress(this.id);
+        String scenario = gpm.getScenario();
+        System.out.println(state);
         if(state != null){
             gpm.setState(state);
             String stateName = gpm.state.getStateName();
             ScreenMessages screenMessages = new ScreenMessages(world);
-
+            boolean flag = false;
+            System.out.println("stateName:"+stateName);
             if(stateName == "HasValidZipCode")
             {
-                screenMessages.getCarWashScreen();
+                if(scenario.equals("1"))
+                    screenMessages.getHasValidZipCodeScreen();
+                else if(scenario.equals("3"))
+                    screenMessages.getPrintReceiptAtBeginningScreen();
+                else if(scenario.equals("2"))
+                    screenMessages.getCarWashScreen();
             }
             
             if(stateName == "HasCarWashState")
@@ -43,13 +51,31 @@ public class Button extends Actor
                 screenMessages.getHasValidZipCodeScreen();
             }
 
+            if(stateName == "HelpState")
+            {
+                if(scenario.equals("1"))
+                    screenMessages.selectFuelTypeHelpMessage();
+                else if(scenario.equals("3"))
+                    //screenMessages.getPrintReceiptAtBeginningScreen();
+                    screenMessages.selectFuelTypeHelpMessage();
+                else if(scenario.equals("2"))
+                    screenMessages.getCarWashScreen();
+            }
+            
             if(stateName == "HasNoCreditCard"){
                 screenMessages.getNoCreditCardScreen();
             }
 
             if(stateName == "RemoveCreditCardState"){
                 screenMessages.getRemoveCreditCardScreen();
+                Greenfoot.delay(300);
+                screenMessages.getNoCreditCardScreen();
             }
+            
+            if(stateName == "PrintReceiptInAdvanceState")
+            {
+                screenMessages.getHasValidZipCodeScreen();
+            }            
             //if(fuel != null)
             //    world.fuel = fuel;
             //String stateFuelName = world.state.getStateFuelName();

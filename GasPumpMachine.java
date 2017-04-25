@@ -3,7 +3,6 @@ public class GasPumpMachine {
 MyWorld w;
   State hasNoCreditCardState;
   State hasValidCreditCardState;
-  State fuelMenuState;
   State nozzleUnlockState;
   State pumpFuelState;
   State transactionSummaryState;
@@ -13,25 +12,27 @@ MyWorld w;
   State hasFuelState;
   State state = hasNoCreditCardState;
   State hasCarWashState;
+  State helpState;
+  State printReceiptInAdvanceState;
   float count = 0;
   double units = 5;
   private boolean hasCarWash = false;
+  private boolean printReceiptInAdvance = false;
   private double fuelUnitCost = 1.0;
   public double fuelCost; 
    /// protected double unitCost;
-  
+  private String gpmScenario="1";
   final String zipcode = "94085";
   
   String enteredZip="";
 
   State hasValidZipCodeState;
 
-  public GasPumpMachine(float quantityOfFuel, MyWorld w) 
+  public GasPumpMachine(float quantityOfFuel,String scenario, MyWorld w) 
   {
 
       hasNoCreditCardState = new HasNoCreditCardState(this);
       hasValidCreditCardState = new HasValidCreditCardState(this);
-      fuelMenuState = new FuelMenuState(this);
       nozzleUnlockState = new NozzleUnlockState(this);
       pumpFuelState = new PumpFuelState(this);
       transactionSummaryState = new TransactionSummaryState(this);
@@ -40,14 +41,20 @@ MyWorld w;
       removeCreditCardState = new RemoveCreditCardState(this); 
       hasFuelState = new HasFuelState(this);
       hasCarWashState = new HasCarWashState(this);
-      
+      this.gpmScenario = scenario;
       hasValidZipCodeState = new HasValidZipCode(this);
-      
+      helpState = new HelpState(this);
+      printReceiptInAdvanceState = new PrintReceiptInAdvanceState(this);
       this.count = quantityOfFuel;
       if (quantityOfFuel > 0) 
       {
           state = hasNoCreditCardState;
       }
+  }
+  
+  public String getScenario()
+  {
+      return this.gpmScenario;    
   }
   
     public State onDisplayButtonPress(String id){
@@ -71,35 +78,29 @@ MyWorld w;
         return hasFuelState;
     }
     
-    void setState(State state) {
+  void setState(State state) {
         this.state = state;
-    }
-    
-  
+  }
 
-    float getFuelCount() {
+  float getFuelCount() {
         return count;
-    }
+  }
 
-    void refill(float count) {
+  void refill(float count) {
        this.count = count;
        state = hasNoCreditCardState;
-    }
+  }
 
-    public State getState() {
-       return state;
-    }
+  public State getState() {
+      return state;
+  }
     
-    public State getHasNoCreditCardState() {
-       return hasNoCreditCardState;
-    }
+  public State getHasNoCreditCardState() {
+      return hasNoCreditCardState;
+   }
 
   public State getHasValidCreditCardState() {
     return hasValidCreditCardState;
-  }
-  
-  public State getFuelMenuState() {
-    return fuelMenuState;
   }
   
   public State getNozzleUnlockState() {
@@ -137,6 +138,14 @@ MyWorld w;
   public State getHasCarWashState() { 
     return hasCarWashState;
   }
+
+  public State getHelpState() {
+    return helpState;
+  }
+
+    public State getPrintReceiptInAdvanceState() { 
+    return printReceiptInAdvanceState;
+  }
   
   public String toString() {
     StringBuffer result = new StringBuffer();
@@ -167,6 +176,7 @@ MyWorld w;
   {
       hasCarWash = carWashSelected;
   }
+  
   public void setFuelCost(double f)
   {
       this.fuelCost = f;
@@ -176,14 +186,21 @@ MyWorld w;
   {
       return hasCarWash;
   }
-
     
+  public boolean getPrintReceiptInAdvance() { 
+    return printReceiptInAdvance;
+  }
+  
+  public void setPrintReceiptInAdvance(boolean printReceiptInAdvanceSelected)
+  {
+      printReceiptInAdvance = printReceiptInAdvanceSelected;
+  }
+  
  public void calculateFuelCost(int units) 
  {
      double actualCost = fuelUnitCost*units;
      if(hasCarWash)
-     {
-          
+     {   
          fuelCost = actualCost - (0.1*actualCost);
      }
      else

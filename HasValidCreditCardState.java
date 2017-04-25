@@ -30,9 +30,9 @@ public class HasValidCreditCardState extends ConcreteState
                 return gasPumpMachine.getState();
             }
         }
-        if (id == "8")
+        if (id.equals("8") || id.equals("cancel"))
         {
-            gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
+            gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
             return gasPumpMachine.getState();
         }
 

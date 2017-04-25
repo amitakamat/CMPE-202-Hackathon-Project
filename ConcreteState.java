@@ -8,7 +8,7 @@ public class ConcreteState implements State
 {
     protected String stateName;
     GasPumpMachine gasPumpMachine;
-
+    //protected String scenario;
     /**
      * Constructor for objects of class ConcreteState
      */

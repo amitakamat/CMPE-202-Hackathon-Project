@@ -1,10 +1,8 @@
 #BlueJ class context
 comment0.target=NozzleUnlockState
-comment0.text=\n\ Write\ a\ description\ of\ class\ HasNoCreditCard\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ HasNoCreditCard\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=gasPumpMachine
 comment1.target=NozzleUnlockState(GasPumpMachine)
-comment2.params=cardType
-comment2.target=State\ onCreditCardSwipe(java.lang.String)
-comment3.params=
-comment3.target=java.lang.String\ toString()
-numComments=4
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

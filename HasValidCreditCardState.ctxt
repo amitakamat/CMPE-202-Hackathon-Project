@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=HasValidCreditCardState
-comment0.text=\n\ Write\ a\ description\ of\ class\ HasValidCreditCard\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ HasValidCreditCard\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=gpm
 comment1.target=HasValidCreditCardState(GasPumpMachine)
 comment2.params=id

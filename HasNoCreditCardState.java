@@ -22,13 +22,13 @@ public class HasNoCreditCardState extends ConcreteState
         }
         else if(cardType.equals("FakeCreditCard"))
         {
-           gasPumpMachine.setState(gasPumpMachine.getRemoveCreditCardState());
+           gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
            return gasPumpMachine.getState();
         }
         return null;
     }
 
   public String toString() {
-    return "Waiting to pump fuel";
+    return "No Credit Card State";
   }
 }

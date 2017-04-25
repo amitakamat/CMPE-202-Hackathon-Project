@@ -13,9 +13,9 @@ public class NozzleUnlockState extends ConcreteState
     stateName = "NozzleUnlockState";
   }
     
-  public State onCreditCardSwipe(String cardType){
-        return new HasValidCreditCardState(this.gasPumpMachine);
-  }
+  //public State onCreditCardSwipe(String cardType){
+   //     return new HasValidCreditCardState(this.gasPumpMachine);
+  //}
 
   public String toString() {
     return "NozzleUnlockState";

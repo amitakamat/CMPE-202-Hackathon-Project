@@ -210,6 +210,43 @@ public class ScreenMessages extends Actor
         screen.DisplayScreen(cancelMessage, 360, 310, false);
     }
     
+
+    public void getPrintReceiptAtBeginningScreen()
+    {
+        
+        DisplayMessage receipt = new DisplayMessage();
+        receipt.setText("Do you want to print your");
+        screen.DisplayScreen(receipt, 230, 160, true);
+
+        DisplayMessage receipt2 = new DisplayMessage();
+        receipt2.setText("receipt?");
+        screen.DisplayScreen(receipt2, 280, 180, false);
+        
+        DisplayMessage submitMessage = new DisplayMessage();
+        submitMessage.setText("yes>>");
+        screen.DisplayScreen(submitMessage, 360, 260, false);
+
+        DisplayMessage cancelMessage = new DisplayMessage();
+        cancelMessage.setText("No>>");
+        screen.DisplayScreen(cancelMessage, 360, 310, false);
+
+    }
+    
+    public void selectFuelTypeHelpMessage()
+    {
+        DisplayMessage selectMessage1 = new DisplayMessage();
+        selectMessage1.setText("Select a fuel type from the");
+        screen.DisplayScreen(selectMessage1, 230, 160, true);
+        
+        DisplayMessage selectMessage2 = new DisplayMessage();
+        selectMessage2.setText("below 3 options");
+        screen.DisplayScreen(selectMessage2, 260, 190, false);
+
+        DisplayMessage cancelMessage = new DisplayMessage();
+        cancelMessage.setText("Back >>");
+        screen.DisplayScreen(cancelMessage, 360, 310, false);
+    }
+    
     public void reciptPrinted()
     {
         DisplayMessage welcomeMessage1 = new DisplayMessage();

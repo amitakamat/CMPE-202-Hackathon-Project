@@ -59,23 +59,5 @@ public class CardReader extends Actor
             }
             //haveCard = true;
         }
-        /*
-       if (haveCard)
-        {
-
-
-            State state = world.state.onCreditCardClick();
-            if(state != null){
-                world.state = state;
-                Screen screen = world.getObjects(Screen.class).get(0); 
-                
-                if(world.state.getStateName() == "HasValidCreditCard"){
-                    ScreenMessages screenMessages = new ScreenMessages(world);
-                    screenMessages.getHasValidCreditCardScreen();
-                }
-            }
-            haveCard = false;
-        }
-        */
     }      
 }

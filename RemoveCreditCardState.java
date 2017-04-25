@@ -14,7 +14,9 @@ public class RemoveCreditCardState extends ConcreteState
   }
     
     public State onCreditCardSwipe(String cardType){
-        return new HasValidCreditCardState(this.gasPumpMachine);
+            gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
+            return gasPumpMachine.getState();
+        //return new HasNoCreditCardState(this.gasPumpMachine);
     }
 
 
