@@ -1,32 +1,28 @@
   import greenfoot.*; 
 public class GasPumpMachine {
-MyWorld w;
+  MyWorld w;
   State hasNoCreditCardState;
   State hasValidCreditCardState;
   State nozzleUnlockState;
   State pumpFuelState;
-  State transactionSummaryState;
   State printReceiptState;
-  State displayTransactionMessageState;
   State removeCreditCardState;
   State hasFuelState;
   State state = hasNoCreditCardState;
   State hasCarWashState;
   State helpState;
   State printReceiptInAdvanceState;
+  State hasValidZipCodeState;
+  
   float count = 0;
   double units = 5;
   private boolean hasCarWash = false;
   private boolean printReceiptInAdvance = false;
   private double fuelUnitCost = 1.0;
   public double fuelCost; 
-   /// protected double unitCost;
   private String gpmScenario="1";
-  final String zipcode = "94085";
-  
+  final String zipcode = "94085";  
   String enteredZip="";
-
-  State hasValidZipCodeState;
 
   public GasPumpMachine(float quantityOfFuel,String scenario, MyWorld w) 
   {
@@ -35,17 +31,15 @@ MyWorld w;
       hasValidCreditCardState = new HasValidCreditCardState(this);
       nozzleUnlockState = new NozzleUnlockState(this);
       pumpFuelState = new PumpFuelState(this);
-      transactionSummaryState = new TransactionSummaryState(this);
       printReceiptState = new PrintReceiptState(this, w);
-      displayTransactionMessageState = new DisplayTransactionMessageState(this);
       removeCreditCardState = new RemoveCreditCardState(this); 
       hasFuelState = new HasFuelState(this);
       hasCarWashState = new HasCarWashState(this);
-      this.gpmScenario = scenario;
       hasValidZipCodeState = new HasValidZipCode(this);
       helpState = new HelpState(this);
       printReceiptInAdvanceState = new PrintReceiptInAdvanceState(this);
       this.count = quantityOfFuel;
+      this.gpmScenario = scenario;
       if (quantityOfFuel > 0) 
       {
           state = hasNoCreditCardState;
@@ -111,16 +105,8 @@ MyWorld w;
     return pumpFuelState;
   }
   
-  public State getTransactionSummaryState() {
-    return transactionSummaryState;
-  }
-  
   public State getPrintReceiptState() {
     return printReceiptState;
-  }
-  
-  public State getDisplayTransactionMessageState() {
-    return displayTransactionMessageState;
   }
 
   public State getRemoveCreditCardState() {

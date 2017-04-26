@@ -40,8 +40,8 @@ public class Screen extends Actor
 
         if(num=="clear"){
             count= count-1;
-            number = number.substring(0,number.length()-1);
-            msg.setText(number);
+            this.number = this.number.substring(0,number.length()-1);
+            msg.setText(this.number);
             DisplayScreen(msg, 230, 310, false);   
         }
 
@@ -51,19 +51,20 @@ public class Screen extends Actor
             if(count<=5){
 
                 count++;    
-                number = number + num;
-                msg.setText(number);
+                this.number = this.number + num;
+                msg.setText(this.number);
                 DisplayScreen(msg, 230, 310, false);  
                 if(count==5){
                     GasPumpMachine gpm = world.getGasPumpMachine();
-                    gpm.setEnteredZip(number);
+                    gpm.setEnteredZip(this.number);
+                    this.number="";
 
                 }
 
             }
             else
             {
-                number = "";
+                this.number = "";
                 count = 0;
                 msg.setText("invalid pin enter again" );
                 DisplayScreen(msg, 230, 310, false);

@@ -46,7 +46,7 @@ public class HasValidCreditCardState extends ConcreteState
 
     public void enterPinCode(String pin)
     {
-        enteredpin= pin;
+        this.enteredpin= pin;
     }
 
     public boolean validatezipcode(){
@@ -58,6 +58,6 @@ public class HasValidCreditCardState extends ConcreteState
     }
 
     public String toString() {
-        return "Selecting fuel type";
+        return "Enter Pin Code";
     }
 }
