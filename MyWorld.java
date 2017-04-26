@@ -52,7 +52,7 @@ public class MyWorld extends World
     FuelType prm = new FuelType("3", "Premium.jpeg");
 
     Nozzle nozzle = new Nozzle();
-    String scenario = "1";
+    String scenario = "3";
     GasPumpMachine gpm = new GasPumpMachine(100.0f,scenario ,this);
     //State state = new HasNoCreditCardState(gpm);
     //for regular fuel

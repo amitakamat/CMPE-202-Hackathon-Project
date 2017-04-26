@@ -22,6 +22,7 @@ public class HasValidCreditCardState extends ConcreteState
         {
             if(validatezipcode())
             {
+                this.enteredpin = "";
                 gasPumpMachine.setState(gasPumpMachine.getHasValidZipCodeState());
                 return gasPumpMachine.getState();
             }
@@ -50,6 +51,7 @@ public class HasValidCreditCardState extends ConcreteState
 
     public boolean validatezipcode(){
         if(this.PIN.equals(this.enteredpin)){
+            this.enteredpin = "";
             return true;
         }
         else  return false;

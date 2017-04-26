@@ -104,19 +104,20 @@ public class Nozzle extends Actor
         if(scenario.equals("2") && gpm.getHasCarWash())
         {
             gpm.fuelCost = gpm.fuelCost*0.90;
-        gasPumpingCost.setText("Please pay " + "$" + gpm.fuelCost );
+            gasPumpingCost.setText("Please pay " + "$" + gpm.fuelCost );
         }
         else
-        gasPumpingCost.setText("Please pay " + "$" + gpm.fuelCost );
-        // setImage( new GreenfootImage("cost"+ fuelCost, 30,null,null));
-        //gasPumpingCost.setText("Cost Calculation");
+        {
+            gasPumpingCost.setText("Please pay " + "$" + gpm.fuelCost );
+        }
+
         fueldisplay.DisplayScreen(gasPumpingCost,280,25, true);
       
-      gpm.setFuelCost(gpm.fuelCost);
+        gpm.setFuelCost(gpm.fuelCost);
         ScreenMessages screenMessages = new ScreenMessages(world);
-            String s=String.valueOf(gpm.fuelCost);
-            Receipt receipt1=new Receipt();
-            Receipt receipt2=new Receipt();
+        String s=String.valueOf(gpm.fuelCost);
+        Receipt receipt1=new Receipt();
+        Receipt receipt2=new Receipt();
         if(scenario.equals("2") && gpm.getHasCarWash())
         {
             //gpm.setState(gpm.getPrintReceiptState());
@@ -127,6 +128,7 @@ public class Nozzle extends Actor
             screenMessages.getRemoveCreditCardScreen();
             Greenfoot.delay(400);
             screenMessages.getNoCreditCardScreen();
+            gpm.setState(gpm.getHasNoCreditCardState());
         }
         else if(scenario.equals("2") && !gpm.getHasCarWash())
         {
@@ -137,15 +139,36 @@ public class Nozzle extends Actor
             screenMessages.getRemoveCreditCardScreen();
             Greenfoot.delay(400);
             screenMessages.getNoCreditCardScreen();
+            gpm.setState(gpm.getHasNoCreditCardState());
         }
+        if(scenario.equals("3") && gpm.getPrintReceiptInAdvance())
+        {
+            receipt1.setText(s);
+            gpm.setState(gpm.getRemoveCreditCardState());
+            world.addObject(receipt2,600,450);
+            world.addObject(receipt1,600,450);
+            screenMessages.getRemoveCreditCardScreen();
+            Greenfoot.delay(300);
+            world.removeObject(receipt2);
+            world.removeObject(receipt1);
+            screenMessages.getNoCreditCardScreen();
+            gpm.setState(gpm.getHasNoCreditCardState());
+        }
+        
+        if(scenario.equals("3") && !gpm.getPrintReceiptInAdvance())
+        {
+            gpm.setState(gpm.getRemoveCreditCardState());
+            screenMessages.getRemoveCreditCardScreen();
+            Greenfoot.delay(400);
+            screenMessages.getNoCreditCardScreen();
+            gpm.setState(gpm.getHasNoCreditCardState());
+        }
+        
         else if(scenario.equals("1"))
         {
             screenMessages.printReceipt();
             gpm.setState(gpm.getPrintReceiptState());
         }
-        
-        
-      
     }    
     
     public void PromptReceipt(){        

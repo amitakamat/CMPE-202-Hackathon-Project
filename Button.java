@@ -70,15 +70,13 @@ public class Button extends Actor
                 screenMessages.getRemoveCreditCardScreen();
                 Greenfoot.delay(300);
                 screenMessages.getNoCreditCardScreen();
+                gpm.setState(gpm.getHasNoCreditCardState());
             }
             
             if(stateName == "PrintReceiptInAdvanceState")
             {
                 screenMessages.getHasValidZipCodeScreen();
             }            
-            //if(fuel != null)
-            //    world.fuel = fuel;
-            //String stateFuelName = world.state.getStateFuelName();
 
             if(stateName == "HasFuelState"){
                 screenMessages.getNoCreditCardScreen();
