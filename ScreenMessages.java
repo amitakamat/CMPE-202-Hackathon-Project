@@ -31,6 +31,8 @@ public class ScreenMessages extends Actor
         DisplayMessage welcomeMessage2 = new DisplayMessage();
         welcomeMessage2.setText("card to proceed");
         screen.DisplayScreen(welcomeMessage2, 250, 190, false);
+        
+        world.ReturnCard();
     }    
 
     public void getRemoveCreditCardScreen() 
@@ -79,12 +81,14 @@ public class ScreenMessages extends Actor
     public void getHasInValidCreditCardScreen()
     {
         DisplayMessage zipCode1 = new DisplayMessage();
-        zipCode1.setText("Please enter a valid");
+        zipCode1.setText("Please provide a valid");
         screen.DisplayScreen(zipCode1, 230, 160, true);
         
         DisplayMessage zipCode2 = new DisplayMessage();
         zipCode2.setText("Credit Card!");
         screen.DisplayScreen(zipCode2, 250, 190, false);
+        
+        world.ReturnCard();
     }
 
     public void getInsertingCreditCardAgainScreen()

@@ -25,7 +25,7 @@ public class CardReader extends Actor
             Greenfoot.playSound("CreditCardSwipe.mp3");
             Greenfoot.delay(200);
             State s = gpm.onCreditCardSwipe(card.getClass().getName());
-            
+            world.setRemovedCard(card);
             if(s!= null)
             {
                 if(s.getClass().getName().equals("HasValidCreditCardState"))

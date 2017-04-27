@@ -12,7 +12,7 @@ public class MyWorld extends World
 
     Screen screen = new Screen();
     // 8 buttons to the left and right of the Screen
-
+    CreditCard RemovedCard;
     ScreenButton button1 = new ScreenButton("1");
     ScreenButton button2 = new ScreenButton("2");
     ScreenButton button3 = new ScreenButton("3");
@@ -92,8 +92,17 @@ public class MyWorld extends World
     }
 
     public void ReturnCard(){
-        addObject(masterCard,730,150);
+        // addObject(this.RemovedCard,730,150);
+        if(this.RemovedCard.getClass().getName()=="MasterCard"){
+            addObject(masterCard,730,150);
 
+        }
+        else if(this.RemovedCard.getClass().getName()=="VisaCard"){
+            addObject(visaCard,730,240);
+        }
+        else{
+            addObject(fakeCreditCard,740,330);
+        }
     }
 
     public MyWorld()
@@ -102,6 +111,10 @@ public class MyWorld extends World
         super(1000, 1000, 1); 
         createDisplay();
         prepare();
+    }
+
+    public void setRemovedCard(Actor card){
+        this.RemovedCard = (CreditCard)card;
     }
 
     public void createDisplay()
@@ -148,7 +161,7 @@ public class MyWorld extends World
         addObject(screen, 304, 230);
 
         addObject(cardreader,600,220);
-        //addObject(visaCard,730,240);
+        addObject(visaCard,730,240);
         addObject(masterCard,730,150);
         addObject(fakeCreditCard,740,330);
         addObject(receiptprinter,600,360);
