@@ -9,14 +9,14 @@ public class HasValidCreditCardState extends ConcreteState
 {
     String enteredpin="";
     String PIN = "00000";
-
+    
     public HasValidCreditCardState(GasPumpMachine gpm) 
     {
         super(gpm);
         stateName = "HasValidCreditCard";
     }
 
-    public State onDisplayButtonPress(String id){
+    public State onDisplayButtonPress(String id){    
 
         if(id.equals("7")|| id.equals("enter"))
         {
@@ -36,7 +36,6 @@ public class HasValidCreditCardState extends ConcreteState
             gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
             return gasPumpMachine.getState();
         }
-
         return null;
     }
 

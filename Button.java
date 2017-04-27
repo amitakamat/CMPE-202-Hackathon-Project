@@ -29,15 +29,17 @@ public class Button extends Actor
         GasPumpMachine gpm = world.getGasPumpMachine();
         State state = gpm.onDisplayButtonPress(this.id);
         String scenario = gpm.getScenario();
+        Screen screen=world.getScreen();
         System.out.println(state);
         if(state != null){
+             screen.ResetZip();
             gpm.setState(state);
             String stateName = gpm.state.getStateName();
             ScreenMessages screenMessages = new ScreenMessages(world);
             boolean flag = false;
             System.out.println("stateName:"+stateName);
             if(stateName == "HasValidZipCode")
-            {
+            {               
                 if(scenario.equals("1"))
                     screenMessages.getHasValidZipCodeScreen();
                 else if(scenario.equals("3"))
@@ -45,7 +47,9 @@ public class Button extends Actor
                 else if(scenario.equals("2"))
                     screenMessages.getCarWashScreen();
             }
-            
+           // else if(stateName == "HasNoCreditCardState"){
+             //   screen.ResetZip();
+            //}
             if(stateName == "HasCarWashState")
             {
                 screenMessages.getHasValidZipCodeScreen();

@@ -9,8 +9,7 @@ import java.util.List;
  */
 public class ScreenButton extends Button
 {
-    Screen screen;
-
+   
     public ScreenButton(String id)
     {
         this.id = id;
@@ -22,7 +21,6 @@ public class ScreenButton extends Button
     {
         if (Greenfoot.mousePressed(this))
         {
-
             super.act();
             super.submit(this.id);
 

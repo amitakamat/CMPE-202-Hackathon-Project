@@ -30,14 +30,13 @@ public class NumKeyButton extends Button
             Screen screen=world.getScreen();
             GasPumpMachine  gpm = world.getGasPumpMachine();
             if(this.id.equals("cancel"))
-                {
-                    super.submit(this.id);
+                {                    
+                    super.submit(this.id);                   
                 }
             if(gpm.getState().getStateName()=="HasValidCreditCard")
             {
-                if(this.id=="enter"){
-
-                    super.submit(this.id);
+                if(this.id=="enter"){                   
+                    super.submit(this.id);                     
                 }
                 else if(this.id.equals("help"))
                 {

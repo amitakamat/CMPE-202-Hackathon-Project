@@ -44,12 +44,9 @@ public class Screen extends Actor
             msg.setText(this.number);
             DisplayScreen(msg, 230, 310, false);   
         }
-
         else 
         {            
-
-            if(count<=5){
-
+            if(count<5){
                 count++;    
                 this.number = this.number + num;
                 msg.setText(this.number);
@@ -58,18 +55,20 @@ public class Screen extends Actor
                     GasPumpMachine gpm = world.getGasPumpMachine();
                     gpm.setEnteredZip(this.number);
                     this.number="";
-
                 }
-
             }
             else
             {
-                this.number = "";
-                count = 0;
                 msg.setText("invalid pin enter again" );
                 DisplayScreen(msg, 230, 310, false);
+                ResetZip();
             }
         }
+    }
+
+    public void ResetZip(){
+        this.number = "";
+        this. count = 0;
     }
 
     public void act() 
