@@ -23,7 +23,7 @@ public class MyWorld extends World
     ScreenButton button8 = new ScreenButton("8");
 
     //Numeric keys numbered 0-9 on the key pad
-    
+
     NumKeyButton NB1 = new NumKeyButton("1", "one.png");
     NumKeyButton NB2 = new NumKeyButton("2", "two.png");
     NumKeyButton NB3 = new NumKeyButton("3", "three.png");
@@ -70,7 +70,6 @@ public class MyWorld extends World
     //for fake credit card
     FakeCreditCard fakeCreditCard = new FakeCreditCard();
 
-    
     //
     public GasPumpMachine getGasPumpMachine(){
         return this.gpm;
@@ -90,6 +89,11 @@ public class MyWorld extends World
 
     public FuelType getFuelType(){
         return this.reg;
+    }
+
+    public void ReturnCard(){
+        addObject(masterCard,730,150);
+
     }
 
     public MyWorld()
@@ -114,12 +118,12 @@ public class MyWorld extends World
         addObject(NB8, 280, 524);
         addObject(NB9, 332, 524);
         addObject(NB0, 280, 576);
-        
+
         addObject(yes, 384, 420);
         addObject(no, 384, 472);
         addObject(help, 384, 524);
         addObject(cancel, 384, 576);
-        
+
         addObject(clr, 228, 576);
 
         addObject(entr, 332, 576);
@@ -144,7 +148,7 @@ public class MyWorld extends World
         addObject(screen, 304, 230);
 
         addObject(cardreader,600,220);
-        addObject(visaCard,730,240);
+        //addObject(visaCard,730,240);
         addObject(masterCard,730,150);
         addObject(fakeCreditCard,740,330);
         addObject(receiptprinter,600,360);
@@ -158,6 +162,7 @@ public class MyWorld extends World
         screen.DisplayScreen(welcomeMessage2, 250, 190, false);
 
     }
+
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.

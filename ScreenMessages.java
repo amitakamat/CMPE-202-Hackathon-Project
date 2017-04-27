@@ -13,10 +13,13 @@ public class ScreenMessages extends Actor
     Screen screen ;
     Nozzle nozzle;
     static String num = "";
+    MyWorld world;  
+            
     
     public ScreenMessages(MyWorld world)
     {
         screen = world.getScreen();
+        this.world = world;
     }
     
     public void getNoCreditCardScreen() 
@@ -39,6 +42,8 @@ public class ScreenMessages extends Actor
         DisplayMessage welcomeMessage2 = new DisplayMessage();
         welcomeMessage2.setText("Thank you!Visit again.");
         screen.DisplayScreen(welcomeMessage2, 220, 190, false);
+        
+        world.ReturnCard();
     }    
     
     public void getHasNoValidFuelTypeScreen() 
