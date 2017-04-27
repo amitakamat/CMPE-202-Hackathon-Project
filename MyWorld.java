@@ -50,9 +50,9 @@ public class MyWorld extends World
     FuelType reg = new FuelType("1", "Regular.jpeg");
     FuelType unl = new FuelType("2", "Unleaded.jpeg");
     FuelType prm = new FuelType("3", "Premium.jpeg");
-
+    NozzleHolder nozzleHolder = new NozzleHolder();
     Nozzle nozzle = new Nozzle();
-    String scenario = "3";
+    String scenario = "1";
     GasPumpMachine gpm = new GasPumpMachine(100.0f,scenario ,this);
     //State state = new HasNoCreditCardState(gpm);
     //for regular fuel
@@ -69,7 +69,7 @@ public class MyWorld extends World
     MasterCard masterCard = new MasterCard();
     //for fake credit card
     FakeCreditCard fakeCreditCard = new FakeCreditCard();
-
+    Car car = new Car();
     //
     public GasPumpMachine getGasPumpMachine(){
         return this.gpm;
@@ -108,7 +108,7 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1000, 1000, 1); 
+        super(1500, 1000, 1); 
         createDisplay();
         prepare();
     }
@@ -155,8 +155,9 @@ public class MyWorld extends World
         addObject(reg,179,690);
         addObject(unl,313,689);
         addObject(prm,442,688);
-
-        addObject(nozzle,850,250);
+        addObject(car, 1250, 750);
+        addObject(nozzleHolder,900,260);
+        addObject(nozzle,950,350);
 
         addObject(screen, 304, 230);
 
@@ -173,6 +174,16 @@ public class MyWorld extends World
         DisplayMessage welcomeMessage2 = new DisplayMessage();
         welcomeMessage2.setText("card to proceed");
         screen.DisplayScreen(welcomeMessage2, 250, 190, false);
+        
+        DisplayMessage costMessage = new DisplayMessage();
+        costMessage.setID("TotalCostCaption");
+        costMessage.setText("Total Cost");
+        screen.DisplayScreen(costMessage, 200, 25, false);
+        
+        DisplayMessage gallonsMessage = new DisplayMessage();
+        gallonsMessage.setText("Gallons");
+        gallonsMessage.setID("GallonsCaption");
+        screen.DisplayScreen(gallonsMessage, 200, 40, false);
 
     }
 

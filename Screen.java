@@ -27,11 +27,18 @@ public class Screen extends Actor
     {
         world = (MyWorld)getWorld();
         if(clearScreen){
-            List<DisplayMessage> messages = world.getObjects(DisplayMessage.class);
-            if(messages.size() > 0){
-                world.removeObjects(messages);
-            }
-        }
+           List<DisplayMessage> messages = world.getObjects(DisplayMessage.class);
+           if(messages.size() > 0){
+               for(int i=0; i<messages.size(); i++)
+               {
+                   if(messages.get(i).getID().equals(""))
+                   {
+                       world.removeObject(messages.get(i));
+                   }
+               }
+               //world.removeObjects(messages);
+           }
+       }
         world.addObject(msg,x,y);
 
     }

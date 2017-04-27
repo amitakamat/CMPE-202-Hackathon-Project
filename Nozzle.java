@@ -1,6 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Random;
 import java.util.*;
+import java.text.DecimalFormat;
+import java.math.RoundingMode;
+
 /**
  * Write a description of class Nozzle here.
  * 
@@ -17,20 +20,22 @@ public class Nozzle extends Actor
     private double fuelUnitCost = 1.0;
     public double fuelCost; 
     protected double unitCost;
-    Screen fueldisplay;
+    FuelDisplay fueldisplay;
     FuelType fueltype;
     ScreenButton button;
     String bid;
     long startTime,endTime;
     private boolean isGrabbed;
     boolean startTimeSet = false;
- //   String fuelid;
+    boolean isPumping = false;
+    double fuelQuantity = 0.000;
     String id;
-     public Nozzle()
+    
+    public Nozzle()
     {
         
       GreenfootImage image = getImage() ;
-      image.scale( 350,520) ;
+      image.scale( 200,420) ;
     }
     
     public void act() 
@@ -40,46 +45,80 @@ public class Nozzle extends Actor
             GasPumpMachine gpm = world.getGasPumpMachine();
             ScreenMessages screenMessages = new ScreenMessages(world);
             State s = gpm.getState();
-            if(s.getClass().getName().equals("PumpFuelState"))
+            String name = s.getClass().getName();
+            Thread costCalThread = null ;//= new Thread(new CostCalculator(gpm, screenMessages));
+            if(name.equals("PumpFuelState") || name.equals("NozzleUnlockState"))
             {
-               if(Greenfoot.mouseDragged(this)){
+                if(Greenfoot.mouseDragged(this)){
                 MouseInfo mouse = Greenfoot.getMouseInfo();
                 mouseX = mouse.getX();
                 mouseY = mouse.getY();
                 setLocation(mouseX,mouseY);
-                if(!startTimeSet)
+                /*if(!startTimeSet)
                     startTime = System.nanoTime();
                 System.out.println("start:"+startTime);
-                FuelDispense();
+                FuelDispense();*/
                 }
                 
-              if(Greenfoot.mouseDragEnded(this))
-              {
-               super.act();
-               endTime = System.nanoTime();
-              System.out.println("end:"+endTime);
-              long elapsedTime = endTime - startTime;
-              System.out.println(elapsedTime/1000000000.0); 
-              State s1 = gpm.getState().onNozzleDrag();
-              System.out.println(gpm.getState());
-              if(s1 != null)
-              {
-                //gpm.setState(gpm.getNozzleUnlockState());
-                  if(s1.getClass().getName().equals("NozzleUnlockState")){
-                   
-                        FuelCalculate1();
-                  }
-                         
-        
-              }       
-             }
-                
+                if(Greenfoot.mouseDragEnded(this))
+                {
+                  Car car = (Car)getOneIntersectingObject(Car.class);
+                  if(car != null)
+                  {
+                      if(!gpm.getFuellingFlag())
+                      {
+                          gpm.FuellingFlagLocked = true;
+                          gpm.setFuellingFlag(true);
+                          gpm.FuellingFlagLocked = false;
+                          State s1 = gpm.getState();
+                          if(!s1.getStateName().equals("NozzleUnlockState")){
+                              s1 = gpm.getState().onNozzleDrag();
+                            }
+                          //System.out.println(gpm.getState());
+                          if(s1 != null)
+                          {
+                            //gpm.setState(gpm.getNozzleUnlockState());
+                              if(s1.getClass().getName().equals("NozzleUnlockState"))
+                              {
+                                  if(costCalThread == null)
+                                  {
+                                      costCalThread = new Thread(new CostCalculator(gpm, screenMessages));
+                                  }
+                                  costCalThread.start();
+                              }
+                          } 
+                      }
+                    }
+                    else
+                    {
+                        gpm.FuellingFlagLocked = true;
+                        gpm.setFuellingFlag(false);
+                        gpm.FuellingFlagLocked = false;
+                        if(costCalThread != null)
+                        {
+                            costCalThread.stop();
+                        }
+                    }
+                  NozzleHolder nHolder = (NozzleHolder)getOneIntersectingObject(NozzleHolder.class); 
+                  if(nHolder != null)
+                  {
+                      if(gpm.getState().getStateName().equals("NozzleUnlockState")){
+                          gpm.FuellingFlagLocked = true;
+                          gpm.setFuellingFlag(false);
+                          gpm.FuellingFlagLocked = false;
+                          FuelCalculate1();
+                          //gpm.setState(gpm.getTransactionSummaryState());
+                          //screenMessages.DisplayCostMessage(gpm.getTotalCost());
+                      }
+                  }            
+              } 
             }            
     //if(Greenfoot.mouseDragged(this) && Greenfoot.mouseDragEnded(this))
 
-}
+    }
     
-    public void FuelDispense(){
+    public void FuelDispense()
+    {
         MyWorld world = (MyWorld)getWorld();
         fueldisplay = world.getFuelDisplayScreen();
         DisplayMessage gasPumpingMessage = new DisplayMessage();
@@ -100,8 +139,8 @@ public class Nozzle extends Actor
         GasPumpMachine gpm = world.getGasPumpMachine();
         String scenario = gpm.getScenario();
             //generate random number 1-20 units of fuel added.
-        gpm.calculateFuelCost(new Random().nextInt(15)+1);
-        if(scenario.equals("2") && gpm.getHasCarWash())
+        //gpm.calculateFuelCost(new Random().nextInt(15)+1);
+        /*if(scenario.equals("2") && gpm.getHasCarWash())
         {
             gpm.fuelCost = gpm.fuelCost*0.90;
             gasPumpingCost.setText("Please pay " + "$" + gpm.fuelCost );
@@ -109,50 +148,64 @@ public class Nozzle extends Actor
         else
         {
             gasPumpingCost.setText("Please pay " + "$" + gpm.fuelCost );
-        }
+        }*/
 
-        fueldisplay.DisplayScreen(gasPumpingCost,280,25, true);
+        //fueldisplay.DisplayScreen(gasPumpingCost,280,25, true);
       
-        gpm.setFuelCost(gpm.fuelCost);
+        //gpm.setFuelCost(gpm.fuelCost);
+        gpm.checkAndCalculateForCarWash();
         ScreenMessages screenMessages = new ScreenMessages(world);
-        String s=String.valueOf(gpm.fuelCost);
+        DecimalFormat df = new DecimalFormat("#.###");
+        df.setRoundingMode(RoundingMode.CEILING);
+        String s=String.valueOf(df.format(gpm.getTotalCost()));
         Receipt receipt1=new Receipt();
-        Receipt receipt2=new Receipt();
+        //Receipt receipt2=new Receipt();
         if(scenario.equals("2") && gpm.getHasCarWash())
         {
             //gpm.setState(gpm.getPrintReceiptState());
-            receipt1.setText(s+"\n\nCar Wash\nCode\n"+UUID.randomUUID().toString().replace("-","").substring(0,6));
+            receipt1.setText("Total Cost : $" + s+"\n\nCar Wash\nCode\n"+UUID.randomUUID().toString().replace("-","").substring(0,6));
             gpm.setState(gpm.getRemoveCreditCardState());
-            world.addObject(receipt2,600,450);
-            world.addObject(receipt1,600,450);
+           // world.addObject(receipt2,600,450);
+            world.addObject(receipt1,600,500);
             screenMessages.getRemoveCreditCardScreen();
-            Greenfoot.delay(400);
+            Greenfoot.delay(500);
             screenMessages.getNoCreditCardScreen();
             gpm.setState(gpm.getHasNoCreditCardState());
+            fueldisplay.ClearTransaction();
+            gpm.setFuelQuantity(0.00);
+            gpm.setTotalCost(0.00);
+            world.removeObject(receipt1);
         }
         else if(scenario.equals("2") && !gpm.getHasCarWash())
         {
-            receipt1.setText(s);
+            receipt1.setText("Total Cost : $" + s);
             gpm.setState(gpm.getRemoveCreditCardState());
-            world.addObject(receipt2,600,450);
+           // world.addObject(receipt2,600,450);
             world.addObject(receipt1,600,450);
             screenMessages.getRemoveCreditCardScreen();
-            Greenfoot.delay(400);
+            Greenfoot.delay(500);
             screenMessages.getNoCreditCardScreen();
             gpm.setState(gpm.getHasNoCreditCardState());
+            fueldisplay.ClearTransaction();
+            gpm.setFuelQuantity(0.00);
+            gpm.setTotalCost(0.00);
+            world.removeObject(receipt1);
         }
         if(scenario.equals("3") && gpm.getPrintReceiptInAdvance())
         {
-            receipt1.setText(s);
+            receipt1.setText("Total Cost : $" + s);
             gpm.setState(gpm.getRemoveCreditCardState());
-            world.addObject(receipt2,600,450);
+           // world.addObject(receipt2,600,450);
             world.addObject(receipt1,600,450);
             screenMessages.getRemoveCreditCardScreen();
-            Greenfoot.delay(300);
-            world.removeObject(receipt2);
+            Greenfoot.delay(500);
+            //world.removeObject(receipt2);
             world.removeObject(receipt1);
             screenMessages.getNoCreditCardScreen();
             gpm.setState(gpm.getHasNoCreditCardState());
+            fueldisplay.ClearTransaction();
+            gpm.setFuelQuantity(0.00);
+            gpm.setTotalCost(0.00);
         }
         
         if(scenario.equals("3") && !gpm.getPrintReceiptInAdvance())
@@ -162,6 +215,10 @@ public class Nozzle extends Actor
             Greenfoot.delay(400);
             screenMessages.getNoCreditCardScreen();
             gpm.setState(gpm.getHasNoCreditCardState());
+            fueldisplay.ClearTransaction();
+            gpm.setFuelQuantity(0.00);
+            gpm.setTotalCost(0.00);
+            world.removeObject(receipt1);
         }
         
         else if(scenario.equals("1"))
@@ -171,8 +228,9 @@ public class Nozzle extends Actor
         }
     }    
     
-    public void PromptReceipt(){        
-    MyWorld world = (MyWorld)getWorld();
+    public void PromptReceipt()
+    {        
+        MyWorld world = (MyWorld)getWorld();
         fueldisplay = world.getFuelDisplayScreen();
         DisplayMessage gasPumpingDone = new DisplayMessage();
         gasPumpingDone.setText("Done");

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=CostCalculator
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ CostCalculator\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=gpm\ sm
+comment1.target=CostCalculator(GasPumpMachine,\ ScreenMessages)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ CostCalculator\r\n
+comment2.params=
+comment2.target=void\ run()
+comment2.text=\r\n\ This\ is\ what\ the\ thread\ will\ do.\r\n
+numComments=3

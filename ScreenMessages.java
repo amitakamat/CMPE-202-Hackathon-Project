@@ -1,4 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.text.DecimalFormat;
+import java.math.RoundingMode;
 
 /**
  * Write a description of class ScreenMessages here.
@@ -12,6 +14,7 @@ public class ScreenMessages extends Actor
     
     Screen screen ;
     Nozzle nozzle;
+    Screen fuelDisplay;
     static String num = "";
     MyWorld world;  
             
@@ -20,6 +23,7 @@ public class ScreenMessages extends Actor
     {
         screen = world.getScreen();
         this.world = world;
+        fuelDisplay = world.getFuelDisplayScreen();
     }
     
     public void getNoCreditCardScreen() 
@@ -298,6 +302,31 @@ public class ScreenMessages extends Actor
         screen.DisplayScreen(noMessage, 360, 310, false);
     }
     
+    public void displayZeroCost()
+   {
+       DisplayMessage gasPumpingCost = new DisplayMessage();
+       gasPumpingCost.setID("totalCost");
+       gasPumpingCost.setText("$ 0.000");
+       fuelDisplay.DisplayScreen(gasPumpingCost,280,25, true);
+       DisplayMessage gasPumpingQuantity = new DisplayMessage();
+       gasPumpingQuantity.setID("fuelQuantity");
+       gasPumpingQuantity.setText("0.000");
+       fuelDisplay.DisplayScreen(gasPumpingQuantity,290,40, false);
+   }
+   
+   public void displayCostAndQuantity(double totalCost, double fuelQuantity)
+   {
+       DecimalFormat df = new DecimalFormat("#.###");
+       df.setRoundingMode(RoundingMode.CEILING);
+       DisplayMessage gasPumpingCost = new DisplayMessage();
+       gasPumpingCost.setID("totalCost");
+       gasPumpingCost.setText("$ " + df.format(totalCost));
+       fuelDisplay.DisplayScreen(gasPumpingCost,280,25, true);
+       DisplayMessage gasPumpingQuantity = new DisplayMessage();
+       gasPumpingQuantity.setID("fuelQuantity");
+       gasPumpingQuantity.setText(df.format(fuelQuantity));
+       fuelDisplay.DisplayScreen(gasPumpingQuantity,290,40, false);
+   }
     
     
     

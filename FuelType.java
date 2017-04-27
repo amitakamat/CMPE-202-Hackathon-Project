@@ -43,13 +43,15 @@ public FuelType(String id, String imagePath)
                     case "1":
                         
                         screenMessages.getHasRegularFuelTypeScreen();
-                        
+                        gpm.setFuelCost(2.929);
                         break;
                     case "2":
                         screenMessages.getHasUnleadedFuelTypeScreen();
+                        gpm.setFuelCost(3.129);
                         break;
                     case "3":    
                         screenMessages.getHasPrmFuelTypeScreen();
+                        gpm.setFuelCost(3.329);
                         break;
                     }
              

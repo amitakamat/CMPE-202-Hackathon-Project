@@ -6,6 +6,7 @@ public class GasPumpMachine {
   State nozzleUnlockState;
   State pumpFuelState;
   State printReceiptState;
+  State transactionSummaryState;
   State removeCreditCardState;
   State hasFuelState;
   State state = hasNoCreditCardState;
@@ -18,8 +19,12 @@ public class GasPumpMachine {
   double units = 5;
   private boolean hasCarWash = false;
   private boolean printReceiptInAdvance = false;
-  private double fuelUnitCost = 1.0;
+  private double fuelUnitCost;
   public double fuelCost; 
+  private double fuelQuantity = 0.000;
+  private double totalCost = 0.000;
+  private boolean isFuelling = false;
+  public boolean FuellingFlagLocked = false;
   private String gpmScenario="1";
   final String zipcode = "94085";  
   String enteredZip="";
@@ -38,6 +43,7 @@ public class GasPumpMachine {
       hasValidZipCodeState = new HasValidZipCode(this);
       helpState = new HelpState(this);
       printReceiptInAdvanceState = new PrintReceiptInAdvanceState(this);
+      transactionSummaryState = new TransactionSummaryState(this);
       this.count = quantityOfFuel;
       this.gpmScenario = scenario;
       if (quantityOfFuel > 0) 
@@ -95,6 +101,10 @@ public class GasPumpMachine {
 
   public State getHasValidCreditCardState() {
     return hasValidCreditCardState;
+  }
+  
+  public State getTransactionSummaryState() {
+    return transactionSummaryState;
   }
   
   public State getNozzleUnlockState() {
@@ -163,11 +173,6 @@ public class GasPumpMachine {
       hasCarWash = carWashSelected;
   }
   
-  public void setFuelCost(double f)
-  {
-      this.fuelCost = f;
-  } 
-  
   public boolean getHasCarWash() 
   {
       return hasCarWash;
@@ -182,18 +187,52 @@ public class GasPumpMachine {
       printReceiptInAdvance = printReceiptInAdvanceSelected;
   }
   
- public void calculateFuelCost(int units) 
+  public void setFuelCost(double unitCost)
+  {
+        fuelUnitCost = unitCost;
+  }
+    
+  public double getFuelCost() 
+  {
+        return fuelUnitCost;
+  }
+
+  public void setFuelQuantity(double quantity)
+  {
+        fuelQuantity = quantity;
+  }
+    
+  public double getFuelQuantity() 
+  {
+        return fuelQuantity;
+  }
+  
+  public void setTotalCost(double tCost)
+  {
+        totalCost = tCost;
+  }
+    
+  public double getTotalCost() 
+  {
+        return totalCost;
+  }
+  
+  public void setFuellingFlag(boolean fuelling)
+  {
+        this.isFuelling = fuelling;
+  }
+    
+  public boolean getFuellingFlag() 
+  {
+        return this.isFuelling;
+  }
+ 
+ 
+ public void checkAndCalculateForCarWash()
  {
-     double actualCost = fuelUnitCost*units;
      if(hasCarWash)
      {   
-         fuelCost = actualCost - (0.1*actualCost);
-     }
-     else
-     {
-         fuelCost = actualCost;
-     }
-     fuelCost = fuelUnitCost*units;   
+         totalCost = totalCost - (0.1*totalCost);
+     } 
  }
-  
 }
