@@ -44,8 +44,7 @@ public class CostCalculator implements Runnable
         {
             try 
             {
-                Thread.sleep(5);
-                run();
+                Thread.sleep(2);
             } 
             catch (Exception e) 
             {

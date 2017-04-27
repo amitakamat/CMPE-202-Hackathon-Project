@@ -1,4 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
+import java.text.DecimalFormat;
+import java.math.RoundingMode;
 
 /**
  * Write a description of class Button here.
@@ -27,6 +30,44 @@ public class Button extends Actor
     public void submit(String id){
         MyWorld world = (MyWorld)getWorld();
         GasPumpMachine gpm = world.getGasPumpMachine();
+        ScreenMessages screenMessages = new ScreenMessages(world);
+        FuelDisplay fueldisplay = world.getFuelDisplayScreen();
+        
+        if(gpm.state.getStateName() == "PrintReceiptState")
+        {
+            if(id == "7")
+            {
+                
+                DecimalFormat df = new DecimalFormat("#.###");
+                df.setRoundingMode(RoundingMode.CEILING);
+                String s=String.valueOf(df.format(gpm.getTotalCost()));
+                Receipt receipt1=new Receipt();
+                receipt1.setText("Total Cost : $" + s);
+                gpm.setState(gpm.getRemoveCreditCardState());
+               // world.addObject(receipt2,600,450);
+                world.addObject(receipt1,600,450);
+                screenMessages.getRemoveCreditCardScreen();
+                Greenfoot.delay(500);
+                screenMessages.getNoCreditCardScreen();
+                gpm.setState(gpm.getHasNoCreditCardState());
+                fueldisplay.ClearTransaction();
+                gpm.setFuelQuantity(0.00);
+                gpm.setTotalCost(0.00);
+                world.removeObject(receipt1);
+            }
+            else
+            {
+                gpm.setState(gpm.getRemoveCreditCardState());
+                screenMessages.getRemoveCreditCardScreen();
+                Greenfoot.delay(500);
+                screenMessages.getNoCreditCardScreen();
+                gpm.setState(gpm.getHasNoCreditCardState());
+                fueldisplay.ClearTransaction();
+                gpm.setFuelQuantity(0.00);
+                gpm.setTotalCost(0.00);
+            }
+        }
+        
         State state = gpm.onDisplayButtonPress(this.id);
         String scenario = gpm.getScenario();
         Screen screen=world.getScreen();
@@ -35,7 +76,6 @@ public class Button extends Actor
              screen.ResetZip();
             gpm.setState(state);
             String stateName = gpm.state.getStateName();
-            ScreenMessages screenMessages = new ScreenMessages(world);
             boolean flag = false;
             System.out.println("stateName:"+stateName);
             if(stateName == "HasValidZipCode")
@@ -90,6 +130,7 @@ public class Button extends Actor
             {
                 screenMessages.getBeginFueling();
             }
+            
 
         }
     }

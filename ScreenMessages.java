@@ -208,7 +208,7 @@ public class ScreenMessages extends Actor
     {
         DisplayMessage receipt = new DisplayMessage();
         receipt.setText("Do you want to print your");
-        screen.DisplayScreen(receipt, 230, 160, false);
+        screen.DisplayScreen(receipt, 230, 160, true);
         
         DisplayMessage zipCode2 = new DisplayMessage();
         zipCode2.setText(" receipt");

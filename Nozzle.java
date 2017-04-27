@@ -106,6 +106,7 @@ public class Nozzle extends Actor
                           gpm.FuellingFlagLocked = true;
                           gpm.setFuellingFlag(false);
                           gpm.FuellingFlagLocked = false;
+                          costCalThread = null;
                           FuelCalculate1();
                           //gpm.setState(gpm.getTransactionSummaryState());
                           //screenMessages.DisplayCostMessage(gpm.getTotalCost());
@@ -223,6 +224,8 @@ public class Nozzle extends Actor
         
         else if(scenario.equals("1"))
         {
+           // gpm.setState(gpm.getTransactionSummaryState());
+           // screenMessages.getPrintReceiptAtBeginningScreen();
             screenMessages.printReceipt();
             gpm.setState(gpm.getPrintReceiptState());
         }
