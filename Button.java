@@ -35,7 +35,7 @@ public class Button extends Actor
         
         if(gpm.state.getStateName() == "PrintReceiptState")
         {
-            if(id == "7")
+            if(id == "7"||id=="yes")
             {
                 
                 DecimalFormat df = new DecimalFormat("#.###");
