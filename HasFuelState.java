@@ -17,7 +17,7 @@ public class HasFuelState extends ConcreteState
     }
 
     public State onDisplayButtonPress(String id){
-        if(id == "7")
+        if(id == "7"||id=="yes")
         {
             gasPumpMachine.setState(gasPumpMachine.getPumpFuelState());
             return gasPumpMachine.getState();

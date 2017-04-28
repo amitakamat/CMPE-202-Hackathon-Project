@@ -29,39 +29,21 @@ public class NumKeyButton extends Button
             MyWorld world = (MyWorld)getWorld();
             Screen screen=world.getScreen();
             GasPumpMachine  gpm = world.getGasPumpMachine();
-            /* if(this.id.equals("cancel"))
-            {                    
-            super.submit(this.id);                   
-            }*/
-           // if(gpm.getState().getStateName()=="HasValidCreditCard")
+
             if(this.id=="enter"||this.id.equals("cancel")||this.id.equals("help")||this.id.equals("yes")||this.id.equals("no"))
             {
-                            
-                    super.submit(this.id);                     
-               
-            }/*
-                else if(this.id.equals("help"))
-                {
-                    super.submit(this.id);
-                }
-                else if(this.id.equals("yes"))
-                {
-                    super.submit(this.id);
-                }
-                else if(this.id.equals("no"))
-                {
-                    super.submit(this.id);
-                }*/
-                else{
-                    screen.displayNumber(this.id);
-                }
+                super.submit(this.id);                     
+            }
+            else{
+                screen.displayNumber(this.id);
+            }
 
             //screen = world.getScreen();
             //else
             //{
-                Greenfoot.playSound("beep.wav");
+            Greenfoot.playSound("beep.wav");
             //}
             //screen.DisplayScreen("NumKey " + this.id + " clicked",220,200);
         }
-        }
     }
+}
