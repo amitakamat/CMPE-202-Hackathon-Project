@@ -35,13 +35,15 @@ public class NumKeyButton extends Button
                 super.submit(this.id);                     
             }
             else{
+                if(gpm.state.getStateName()=="HasValidCreditCard"){
                 screen.displayNumber(this.id);
+            }
             }
 
             //screen = world.getScreen();
             //else
             //{
-            Greenfoot.playSound("beep.wav");
+           // Greenfoot.playSound("beep.wav");
             //}
             //screen.DisplayScreen("NumKey " + this.id + " clicked",220,200);
         }
