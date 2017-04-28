@@ -32,8 +32,7 @@ public class Nozzle extends Actor
     String id;
     
     public Nozzle()
-    {
-        
+    {       
       GreenfootImage image = getImage() ;
       image.scale( 200,420) ;
     }

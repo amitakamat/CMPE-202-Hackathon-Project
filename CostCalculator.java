@@ -23,8 +23,8 @@ public class CostCalculator implements Runnable
      */
     public void run()
     {
-        if(!gasPumpMachine.FuellingFlagLocked)
-        {
+        //if(!gasPumpMachine.FuellingFlagLocked)
+        //{
             while (gasPumpMachine.getFuellingFlag()) { //don't let the thread die!
                 double fuelQuantity = gasPumpMachine.getFuelQuantity() + 0.001;
                 gasPumpMachine.setFuelQuantity(fuelQuantity);
@@ -39,8 +39,8 @@ public class CostCalculator implements Runnable
                     break;
                 }
             }
-        }
-        else
+        //}
+       /* else
         {
             try 
             {
@@ -50,6 +50,6 @@ public class CostCalculator implements Runnable
             {
                 System.out.println("Error: " + e.getMessage());
             }
-        }
+        }*/
     }
 }

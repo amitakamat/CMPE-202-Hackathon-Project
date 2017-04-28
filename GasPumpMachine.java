@@ -1,5 +1,9 @@
   import greenfoot.*; 
-public class GasPumpMachine {
+  import java.util.concurrent.TimeUnit;
+  import java.util.concurrent.locks.Lock;
+  import java.util.concurrent.locks.ReentrantLock;
+
+ public class GasPumpMachine {
   MyWorld w;
   State hasNoCreditCardState;
   State hasValidCreditCardState;
@@ -25,6 +29,8 @@ public class GasPumpMachine {
   private double totalCost = 0.000;
   private boolean isFuelling = false;
   public boolean FuellingFlagLocked = false;
+  ReentrantLock lock = new ReentrantLock();
+  
   private String gpmScenario="1";
   final String zipcode = "94085";  
   String enteredZip="";
@@ -192,22 +198,22 @@ public class GasPumpMachine {
         fuelUnitCost = unitCost;
   }
     
-  public double getFuelCost() 
+  public synchronized double getFuelCost() 
   {
         return fuelUnitCost;
   }
 
-  public void setFuelQuantity(double quantity)
+  public synchronized void setFuelQuantity(double quantity)
   {
         fuelQuantity = quantity;
   }
     
-  public double getFuelQuantity() 
+  public synchronized double getFuelQuantity() 
   {
         return fuelQuantity;
   }
   
-  public void setTotalCost(double tCost)
+  public synchronized void setTotalCost(double tCost)
   {
         totalCost = tCost;
   }
@@ -217,12 +223,12 @@ public class GasPumpMachine {
         return totalCost;
   }
   
-  public void setFuellingFlag(boolean fuelling)
+  public synchronized void setFuellingFlag(boolean fuelling)
   {
         this.isFuelling = fuelling;
   }
     
-  public boolean getFuellingFlag() 
+  public synchronized boolean getFuellingFlag() 
   {
         return this.isFuelling;
   }
