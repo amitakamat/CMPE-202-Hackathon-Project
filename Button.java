@@ -71,7 +71,6 @@ public class Button extends Actor
         State state = gpm.onDisplayButtonPress(id);
         String scenario = gpm.getScenario();
         Screen screen=world.getScreen();
-        System.out.println(state);
         if(state != null){
              screen.ResetZip();
             gpm.setState(state);
@@ -103,7 +102,8 @@ public class Button extends Actor
                     //screenMessages.getPrintReceiptAtBeginningScreen();
                     screenMessages.selectFuelTypeHelpMessage();
                 else if(scenario.equals("2"))
-                    screenMessages.getCarWashScreen();
+                    //screenMessages.getCarWashScreen();
+                    screenMessages.selectFuelTypeHelpMessage();
             }
             
             if(stateName == "HasNoCreditCard"){

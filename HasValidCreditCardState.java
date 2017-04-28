@@ -18,7 +18,7 @@ public class HasValidCreditCardState extends ConcreteState
 
     public State onDisplayButtonPress(String id){    
 
-        if(id.equals("7")|| id.equals("enter")||id.equals("yes"))
+        if(id.equals("7")|| id.equals("enter"))
         {
             if(validatezipcode())
             {

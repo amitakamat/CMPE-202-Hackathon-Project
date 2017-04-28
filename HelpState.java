@@ -39,7 +39,8 @@ public class HelpState extends ConcreteState
             }
             else if(scenario.equals("3"))
             {
-            gasPumpMachine.setState(gasPumpMachine.getHasValidZipCodeState());
+            //gasPumpMachine.setState(gasPumpMachine.getHasValidZipCodeState());
+            gasPumpMachine.setState(gasPumpMachine.getPrintReceiptInAdvanceState());
             return gasPumpMachine.getState();   
             }            
         }

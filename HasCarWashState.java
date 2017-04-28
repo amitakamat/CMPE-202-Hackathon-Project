@@ -22,7 +22,7 @@ public class HasCarWashState extends ConcreteState
             gasPumpMachine.setState(gasPumpMachine.getHelpState());
             return gasPumpMachine.getState();
         }
-        if (id.equals("8") || id.equals("no"))
+        if (id.equals("8") || id.equals("cancel"))
         {          
             gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
             return gasPumpMachine.getState();
