@@ -14,13 +14,14 @@ public class FakeCreditCard extends CreditCard
      */
     public void act() 
     {
-        int mouseX, mouseY ;
+        super.act();
+        /*int mouseX, mouseY ;
         
         if(Greenfoot.mouseDragged(this)) {          
             MouseInfo mouse = Greenfoot.getMouseInfo();  
             mouseX=mouse.getX();  
             mouseY=mouse.getY();  
             setLocation(mouseX, mouseY);  
-        }
+        }*/
     }    
 }

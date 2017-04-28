@@ -16,8 +16,10 @@ public class CardReader extends Actor
     }
     public void act() 
     {
-        MyWorld world = (MyWorld)getWorld();
-        Actor card = (CreditCard) getOneObjectAtOffset(0,0,CreditCard.class);
+        /*MyWorld world = (MyWorld)getWorld();
+        //Actor card = (CreditCard) getOneObjectAtOffset(0,0,CreditCard.class);
+        //Actor card = (CreditCard)getOneIntersectingObject(CreditCard.class);
+        
         GasPumpMachine gpm = world.getGasPumpMachine();
         ScreenMessages screenMessages = new ScreenMessages(world);
         if (card!= null)
@@ -58,6 +60,51 @@ public class CardReader extends Actor
                 screenMessages.getHasValidCreditCardScreen();
             }
             //haveCard = true;
+        }*/
+    } 
+    
+    public void OnCardSwipe(CreditCard card)
+    {
+        {
+            MyWorld world = (MyWorld)getWorld();
+            GasPumpMachine gpm = world.getGasPumpMachine();
+            ScreenMessages screenMessages = new ScreenMessages(world);
+            Greenfoot.playSound("CreditCardSwipe.mp3");
+            Greenfoot.delay(200);
+            State s = gpm.onCreditCardSwipe(card.getClass().getName());
+            world.setRemovedCard(card);
+            if(s!= null)
+            {
+                if(s.getClass().getName().equals("HasValidCreditCardState"))
+                {
+                  world.removeObject(card);
+                  screenMessages.getHasValidCreditCardScreen();
+                }
+                else
+                {
+                  world.removeObject(card);                  
+                  //display message on the screen that a wrong card is inserted        
+                  screenMessages.getHasInValidCreditCardScreen();
+                }
+            }
+            else
+            {
+                //if we are inserting card in wrong state i.e inserting card again
+                //then remove card and display message on screen that card cannot be
+                //inserted again
+                world.removeObject(card);
+                //display message 
+                  if(card.getClass().getName().equals("VisaCard"))
+                     world.addObject(card,730,240);
+                  if(card.getClass().getName().equals("MasterCard"))
+                     world.addObject(card,730,150);
+                  if(card.getClass().getName().equals("FakeCreditCard"))
+                     world.addObject(card,740,330);
+                screenMessages.getInsertingCreditCardAgainScreen();
+                Greenfoot.delay(200);
+                screenMessages.getHasValidCreditCardScreen();
+            }
+            //haveCard = true;
         }
-    }      
+    }
 }

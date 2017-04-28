@@ -32,8 +32,7 @@ public class Nozzle extends Actor
     String id;
     
     public Nozzle()
-    {
-        
+    {       
       GreenfootImage image = getImage() ;
       image.scale( 200,420) ;
     }
@@ -54,10 +53,6 @@ public class Nozzle extends Actor
                 mouseX = mouse.getX();
                 mouseY = mouse.getY();
                 setLocation(mouseX,mouseY);
-                /*if(!startTimeSet)
-                    startTime = System.nanoTime();
-                System.out.println("start:"+startTime);
-                FuelDispense();*/
                 }
                 
                 if(Greenfoot.mouseDragEnded(this))
@@ -67,9 +62,7 @@ public class Nozzle extends Actor
                   {
                       if(!gpm.getFuellingFlag())
                       {
-                          gpm.FuellingFlagLocked = true;
                           gpm.setFuellingFlag(true);
-                          gpm.FuellingFlagLocked = false;
                           State s1 = gpm.getState();
                           if(!s1.getStateName().equals("NozzleUnlockState")){
                               s1 = gpm.getState().onNozzleDrag();
@@ -91,9 +84,7 @@ public class Nozzle extends Actor
                     }
                     else
                     {
-                        gpm.FuellingFlagLocked = true;
                         gpm.setFuellingFlag(false);
-                        gpm.FuellingFlagLocked = false;
                         if(costCalThread != null)
                         {
                             costCalThread.stop();
@@ -103,9 +94,7 @@ public class Nozzle extends Actor
                   if(nHolder != null)
                   {
                       if(gpm.getState().getStateName().equals("NozzleUnlockState")){
-                          gpm.FuellingFlagLocked = true;
                           gpm.setFuellingFlag(false);
-                          gpm.FuellingFlagLocked = false;
                           costCalThread = null;
                           FuelCalculate1();
                           //gpm.setState(gpm.getTransactionSummaryState());

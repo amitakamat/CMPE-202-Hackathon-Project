@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Thu Apr 27 23:08:32 PDT 2017
+#Thu Apr 27 23:48:19 PDT 2017
 target24.type=ClassTarget
 target16.name=RemoveCreditCardState
 target43.name=FuelDisplay
@@ -62,7 +62,11 @@ dependency60.type=UsesDependency
 target14.showInterface=false
 dependency68.to=HasNoCreditCardState
 target32.width=110
-mainWindow.width=1378
+#<<<<<<< 2ea5b61e75f9c14e242283025fac662e071c9082
+#mainWindow.width=1378
+#=======
+mainWindow.width=1856
+#>>>>>>> Fixed concurrent modification exception.
 dependency118.type=UsesDependency
 target8.showInterface=false
 target1.typeParameters=
@@ -300,7 +304,11 @@ class.NumKey3.superclass=Button
 dependency62.from=MyWorld
 dependency38.type=UsesDependency
 dependency54.to=HasValidZipCode
-editor.fx.0.height=0
+#<<<<<<< 2ea5b61e75f9c14e242283025fac662e071c9082
+#editor.fx.0.height=0
+#=======
+editor.fx.0.height=1098
+#>>>>>>> Fixed concurrent modification exception.
 target28.type=ClassTarget
 dependency127.to=HasNoCreditCardState
 dependency3.type=UsesDependency
@@ -632,9 +640,15 @@ target18.showInterface=false
 target38.name=CreditCard
 class.ReceiptPrinter.image=receipt.jpg
 target21.type=ClassTarget
-mainWindow.y=5
+#<<<<<<< 2ea5b61e75f9c14e242283025fac662e071c9082
+#mainWindow.y=5
+#target13.name=ReceiptPrinter
+#mainWindow.x=1316
+#=======
+mainWindow.y=2
 target13.name=ReceiptPrinter
-mainWindow.x=1316
+mainWindow.x=-8
+#>>>>>>> Fixed concurrent modification exception.
 target16.y=0
 target16.x=0
 dependency28.from=NumKeyButton
@@ -710,7 +724,11 @@ dependency109.to=HasValidCreditCardState
 dependency84.type=UsesDependency
 target36.typeParameters=
 target47.type=ClassTarget
-editor.fx.0.width=0
+#<<<<<<< 2ea5b61e75f9c14e242283025fac662e071c9082
+#editor.fx.0.width=0
+#=======
+editor.fx.0.width=1860
+#>>>>>>> Fixed concurrent modification exception.
 dependency83.to=MyWorld
 target39.name=NozzleUnlockState
 target22.type=ClassTarget
@@ -766,15 +784,24 @@ dependency19.to=HasFuelState
 class.ScreenButton.superclass=Button
 dependency9.type=UsesDependency
 dependency72.to=GasPumpMachine
-editor.fx.0.y=0
-editor.fx.0.x=0
+#<<<<<<< 2ea5b61e75f9c14e242283025fac662e071c9082
+#editor.fx.0.y=0
+#editor.fx.0.x=0
+#=======
+editor.fx.0.y=-9
+editor.fx.0.x=-9
+#>>>>>>> Fixed concurrent modification exception.
 dependency8.to=MyWorld
 target44.typeParameters=
 target26.showInterface=false
 target28.name=NozzleUnlockState
 dependency66.to=State
 target47.y=0
-mainWindow.height=780
+#<<<<<<< 2ea5b61e75f9c14e242283025fac662e071c9082
+#mainWindow.height=780
+#=======
+mainWindow.height=1086
+#>>>>>>> Fixed concurrent modification exception.
 target47.x=0
 target42.width=110
 dependency8.from=Screen

@@ -14,6 +14,20 @@ public class CreditCard extends Actor
      */
     public void act() 
     {
-        
+        int mouseX, mouseY;
+        if(Greenfoot.mouseDragged(this))
+        {
+                MouseInfo mouse = Greenfoot.getMouseInfo();
+                mouseX = mouse.getX();
+                mouseY = mouse.getY();
+                setLocation(mouseX,mouseY);
+                
+                CardReader cr = (CardReader)getOneIntersectingObject(CardReader.class);
+                if(cr != null)
+                {
+                    MyWorld world = (MyWorld)getWorld();
+                    cr.OnCardSwipe(this);
+                }
+        }
     }    
 }

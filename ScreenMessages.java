@@ -314,7 +314,7 @@ public class ScreenMessages extends Actor
        fuelDisplay.DisplayScreen(gasPumpingQuantity,290,40, false);
    }
    
-   public void displayCostAndQuantity(double totalCost, double fuelQuantity)
+   public synchronized void displayCostAndQuantity(double totalCost, double fuelQuantity)
    {
        DecimalFormat df = new DecimalFormat("#.###");
        df.setRoundingMode(RoundingMode.CEILING);
