@@ -167,7 +167,7 @@ public class Nozzle extends Actor
         //gpm.setFuelCost(gpm.fuelCost);
         gpm.checkAndCalculateForCarWash();
         ScreenMessages screenMessages = new ScreenMessages(world);
-        DecimalFormat df = new DecimalFormat("#.###");
+        DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
         String s=String.valueOf(df.format(gpm.getTotalCost()));
         Receipt receipt1=new Receipt();
@@ -175,7 +175,7 @@ public class Nozzle extends Actor
         if(scenario.equals("2") && gpm.getHasCarWash())
         {
             //gpm.setState(gpm.getPrintReceiptState());
-            receipt1.setText("Total Cost : $" + s+"\n\nCar Wash\nCode\n"+UUID.randomUUID().toString().replace("-","").substring(0,6));
+            receipt1.setText("** Receipt **\n" + "Total Cost : $" + s+"\n\nCar Wash\nCode\n"+UUID.randomUUID().toString().replace("-","").substring(0,6));
             gpm.setState(gpm.getRemoveCreditCardState());
             world.addObject(receipt2,600,450);
             world.addObject(receipt1,600,500);
@@ -191,7 +191,7 @@ public class Nozzle extends Actor
         }
         else if(scenario.equals("2") && !gpm.getHasCarWash())
         {
-            receipt1.setText("Total Cost : $" + s);
+            receipt1.setText("** Receipt **\n" + "Total Cost : $" + s);
             gpm.setState(gpm.getRemoveCreditCardState());
             //world.addObject(receipt2,600,450);
             //world.addObject(receipt1,600,450);
@@ -206,7 +206,7 @@ public class Nozzle extends Actor
         }
         if(scenario.equals("3") && gpm.getPrintReceiptInAdvance())
         {
-            receipt1.setText("Total Cost : $" + s);
+            receipt1.setText("** Receipt **\n" + "Total Cost : $" + s);
             gpm.setState(gpm.getRemoveCreditCardState());
             world.addObject(receipt2,600,450);
             world.addObject(receipt1,600,450);

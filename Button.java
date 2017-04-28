@@ -44,11 +44,11 @@ public class Button extends Actor
             if(id == "7"||id=="yes")
             {
 
-                DecimalFormat df = new DecimalFormat("#.###");
+                DecimalFormat df = new DecimalFormat("#.##");
                 df.setRoundingMode(RoundingMode.CEILING);
                 String s=String.valueOf(df.format(gpm.getTotalCost()));
                 Receipt receipt1=new Receipt();
-                receipt1.setText("Total Cost : $" + s);
+                receipt1.setText("** Receipt **\n" + "Total Cost : $" + s);
                 gpm.setState(gpm.getRemoveCreditCardState());
                 // world.addObject(receipt2,600,450);
                 world.addObject(receipt1,600,450);
@@ -135,6 +135,7 @@ public class Button extends Actor
             if(stateName == "PumpFuelState")
             {
                 screenMessages.getBeginFueling();
+                screenMessages.displayZeroCost();
             }
 
         }

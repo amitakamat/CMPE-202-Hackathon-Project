@@ -306,7 +306,7 @@ public class ScreenMessages extends Actor
    {
        DisplayMessage gasPumpingCost = new DisplayMessage();
        gasPumpingCost.setID("totalCost");
-       gasPumpingCost.setText("$ 0.000");
+       gasPumpingCost.setText("$ 0.00");
        fuelDisplay.DisplayScreen(gasPumpingCost,280,25, true);
        DisplayMessage gasPumpingQuantity = new DisplayMessage();
        gasPumpingQuantity.setID("fuelQuantity");
@@ -316,15 +316,17 @@ public class ScreenMessages extends Actor
    
    public synchronized void displayCostAndQuantity(double totalCost, double fuelQuantity)
    {
-       DecimalFormat df = new DecimalFormat("#.###");
-       df.setRoundingMode(RoundingMode.CEILING);
+       DecimalFormat df1 = new DecimalFormat("#.##");
+       DecimalFormat df2 = new DecimalFormat("#.###");
+       df1.setRoundingMode(RoundingMode.CEILING);
+       df2.setRoundingMode(RoundingMode.CEILING);
        DisplayMessage gasPumpingCost = new DisplayMessage();
        gasPumpingCost.setID("totalCost");
-       gasPumpingCost.setText("$ " + df.format(totalCost));
+       gasPumpingCost.setText("$ " + df1.format(totalCost));
        fuelDisplay.DisplayScreen(gasPumpingCost,280,25, true);
        DisplayMessage gasPumpingQuantity = new DisplayMessage();
        gasPumpingQuantity.setID("fuelQuantity");
-       gasPumpingQuantity.setText(df.format(fuelQuantity));
+       gasPumpingQuantity.setText(df2.format(fuelQuantity));
        fuelDisplay.DisplayScreen(gasPumpingQuantity,290,40, false);
    }
     
