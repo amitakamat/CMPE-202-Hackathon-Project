@@ -149,13 +149,13 @@ public class Nozzle extends Actor
         df.setRoundingMode(RoundingMode.CEILING);
         String s=String.valueOf(df.format(gpm.getTotalCost()));
         Receipt receipt1=new Receipt();
-        //Receipt receipt2=new Receipt();
+        Receipt receipt2=new Receipt();
         if(scenario.equals("2") && gpm.getHasCarWash())
         {
             //gpm.setState(gpm.getPrintReceiptState());
             receipt1.setText("Total Cost : $" + s+"\n\nCar Wash\nCode\n"+UUID.randomUUID().toString().replace("-","").substring(0,6));
             gpm.setState(gpm.getRemoveCreditCardState());
-           // world.addObject(receipt2,600,450);
+            world.addObject(receipt2,600,450);
             world.addObject(receipt1,600,500);
             screenMessages.getRemoveCreditCardScreen();
             Greenfoot.delay(500);
@@ -165,13 +165,14 @@ public class Nozzle extends Actor
             gpm.setFuelQuantity(0.00);
             gpm.setTotalCost(0.00);
             world.removeObject(receipt1);
+            world.removeObject(receipt2);
         }
         else if(scenario.equals("2") && !gpm.getHasCarWash())
         {
             receipt1.setText("Total Cost : $" + s);
             gpm.setState(gpm.getRemoveCreditCardState());
-           // world.addObject(receipt2,600,450);
-            world.addObject(receipt1,600,450);
+            //world.addObject(receipt2,600,450);
+            //world.addObject(receipt1,600,450);
             screenMessages.getRemoveCreditCardScreen();
             Greenfoot.delay(500);
             screenMessages.getNoCreditCardScreen();
@@ -179,17 +180,17 @@ public class Nozzle extends Actor
             fueldisplay.ClearTransaction();
             gpm.setFuelQuantity(0.00);
             gpm.setTotalCost(0.00);
-            world.removeObject(receipt1);
+            //world.removeObject(receipt1);
         }
         if(scenario.equals("3") && gpm.getPrintReceiptInAdvance())
         {
             receipt1.setText("Total Cost : $" + s);
             gpm.setState(gpm.getRemoveCreditCardState());
-           // world.addObject(receipt2,600,450);
+            world.addObject(receipt2,600,450);
             world.addObject(receipt1,600,450);
             screenMessages.getRemoveCreditCardScreen();
             Greenfoot.delay(500);
-            //world.removeObject(receipt2);
+            world.removeObject(receipt2);
             world.removeObject(receipt1);
             screenMessages.getNoCreditCardScreen();
             gpm.setState(gpm.getHasNoCreditCardState());
