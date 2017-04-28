@@ -54,17 +54,22 @@ public class Nozzle extends Actor
             long currentTime = System.currentTimeMillis();
             if(currentTime>=elapsedTime ){
                 //screenMessages.sampleTimeout();
-                gpm.setState(gpm.getRemoveCreditCardState());
-                screenMessages.getRemoveCreditCardScreen();
-                Greenfoot.delay(200);
-                screenMessages.getNoCreditCardScreen();
-                gpm.setState(gpm.getHasNoCreditCardState());
                 if(gpm.getScenario()=="1"){
+                    gpm.setState(gpm.getRemoveCreditCardState());
+                    screenMessages.getRemoveCreditCardScreen();
+                    Greenfoot.delay(200);
+                    screenMessages.getNoCreditCardScreen();
+                    gpm.setState(gpm.getHasNoCreditCardState());
                     fueldisplay.ClearTransaction();
+                    gpm.setFuelQuantity(0.00);
+                    gpm.setTotalCost(0.00);
+                    ShouldChecktimeout = false;
                 }
-                gpm.setFuelQuantity(0.00);
-                gpm.setTotalCost(0.00);
-                ShouldChecktimeout = false;
+                if(gpm.getScenario()=="3"){
+                    gpm.setPrintReceiptInAdvance(false);
+                    gpm.setState(gpm.getPrintReceiptInAdvanceState());   
+                    screenMessages.getHasValidZipCodeScreen();
+                }
             }        
 
         }
