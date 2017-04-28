@@ -18,7 +18,7 @@ public class HasValidCreditCardState extends ConcreteState
 
     public State onDisplayButtonPress(String id){    
 
-        if(id.equals("7")|| id.equals("enter"))
+        if(id.equals("7")|| id.equals("enter")||id.equals("yes"))
         {
             if(validatezipcode())
             {
@@ -31,7 +31,7 @@ public class HasValidCreditCardState extends ConcreteState
                 return gasPumpMachine.getState();
             }
         }
-        if (id.equals("8") || id.equals("cancel"))
+        if (id.equals("8") || id.equals("cancel")||id.equals("no"))
         {
             gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
             return gasPumpMachine.getState();
