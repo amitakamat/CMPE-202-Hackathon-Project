@@ -14,7 +14,7 @@ public class Nozzle extends Actor
 {
 
     GreenfootImage image;
-    
+
     long timeStarted ;
     long elapsedTime ;
     public boolean ShouldChecktimeout = false;
@@ -59,7 +59,9 @@ public class Nozzle extends Actor
                 Greenfoot.delay(200);
                 screenMessages.getNoCreditCardScreen();
                 gpm.setState(gpm.getHasNoCreditCardState());
-                fueldisplay.ClearTransaction();
+                if(gpm.getScenario()=="1"){
+                    fueldisplay.ClearTransaction();
+                }
                 gpm.setFuelQuantity(0.00);
                 gpm.setTotalCost(0.00);
                 ShouldChecktimeout = false;
@@ -238,12 +240,21 @@ public class Nozzle extends Actor
             // screenMessages.getPrintReceiptAtBeginningScreen();
             screenMessages.printReceipt();
             gpm.setState(gpm.getPrintReceiptState());
-            timeStarted = System.currentTimeMillis();
-            elapsedTime =timeStarted+15000;
-            ShouldChecktimeout=true;
+            startTimer();
+            //timeStarted = System.currentTimeMillis();
+            //elapsedTime =timeStarted+15000;
+            //ShouldChecktimeout=true;
 
         }
-    }    
+    }   
+
+    public  void startTimer(){
+        System.out.println("timer started");
+        this.timeStarted = System.currentTimeMillis();
+        this.elapsedTime =timeStarted+15000;
+        this.ShouldChecktimeout=true;
+
+    }
 
     public void PromptReceipt()
     {        

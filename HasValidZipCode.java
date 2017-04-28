@@ -7,12 +7,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)/
  */
 public class HasValidZipCode extends ConcreteState 
 {
-    public HasValidZipCode(GasPumpMachine gasPumpMachine) 
+
+    public HasValidZipCode(GasPumpMachine gasPumpMachine, MyWorld world) 
     {
         super(gasPumpMachine);
-        stateName = "HasValidZipCode";
+        stateName = "HasValidZipCode";        
     }
-    
+
     public State onDisplayButtonPress(String id){
         String scenario = gasPumpMachine.getScenario();
         //might need to move help
@@ -21,37 +22,38 @@ public class HasValidZipCode extends ConcreteState
             gasPumpMachine.setState(gasPumpMachine.getHelpState());
             return gasPumpMachine.getState();            
         }
-        
+
         if(id.equals("7")  || id.equals("yes"))
         { //|| id.equals("help")
             /*if(scenario.equals("1"))
             {
-                //help
+            //help
             gasPumpMachine.setState(gasPumpMachine.getHelpState());
             return gasPumpMachine.getState();
             }*/
             //else if(scenario.equals("2"))
             if(scenario.equals("2"))
             { 
-            gasPumpMachine.setHasCarWash(true);
-            gasPumpMachine.setState(gasPumpMachine.getHasCarWashState());
-            return gasPumpMachine.getState();
+                gasPumpMachine.setHasCarWash(true);
+                gasPumpMachine.setState(gasPumpMachine.getHasCarWashState());
+                return gasPumpMachine.getState();
             }
             else if(scenario.equals("3"))
             {
                 //set the variable and go to validZipCodeState and continue with fuel selection
-            gasPumpMachine.setPrintReceiptInAdvance(true);
-            gasPumpMachine.setState(gasPumpMachine.getPrintReceiptInAdvanceState());
-            return gasPumpMachine.getState();
+                gasPumpMachine.setPrintReceiptInAdvance(true);
+                gasPumpMachine.setState(gasPumpMachine.getPrintReceiptInAdvanceState());
+
+                return gasPumpMachine.getState();
             }
         }
-        
+
         if((id.equals("8") || id.equals("cancel"))&& scenario.equals("1"))
         {
             gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
             return gasPumpMachine.getState();
         }
-        
+
         if (id.equals("8")  || id.equals("no"))
         { // || id.equals("cancel")
             /*if(scenario.equals("1"))
@@ -60,25 +62,25 @@ public class HasValidZipCode extends ConcreteState
             return gasPumpMachine.getState();
             }*/
             //else if(scenario.equals("2"))
-             if(scenario.equals("2"))
+            if(scenario.equals("2"))
             { 
-            gasPumpMachine.setHasCarWash(false);
-            //return gasPumpMachine.getHasCarWashState();
-            gasPumpMachine.setState(gasPumpMachine.getHasCarWashState());
-            return gasPumpMachine.getState();
+                gasPumpMachine.setHasCarWash(false);
+                //return gasPumpMachine.getHasCarWashState();
+                gasPumpMachine.setState(gasPumpMachine.getHasCarWashState());
+                return gasPumpMachine.getState();
             }
             else if(scenario.equals("3"))
             {
-            gasPumpMachine.setPrintReceiptInAdvance(false);
-            gasPumpMachine.setState(gasPumpMachine.getPrintReceiptInAdvanceState());
-            return gasPumpMachine.getState();
+                gasPumpMachine.setPrintReceiptInAdvance(false);
+                gasPumpMachine.setState(gasPumpMachine.getPrintReceiptInAdvanceState());
+                return gasPumpMachine.getState();
             }            
         }
         return null;
     }
-    
+
     public State onFuelTypeClick(){
-            gasPumpMachine.setState(gasPumpMachine.getHasFuelState());
-            return gasPumpMachine.getState();        
+        gasPumpMachine.setState(gasPumpMachine.getHasFuelState());
+        return gasPumpMachine.getState();        
     }
 }
