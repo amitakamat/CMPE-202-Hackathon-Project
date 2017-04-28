@@ -68,7 +68,7 @@ public class Button extends Actor
             }
         }
         
-        State state = gpm.onDisplayButtonPress(this.id);
+        State state = gpm.onDisplayButtonPress(id);
         String scenario = gpm.getScenario();
         Screen screen=world.getScreen();
         System.out.println(state);
