@@ -9,6 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class MyWorld extends World
 {
+    Nozzle nozzle = new Nozzle();
+    String scenario = "1";
+    GasPumpMachine gpm = new GasPumpMachine(100.0f,scenario ,this);
 
     Screen screen = new Screen();
     // 8 buttons to the left and right of the Screen
@@ -51,9 +54,7 @@ public class MyWorld extends World
     FuelType unl = new FuelType("2", "Unleaded.jpeg");
     FuelType prm = new FuelType("3", "Premium.jpeg");
     NozzleHolder nozzleHolder = new NozzleHolder();
-    Nozzle nozzle = new Nozzle();
-    String scenario = "2";
-    GasPumpMachine gpm = new GasPumpMachine(100.0f,scenario ,this);
+
     //State state = new HasNoCreditCardState(gpm);
     //for regular fuel
     //State fuel = new HasNoValidFuelType();
@@ -89,6 +90,10 @@ public class MyWorld extends World
 
     public FuelType getFuelType(){
         return this.reg;
+    }
+
+    public Nozzle getNozzle(){
+        return this.nozzle;
     }
 
     public void ReturnCard(){
@@ -174,12 +179,12 @@ public class MyWorld extends World
         DisplayMessage welcomeMessage2 = new DisplayMessage();
         welcomeMessage2.setText("card to proceed");
         screen.DisplayScreen(welcomeMessage2, 250, 190, false);
-        
+
         DisplayMessage costMessage = new DisplayMessage();
         costMessage.setID("TotalCostCaption");
         costMessage.setText("Total Cost");
         screen.DisplayScreen(costMessage, 200, 25, false);
-        
+
         DisplayMessage gallonsMessage = new DisplayMessage();
         gallonsMessage.setText("Gallons");
         gallonsMessage.setID("GallonsCaption");
