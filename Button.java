@@ -14,10 +14,8 @@ public class Button extends Actor
     int width;
     int height;
     String id;
-    
-    
-    MyWorld world ;
 
+    MyWorld world ;
     /**
      * Act - do whatever the Button wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -83,6 +81,11 @@ public class Button extends Actor
             String stateName = gpm.state.getStateName();
             boolean flag = false;
             System.out.println("stateName:"+stateName);
+            if(stateName == "HasValidCreditCard"){
+                screenMessages.InvalidZipCodeScreen();
+                Greenfoot.delay(100);
+                screenMessages.getHasValidCreditCardScreen();
+            }
             if(stateName == "HasValidZipCode")
             {               
                 if(scenario.equals("1"))
@@ -113,6 +116,12 @@ public class Button extends Actor
             }
 
             if(stateName == "HasNoCreditCard"){
+                HasValidCreditCardState  s = (HasValidCreditCardState)gpm.getHasValidCreditCardState();
+                if(s.IsMaxInvalidAttemptsReached()){
+                    screenMessages.getMaxInvalidAttemptsReachedScreen();
+                    Greenfoot.delay(100);
+                    s.MasterReset();
+                }
                 screenMessages.getNoCreditCardScreen();
             }
 

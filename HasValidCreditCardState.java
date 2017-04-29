@@ -9,11 +9,14 @@ public class HasValidCreditCardState extends ConcreteState
 {
     String enteredpin="";
     String PIN = "00000";
-    
+    int InvalidEntryCounter=0;
+    boolean MaxInvalidEntry ;
+
     public HasValidCreditCardState(GasPumpMachine gpm) 
     {
         super(gpm);
         stateName = "HasValidCreditCard";
+        MaxInvalidEntry = false;;
     }
 
     public State onDisplayButtonPress(String id){    
@@ -27,8 +30,16 @@ public class HasValidCreditCardState extends ConcreteState
                 return gasPumpMachine.getState();
             }
             else{
-                gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
-                return gasPumpMachine.getState();
+                // gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
+                if(InvalidEntryCounter<3){
+                    return gasPumpMachine.getState();
+                }
+                else {
+                    MaxInvalidEntry = true;
+                    gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
+                    return gasPumpMachine.getState();
+                }
+
             }
         }
         if (id.equals("8") || id.equals("cancel")||id.equals("no"))
@@ -37,6 +48,14 @@ public class HasValidCreditCardState extends ConcreteState
             return gasPumpMachine.getState();
         }
         return null;
+    }
+
+    public boolean IsMaxInvalidAttemptsReached(){
+        return this.MaxInvalidEntry;
+    }
+    
+    public void MasterReset(){
+        this.MaxInvalidEntry=false;
     }
 
     public State onNumberButtonPress(String id){
@@ -53,7 +72,10 @@ public class HasValidCreditCardState extends ConcreteState
             this.enteredpin = "";
             return true;
         }
-        else  return false;
+        else  {
+            InvalidEntryCounter++;
+            return false;
+        }
     }
 
     public String toString() {
