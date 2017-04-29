@@ -37,6 +37,7 @@ public class HasValidCreditCardState extends ConcreteState
                 else {
                     MaxInvalidEntry = true;
                     gasPumpMachine.setState(gasPumpMachine.getHasNoCreditCardState());
+                    InvalidEntryCounter=0;
                     return gasPumpMachine.getState();
                 }
 

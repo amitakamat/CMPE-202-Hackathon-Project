@@ -32,9 +32,13 @@ public class ScreenMessages extends Actor
     }
 
     public void getMaxInvalidAttemptsReachedScreen(){
+        DisplayMessage welcomeMessage= new DisplayMessage();
+        welcomeMessage.setText("Maximum invalid attempts ");
+        screen.DisplayScreen(welcomeMessage,230, 160, true);
+        
         DisplayMessage welcomeMessage1 = new DisplayMessage();
         welcomeMessage1.setText("Card declined");
-        screen.DisplayScreen(welcomeMessage1, 230, 160, true);
+        screen.DisplayScreen(welcomeMessage1, 230, 180, false);
 
     }
 
