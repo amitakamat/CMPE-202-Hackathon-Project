@@ -157,9 +157,9 @@ public class MyWorld extends World
 
         addObject(fueldisplay,297,37);
         //Regular fuel,premium ,unleaded
-        addObject(reg,179,690);
-        addObject(unl,313,689);
-        addObject(prm,442,688);
+        addObject(reg,200,690);
+        addObject(unl,310,689);
+        addObject(prm,420,688);
         addObject(car, 1250, 750);
         addObject(nozzleHolder,900,260);
         addObject(nozzle,950,350);
