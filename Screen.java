@@ -62,8 +62,7 @@ public class Screen extends Actor
                 DisplayScreen(msg, 230, 310, false);  
                 if(count==5){
                     GasPumpMachine gpm = world.getGasPumpMachine();
-                    gpm.setEnteredZip(this.number);
-                    this.number="";
+                    gpm.setEnteredZip(this.number);                    
                 }
             }
             else
