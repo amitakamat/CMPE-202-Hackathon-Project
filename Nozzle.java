@@ -199,7 +199,7 @@ public class Nozzle extends Actor
             receipt1.setText("** Receipt **\n" + "Total Cost : $" + s);
             gpm.setState(gpm.getRemoveCreditCardState());
             //world.addObject(receipt2,600,450);
-            //world.addObject(receipt1,600,450);
+            world.addObject(receipt1,600,450);
             screenMessages.getRemoveCreditCardScreen();
             Greenfoot.delay(500);
             screenMessages.getNoCreditCardScreen();
@@ -207,7 +207,7 @@ public class Nozzle extends Actor
             fueldisplay.ClearTransaction();
             gpm.setFuelQuantity(0.00);
             gpm.setTotalCost(0.00);
-            //world.removeObject(receipt1);
+            world.removeObject(receipt1);
         }
         if(scenario.equals("3") && gpm.getPrintReceiptInAdvance())
         {

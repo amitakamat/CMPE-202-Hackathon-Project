@@ -10,7 +10,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     Nozzle nozzle = new Nozzle();
-    String scenario = "3";
+    String scenario = "2";
     GasPumpMachine gpm = new GasPumpMachine(100.0f,scenario ,this);
 
     Screen screen = new Screen();

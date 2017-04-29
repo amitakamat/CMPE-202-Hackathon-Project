@@ -17,6 +17,10 @@ public class CreditCard extends Actor
         int mouseX, mouseY;
         if(Greenfoot.mouseDragged(this))
         {
+            MyWorld world = (MyWorld)getWorld();
+            GasPumpMachine gpm = world.getGasPumpMachine();
+            if(gpm.getState().getStateName() != "NozzleUnlockState")
+            {
                 MouseInfo mouse = Greenfoot.getMouseInfo();
                 mouseX = mouse.getX();
                 mouseY = mouse.getY();
@@ -25,9 +29,10 @@ public class CreditCard extends Actor
                 CardReader cr = (CardReader)getOneIntersectingObject(CardReader.class);
                 if(cr != null)
                 {
-                    MyWorld world = (MyWorld)getWorld();
+                    //MyWorld world = (MyWorld)getWorld();
                     cr.OnCardSwipe(this);
                 }
+            }
         }
     }    
 }

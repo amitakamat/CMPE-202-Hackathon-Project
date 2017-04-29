@@ -58,7 +58,7 @@ public class ScreenMessages extends Actor
         screen.DisplayScreen(welcomeMessage1, 210, 160, true);
 
         DisplayMessage welcomeMessage2 = new DisplayMessage();
-        welcomeMessage2.setText("Thank you!Visit again.");
+        welcomeMessage2.setText("Thank you! Visit again.");
         screen.DisplayScreen(welcomeMessage2, 220, 190, false);
 
         world.ReturnCard();

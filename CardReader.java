@@ -103,6 +103,7 @@ public class CardReader extends Actor
                 screenMessages.getInsertingCreditCardAgainScreen();
                 Greenfoot.delay(200);
                 screenMessages.getHasValidCreditCardScreen();
+                gpm.setState(new HasValidCreditCardState(gpm));
             }
             //haveCard = true;
         }
