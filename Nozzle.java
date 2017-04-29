@@ -57,7 +57,7 @@ public class Nozzle extends Actor
                 if(gpm.getScenario()=="1"){
                     gpm.setState(gpm.getRemoveCreditCardState());
                     screenMessages.getRemoveCreditCardScreen();
-                    Greenfoot.delay(200);
+                    Greenfoot.delay(500);
                     screenMessages.getNoCreditCardScreen();
                     gpm.setState(gpm.getHasNoCreditCardState());
                     fueldisplay.ClearTransaction();
@@ -256,7 +256,7 @@ public class Nozzle extends Actor
     public  void startTimer(){
         System.out.println("timer started");
         this.timeStarted = System.currentTimeMillis();
-        this.elapsedTime =timeStarted+15000;
+        this.elapsedTime =timeStarted+30000;
         this.ShouldChecktimeout=true;
 
     }
