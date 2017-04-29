@@ -27,18 +27,18 @@ public class Screen extends Actor
     {
         world = (MyWorld)getWorld();
         if(clearScreen){
-           List<DisplayMessage> messages = world.getObjects(DisplayMessage.class);
-           if(messages.size() > 0){
-               for(int i=0; i<messages.size(); i++)
-               {
-                   if(messages.get(i).getID().equals(""))
-                   {
-                       world.removeObject(messages.get(i));
-                   }
-               }
-               //world.removeObjects(messages);
-           }
-       }
+            List<DisplayMessage> messages = world.getObjects(DisplayMessage.class);
+            if(messages.size() > 0){
+                for(int i=0; i<messages.size(); i++)
+                {
+                    if(messages.get(i).getID().equals(""))
+                    {
+                        world.removeObject(messages.get(i));
+                    }
+                }
+                //world.removeObjects(messages);
+            }
+        }
         world.addObject(msg,x,y);
 
     }
@@ -46,10 +46,12 @@ public class Screen extends Actor
     public void displayNumber(String num){
 
         if(num=="clear"){
-            count= count-1;
-            this.number = this.number.substring(0,number.length()-1);
-            msg.setText(this.number);
-            DisplayScreen(msg, 230, 310, false);   
+            if(number.length()>0){
+                count= count-1;
+                this.number = this.number.substring(0,number.length()-1);
+                msg.setText(this.number);
+                DisplayScreen(msg, 230, 310, false);   
+            }
         }
         else 
         {            
