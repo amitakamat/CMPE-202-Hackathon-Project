@@ -10,11 +10,11 @@ Create a gas pump station with three different scenarios mentioned in requiremen
 Download the entire code and open the project file in Greenfoot. Run the project.
 
 ## AUTHORS: Team 16 - CRUSADERS
-Amita Vasudev Kamat
-Kedhara Nethra
-Mohammed Haroon
-Pavana Achar
-Siddharth Gore
+Amita Vasudev Kamat  
+Kedhara Nethra  
+Mohammed Haroon  
+Pavana Achar  
+Siddharth Gore  
 
 ## USER INSTRUCTIONS:
 Greenfoot version 3.1.0 (Java version 1.8.0_111)
